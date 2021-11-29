@@ -1,3 +1,63 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
 body {
     color: #000000;
+    width: 100%;
+    position: relative;
+    top: -21px;
+}
+
+header {
+    width: 100%;
+    position: relative;
+    top: 0;
+    background-color: #dbdbdb;
+    border: none;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 40px;
+}
+
+header p:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.listeJeux {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-left: 3%;
+    padding-right: 3%;
+    text-align: center;
+}
+
+.affichageJeu {
+    border: solid red;
+    width: 18%;
+}
+
+.imageJeu {
+    width: 100%;
+    height: auto;
+    border: solid green;
+}
+
+.affichageJeu p {
+    border: solid blue;
+}
+
+.note {
+    float: right;
+    margin-right: 2%;
 }
