@@ -44,6 +44,7 @@
         </main>
 
         <footer>
+        	<h3>footer</h3>
             <ul>
                 <li>email</li>
                 <li>tel num</li>
