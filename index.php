@@ -5,6 +5,7 @@
     <head>
         <meta charset="utf-8"/>
         <title>Pay Respect</title>
+        <link rel="icon" type="image/png" href="./images/icone.png" />
         <link rel="stylesheet" href="styles/mainStyle.css"/>
         <script src="script.js"></script>
     </head>
