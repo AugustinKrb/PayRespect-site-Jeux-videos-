@@ -20,8 +20,15 @@
 
             <div class="listeJeux">
                 <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/Battlefield_2042.jpg" alt="image test">
+                    <details>
+                        <summary>
+                             <img class="imageJeu" src="./images/Battlefield_2042.jpg" alt="image test">
                     <p>Battlefield 2042<span class="note"> <img src="./images/etoiles.png"></span></p>
+
+                        </summary>
+                        <p>description</p>
+                    </details>
+                   
                 </div>
 
                 <div class="affichageJeu">
