@@ -2,7 +2,7 @@
 <html lang="fr">
 
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8"/>
         <title>Pay Respect</title>
         <link rel="stylesheet" href="styles/mainStyle.css">
         <script src="script.js"></script>
