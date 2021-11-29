@@ -20,6 +20,48 @@
 
             <div class="listeJeux">
                 <div class="affichageJeu">
+                    <img class="imageJeu" src="./images/Battlefield_2042.jpg" alt="image test">
+                    <p>Battlefield 2042<span class="note"> <img src="./images/etoiles.png"></span></p>
+                </div>
+
+                <div class="affichageJeu">
+                    <img class="imageJeu" src="./images/ForzaHorizon5.jpg" alt="image test">
+                    <p>Forza Horizon 5<span class="note"><img src="./images/etoiles.png"></span></p>
+                </div>
+
+                <div class="affichageJeu">
+                    <img class="imageJeu" src="./images/riderepublic.png" alt="image test">
+                    <p>Riders Republics<span class="note"><img src="./images/etoiles.png"></span></p>
+                </div>
+            </div>
+
+
+            <h3>Les jeux sortis cette semaine </h3>
+
+            <div class="listeJeux">
+                <div class="affichageJeu">
+                    <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <p>Jurassic World Evolution 2<span class="note">étoile</span></p>
+                </div>
+
+                <div class="affichageJeu">
+                    <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <p>GTA Trilogy<span class="note">étoile</span></p>
+                </div>
+
+                <div class="affichageJeu">
+                    <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <p>Farming Simulator 22<span class="note">étoile</span></p>
+                </div>
+            </div>
+
+            
+
+            <h3>Les jeux par categorie par exemple:</h3>
+
+
+            <div class="listeJeux">
+                <div class="affichageJeu">
                     <img class="imageJeu" src="./images/test.png" alt="image test">
                     <p>Titre du jeu 1<span class="note">étoile</span></p>
                 </div>
@@ -35,15 +77,6 @@
                 </div>
             </div>
 
-            <h3>Les jeux sortis cette semaine </h3>
-
-            <ul>
-                <li>Battlefield1</li>
-                <li>Call of dutry2</li>
-                <li>Far cry3</li>
-            </ul>
-
-            <h3>Les jeux par categorie par exemple:</h3>
 
             <ul>
                 <li>par date</li>
@@ -52,6 +85,8 @@
             </ul>
         </main>
 
+
+        <div class="pied" >
         <footer>
             <ul>
                 <li>email</li>
@@ -59,5 +94,6 @@
                 <li>@nom d'equipe</li>
             </ul>
         </footer>
+    </div>
     </body>
 </html>
