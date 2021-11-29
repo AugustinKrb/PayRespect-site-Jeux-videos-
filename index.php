@@ -10,21 +10,30 @@
 
     <body>
         <header>
+            <h1>Pay Respect </h1>
 
+            <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
         </header>
 
         <main>
-            <h1>Pay Respect </h1>
+            <h3> Les jeux les plus populaires en ce moment !!</h3>
 
-            <h2>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</h2>
+            <div class="listeJeux">
+                <div class="affichageJeu">
+                    <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <p>Titre du jeu 1<span class="note">étoile</span></p>
+                </div>
 
-            <h3> Les jeux les plus populaires en ce moment</h3>
+                <div class="affichageJeu">
+                    <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <p>Titre du jeu 2<span class="note">étoile</span></p>
+                </div>
 
-            <ul>
-                <li>Battlefield</li>
-                <li>Call of dutry</li>
-                <li>Far cry</li>
-            </ul>
+                <div class="affichageJeu">
+                    <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <p>Titre du jeu 3<span class="note">étoile</span></p>
+                </div>
+            </div>
 
             <h3>Les jeux sortis cette semaine </h3>
 
@@ -44,7 +53,6 @@
         </main>
 
         <footer>
-        	<h3>footer</h3>
             <ul>
                 <li>email</li>
                 <li>tel num</li>
