@@ -33,19 +33,31 @@
                     <p>Battlefield 2042<span class="note"> <img src="./images/etoiles.png"></span></p>
 
                         </summary>
-                        <p>description</p>
+                        <p>description 1</p>
                     </details>
                    
                 </div>
 
                 <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/ForzaHorizon5.jpg" alt="image test">
+                    <details>
+                        <summary>
+                            <img class="imageJeu" src="./images/ForzaHorizon5.jpg" alt="image test">
                     <p>Forza Horizon 5<span class="note"><img src="./images/etoiles.png"></span></p>
+                        </summary>
+                        <p>description 2</p>
+                    </details>
+                    
                 </div>
 
                 <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/riderepublic.png" alt="image test">
+                    <details>
+                        <summary>
+                            <img class="imageJeu" src="./images/riderepublic.png" alt="image test">
                     <p>Riders Republics<span class="note"><img src="./images/etoiles.png"></span></p>
+                        </summary>
+                        <p>description 3</p>
+                    </details>
+                    
                 </div>
             </div>
 
@@ -54,18 +66,36 @@
 
             <div class="listeJeux">
                 <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <details>
+                        <summary>
+                            <img class="imageJeu" src="./images/test.png" alt="image test">
                     <p>Jurassic World Evolution 2<span class="note">étoile</span></p>
+                        </summary>
+                        <p>description 4</p>
+                    </details>
+                    
                 </div>
 
                 <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <details>
+                        <summary>
+                            <img class="imageJeu" src="./images/test.png" alt="image test">
                     <p>GTA Trilogy<span class="note">étoile</span></p>
+                        </summary>
+                        <p>description 5</p>
+                    </details>
+                    
                 </div>
 
                 <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <details>
+                        <summary>
+                            <img class="imageJeu" src="./images/test.png" alt="image test">
                     <p>Farming Simulator 22<span class="note">étoile</span></p>
+                        </summary>
+                        <p>description 6</p>
+                    </details>
+                    
                 </div>
             </div>
 
@@ -76,18 +106,36 @@
 
             <div class="listeJeux">
                 <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <details>
+                        <summary>
+                            <img class="imageJeu" src="./images/test.png" alt="image test">
                     <p>Titre du jeu 1<span class="note">étoile</span></p>
+                        </summary>
+                        <p>description 7</p>
+                    </details>
+                    
                 </div>
 
                 <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <details>
+                        <summary>
+                            <img class="imageJeu" src="./images/test.png" alt="image test">
                     <p>Titre du jeu 2<span class="note">étoile</span></p>
+                        </summary>
+                        <p>description 8</p>
+                    </details>
+                    
                 </div>
 
                 <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <details>
+                        <summary>
+                            <img class="imageJeu" src="./images/test.png" alt="image test">
                     <p>Titre du jeu 3<span class="note">étoile</span></p>
+                        </summary>
+                        <p>description 9</p>
+                    </details>
+                    
                 </div>
             </div>
 
