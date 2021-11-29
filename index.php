@@ -151,9 +151,9 @@
         <div class="pied" >
         <footer>
             <ul>
-                <li>email</li>
-                <li>tel num</li>
-                <li>@nom d'equipe</li>
+                <li><a href="mailto:nomdequipe@wanadoo.fr"> Email du Support Technique</a></li>
+                <li><a href="tel:+3374518754"> Numéro de Téléphone du Support Technique</a></li>
+                <li><a  target="_blank"  href="https://www.imdb.com/">Page d'adminitration</a></li>
             </ul>
         </footer>
     </div>
