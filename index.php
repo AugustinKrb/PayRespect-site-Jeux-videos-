@@ -14,6 +14,11 @@
             <h1>Pay Respect </h1>
 
             <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
+            
+            <label for="Recherche">Recherche:</label>
+<input type="Recherche" id="Recherche" name="Recherche"
+       aria-label="Recherche">
+            
         </header>
 
         <main>
