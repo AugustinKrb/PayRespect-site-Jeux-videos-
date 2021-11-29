@@ -37,18 +37,18 @@
             <h3>Les jeux par categorie par exemple:</h3>
 
             <ul>
-                <li>par date</li><br>
-                <li>par note</li><br>
+                <li>par date</li>
+                <li>par note</li>
                 <li>par prix</li>
             </ul>
         </main>
 
         <footer>
             <ul>
-            <li>email</li><br>
-            <li>tel num</li><br>
-            <li>@nom d'equipe</li>
-        </ul>
+                <li>email</li>
+                <li>tel num</li>
+                <li>@nom d'equipe</li>
+            </ul>
         </footer>
     </body>
 </html>
