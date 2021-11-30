@@ -1,4 +1,4 @@
-<?php require_once "./php/libgames.php" ?>
+<?php  ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -6,8 +6,8 @@
         <meta charset="utf-8"/>
         <title>Pay Respect</title>
         <link rel="icon" type="image/png" href="./images/icone.png" />
-        <link rel="stylesheet" href="styles/mainStyleNouvellePage.css"/>
-        <link rel="stylesheet" href="styles/mainStyle.css"/>
+        <link rel="stylesheet" href="../styles/squelette.css"/>
+        <link rel="stylesheet" href="../styles/admin.css"/>
     </head>
 
     <body>
@@ -22,7 +22,6 @@
         </header>
 
         <main>
-            <div class="test">
             <div class="gauche">
                 <p>jeu1</p>
                     <details>
@@ -46,7 +45,6 @@
             
             <div class="droite">
                 <p>Droite</p>
-            </div>
             </div>
         </main>
     </body>
