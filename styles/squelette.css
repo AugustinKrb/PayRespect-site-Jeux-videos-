@@ -1,5 +1,10 @@
-html, body {
+html {
     user-select: none;
+    width: 100%;
+    height: 100%;
+}
+
+html, body {
     margin: 0px;
     padding: 0px;
 }
@@ -13,7 +18,6 @@ body {
 
 header {
     font-family: Courier New, monospace;
-    user-select: none;
     width: 100%;
     position: relative;
     top: 0;
@@ -35,9 +39,7 @@ header p:hover {
 }
 
 footer {
-     width: 100%;
-    position: relative;
-    top: 0;
+    width: 100%;
     background-color: #dbdbdb;
     border: none;
     padding-top: 1%;
