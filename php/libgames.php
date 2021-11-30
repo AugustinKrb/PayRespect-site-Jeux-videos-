@@ -1,5 +1,5 @@
 <?php
-require_once './php/nosql.php';
+require_once 'nosql.php';
 
 NoSQL::configure('_data');
 
