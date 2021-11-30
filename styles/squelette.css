@@ -1,0 +1,42 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    color: #000000;
+    width: 100%;
+    position: relative;
+    top: -21px;
+}
+
+header {
+    width: 100%;
+    position: relative;
+    top: 0;
+    background-color: #dbdbdb;
+    border: none;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 40px;
+}
+
+header p:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+footer {
+     width: 100%;
+    position: relative;
+    top: 0;
+    background-color: #dbdbdb;
+    border: none;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+}
