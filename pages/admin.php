@@ -1,4 +1,4 @@
-<?php  ?>
+<?php require_once "../php/libgames.php" ?>
 <!DOCTYPE html>
 <html lang="fr">
 
