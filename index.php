@@ -5,7 +5,9 @@
     <head>
         <meta charset="utf-8"/>
         <title>Pay Respect</title>
-        <link rel="stylesheet" href="styles/mainStyle.css"/>
+        <link rel="icon" type="image/png" href="./images/icone.png" />
+        <link rel="stylesheet" href="./styles/squelette.css"/>
+        <link rel="stylesheet" href="./styles/index.css"/>
         <script src="script.js"></script>
     </head>
 
@@ -14,14 +16,24 @@
             <h1>Pay Respect </h1>
 
             <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
+
+            <label for="Recherche">Recherche:</label>
+            <input type="Recherche" id="Recherche" name="Recherche" aria-label="Recherche"/>
         </header>
 
         <main>
             <?php
                 /*
                 deleteAllGames();
+                
+                
+                //$id = createGame("Ark");
+                $id = 1;
+                echo($id);
+                //saveGenres($id, ['fps', 'GENRE_ADVENTURE']);
+                echo("jeu : ".var_dump(getAllGames()));
 
-                createGame("Ark");
+                /*
                 createGame("R6");
                 createGame("Forza 5");
                 createGame("Battlefield 2042");
@@ -131,9 +143,9 @@
 
         <footer>
             <ul>
-                <li>email</li>
-                <li>tel num</li>
-                <li>@nom d'equipe</li>
+                <li><a href="mailto:nomdequipe@wanadoo.fr"> Email du Support Technique</a></li>
+                <li><a href="tel:+3374518754"> Numéro de Téléphone du Support Technique</a></li>
+                <li><a  target="_blank"  href="#">Page d'adminitration</a></li>
             </ul>
         </footer>
     </body>
