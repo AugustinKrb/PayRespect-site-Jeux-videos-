@@ -5,7 +5,6 @@
     <head>
         <meta charset="utf-8"/>
         <title>Pay Respect</title>
-        <link rel="icon" type="image/png" href="./images/icone.png" />
         <link rel="stylesheet" href="styles/mainStyle.css"/>
         <script src="script.js"></script>
     </head>
@@ -15,14 +14,45 @@
             <h1>Pay Respect </h1>
 
             <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
-            
-            <label for="Recherche">Recherche:</label>
-<input type="Recherche" id="Recherche" name="Recherche"
-       aria-label="Recherche">
-            
         </header>
 
         <main>
+            <?php
+                /*
+                deleteAllGames();
+
+                createGame("Ark");
+                createGame("R6");
+                createGame("Forza 5");
+                createGame("Battlefield 2042");
+                createGame("Riders Republics");
+                createGame("Gang beast");
+                createGame("The Crew 2");
+                createGame("Cyberpunk 2077");
+                */
+                /*
+                echo(var_dump(getAllGames()));
+                echo("test : ".var_dump(getGame("18")['title']));
+                */
+            ?>
+
+            <fieldset class="listeJeux">
+                <legend>Tout les jeux</legend>
+                <?php
+                    foreach (getAllGames() as $tab) { ?>                    
+                        <div class="affichageJeu">
+                            <details>
+                                <summary>
+                                    <img class="imageJeu" src="./images/test.png" alt="image test">
+                                    <p><?php echo($tab['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p>
+                                </summary>
+                                <p class="description">description :</p>
+                            </details>
+                        </div>
+                    <?php }
+                ?>
+            </fieldset>
+
             <h3> Les jeux les plus populaires en ce moment !!</h3>
 
             <div class="listeJeux">
@@ -33,31 +63,19 @@
                     <p>Battlefield 2042<span class="note"> <img src="./images/etoiles.png"></span></p>
 
                         </summary>
-                        <p>description 1</p>
+                        <p>description</p>
                     </details>
                    
                 </div>
 
                 <div class="affichageJeu">
-                    <details>
-                        <summary>
-                            <img class="imageJeu" src="./images/ForzaHorizon5.jpg" alt="image test">
+                    <img class="imageJeu" src="./images/ForzaHorizon5.jpg" alt="image test">
                     <p>Forza Horizon 5<span class="note"><img src="./images/etoiles.png"></span></p>
-                        </summary>
-                        <p>description 2</p>
-                    </details>
-                    
                 </div>
 
                 <div class="affichageJeu">
-                    <details>
-                        <summary>
-                            <img class="imageJeu" src="./images/riderepublic.png" alt="image test">
+                    <img class="imageJeu" src="./images/riderepublic.png" alt="image test">
                     <p>Riders Republics<span class="note"><img src="./images/etoiles.png"></span></p>
-                        </summary>
-                        <p>description 3</p>
-                    </details>
-                    
                 </div>
             </div>
 
@@ -66,36 +84,18 @@
 
             <div class="listeJeux">
                 <div class="affichageJeu">
-                    <details>
-                        <summary>
-                            <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <img class="imageJeu" src="./images/test.png" alt="image test">
                     <p>Jurassic World Evolution 2<span class="note">étoile</span></p>
-                        </summary>
-                        <p>description 4</p>
-                    </details>
-                    
                 </div>
 
                 <div class="affichageJeu">
-                    <details>
-                        <summary>
-                            <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <img class="imageJeu" src="./images/test.png" alt="image test">
                     <p>GTA Trilogy<span class="note">étoile</span></p>
-                        </summary>
-                        <p>description 5</p>
-                    </details>
-                    
                 </div>
 
                 <div class="affichageJeu">
-                    <details>
-                        <summary>
-                            <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <img class="imageJeu" src="./images/test.png" alt="image test">
                     <p>Farming Simulator 22<span class="note">étoile</span></p>
-                        </summary>
-                        <p>description 6</p>
-                    </details>
-                    
                 </div>
             </div>
 
@@ -106,36 +106,18 @@
 
             <div class="listeJeux">
                 <div class="affichageJeu">
-                    <details>
-                        <summary>
-                            <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <img class="imageJeu" src="./images/test.png" alt="image test">
                     <p>Titre du jeu 1<span class="note">étoile</span></p>
-                        </summary>
-                        <p>description 7</p>
-                    </details>
-                    
                 </div>
 
                 <div class="affichageJeu">
-                    <details>
-                        <summary>
-                            <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <img class="imageJeu" src="./images/test.png" alt="image test">
                     <p>Titre du jeu 2<span class="note">étoile</span></p>
-                        </summary>
-                        <p>description 8</p>
-                    </details>
-                    
                 </div>
 
                 <div class="affichageJeu">
-                    <details>
-                        <summary>
-                            <img class="imageJeu" src="./images/test.png" alt="image test">
+                    <img class="imageJeu" src="./images/test.png" alt="image test">
                     <p>Titre du jeu 3<span class="note">étoile</span></p>
-                        </summary>
-                        <p>description 9</p>
-                    </details>
-                    
                 </div>
             </div>
 
@@ -147,15 +129,12 @@
             </ul>
         </main>
 
-
-        <div class="pied" >
         <footer>
             <ul>
-                <li><a href="mailto:nomdequipe@wanadoo.fr"> Email du Support Technique</a></li>
-                <li><a href="tel:+3374518754"> Numéro de Téléphone du Support Technique</a></li>
-                <li><a  target="_blank"  href="https://www.imdb.com/">Page d'adminitration</a></li>
+                <li>email</li>
+                <li>tel num</li>
+                <li>@nom d'equipe</li>
             </ul>
         </footer>
-    </div>
     </body>
 </html>
