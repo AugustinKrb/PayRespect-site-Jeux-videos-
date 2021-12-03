@@ -3,22 +3,112 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     border: solid 1px black;
-    width: 20%;
+    width: 10%;
     height: 100%;
 }
 
 .gauche {
     float: left;
     margin-left: 0px;
-    margin-right: 1%;
 }
 
 .droite {
     float: right;
     margin-right: 0px;
-    margin-left: 1%;
 }
 
 .milieu {
     display: inline-block;
+    width: 70%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.listeJeuxExemple {
+    padding-left: 3%;
+    padding-right: 3%;
+    text-align: center;
+
+    border-radius: 30px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    overflow: auto;
+}
+
+.jeuExemple {
+    width: 80%;
+    margin: 5%;
+}
+
+.jeuExemple summary {
+    width: 100%;
+    position: relative;
+    list-style: none;
+}
+
+.jeuExemple summary:after {
+    content: "\0025BC"; /* ▼ */
+    color: black;
+    position: relative;
+    transform-origin: center;
+    transition: 200ms linear;
+}
+
+details[open] summary:after {
+    content: "\0025B2"; /* ▲ */
+}
+
+.jeuExemple summary p {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
+
+.jeuExemple summary {
+    border: solid 1px black;
+}
+
+.jeuExemple .descriptionJeuExemple {
+    width: 100%;
+    text-align: left;
+
+    margin-top: 0px;    
+    border-left: solid 1px black;
+    border-right: solid 1px black;
+    border-bottom: solid 1px black;
+}
+
+.imageJeuExemple {
+    width: 100%;
+    height: auto;
+}
+
+.note {
+    float: right;
+    margin-right: 2%;
+}
+
+.milieu fieldset {
+    width: 80%;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: bold;
+
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Formulaire */
+
+#description {
+    resize: vertical;
 }
