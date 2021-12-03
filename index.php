@@ -20,7 +20,7 @@
 
             <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
 
-            <form action="./recherche.php">
+            <form action="./pages/recherche.php">
                 <label for="recherche">Recherche :</label>
                 <input id="recherche" type="search" name="recherche" required>
                 <input type="submit">
