@@ -1,7 +1,7 @@
 <?php
-require_once 'nosql.php';
+require_once __DIR__.'/nosql.php';
 
-NoSQL::configure('_data');
+NoSQL::configure('/wamp64/www/PayRespect/_data');
 
 define('GENRE_SF', 'sf');
 define('GENRE_FANTASY', 'fantasy');
@@ -83,6 +83,18 @@ function savePlatforms($id, array $platforms) {
     }
 }
 
+/* Peut-être */
+function saveDescription($id, string $description) {
+    $game = NoSQL::getInstance('games')->find(strval($id));
+    if(!empty($game)) {
+        $game['description'] = $description;
+        NoSQL::getInstance('games')->save($game);
+    } else {
+        throw new Exception('Game ID '.$id.' not found');
+    }
+}
+/* Peut-être */
+
 function hasAlreadyRated($gameId, string $userIp): bool {
     $returns = false;
     $game = NoSQL::getInstance('games')->find(strval($gameId));
@@ -118,6 +130,12 @@ function searchGamesByTitle(string $title): array {
 function searchGamesByGenre(string $genre): array {
     return NoSQL::getInstance('games')->search('genres', $genre, NoSQL::OP_IN);
 }
+
+/* Peut-être */
+function searchGamesByPlateform(string $platform): array {
+    return NoSQL::getInstance('games')->search('platforms', $platform, NoSQL::OP_IN);
+}
+/* Peut-être */
 
 function searchGames(string $title = null, string $genre = null, string $platform = null): array {
     $returns = [];
