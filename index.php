@@ -1,4 +1,7 @@
-<?php require_once "./php/libgames.php" ?>
+<?php
+    require_once "./php/libgames.php";
+    require_once "./php/games.php";
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -17,22 +20,18 @@
 
             <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
 
-            <label for="Recherche">Recherche:</label>
-            <input type="Recherche" id="Recherche" name="Recherche" aria-label="Recherche"/>
+            <form action="./recherche.php">
+                <label for="recherche">Recherche :</label>
+                <input id="recherche" type="search" name="recherche" required>
+                <input type="submit">
+            </form>
         </header>
 
         <main>
             <?php
                 /*
                 deleteAllGames();
-                
-                
-                //$id = createGame("Ark");
-                $id = 1;
-                echo($id);
-                //saveGenres($id, ['fps', 'GENRE_ADVENTURE']);
-                echo("jeu : ".var_dump(getAllGames()));
-
+                */
                 /*
                 createGame("R6");
                 createGame("Forza 5");
@@ -49,20 +48,20 @@
             ?>
 
             <fieldset class="listeJeux">
-                <legend>Tout les jeux</legend>
-                <?php
-                    foreach (getAllGames() as $tab) { ?>                    
+                    <legend>Tout les jeux</legend>
+                    <?php foreach (getAllGames() as $tab) { ?>                    
                         <div class="affichageJeu">
                             <details>
                                 <summary>
                                     <img class="imageJeu" src="./images/test.png" alt="image test">
-                                    <p><?php echo($tab['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p>
+                                    <p class="titre"><?php echo($tab['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p>
                                 </summary>
+                                <p class="genres"><?php echo("Genre(s) : ".afficherGenresOuPlateformes($tab['genres'])); ?></p>
+                                <p class="plateformes"><?php echo("Plateforme(s) : ".afficherGenresOuPlateformes($tab['platforms'])); ?></p>
                                 <p class="description">description :</p>
                             </details>
                         </div>
-                    <?php }
-                ?>
+                    <?php } ?>
             </fieldset>
 
             <h3> Les jeux les plus populaires en ce moment !!</h3>
@@ -132,13 +131,6 @@
                     <p>Titre du jeu 3<span class="note">étoile</span></p>
                 </div>
             </div>
-
-
-            <ul>
-                <li>par date</li>
-                <li>par note</li>
-                <li>par prix</li>
-            </ul>
         </main>
 
         <footer>
