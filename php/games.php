@@ -41,6 +41,8 @@
                         ["nom" => "IOS",
                          "id" => "PLATFORM_IOS"]];
     
+    $messageErreur = "";
+    
     function getJeuxOrdreDernierAjouts() {
         $tabJeux = [];
         foreach (getAllGames() as $tab) {
@@ -51,8 +53,8 @@
 
     function afficherGenresOuPlateformes($tab) {
         $res = "";
-        foreach ($tab as $genre) {
-            $res .= " ".constant($genre);
+        foreach ($tab as $value) {
+            $res .= " ".constant($value);
         }
         $res = str_replace(" ", ", ", $res);
         return substr($res, 1, strlen($res)).".";
