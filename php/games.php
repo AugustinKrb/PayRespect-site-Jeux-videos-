@@ -41,7 +41,9 @@
                         ["nom" => "IOS",
                          "id" => "PLATFORM_IOS"]];
     
-    $messageErreur = "";
+    $messageErreurAjout = "";
+    $messageErreurModif = "";
+    $messageErreurSuppr = "";
     
     function getJeuxOrdreDernierAjouts() {
         $tabJeux = [];
