@@ -6,27 +6,47 @@
     if (!empty($_REQUEST['ajouterJeu'])) {
         if (empty($_POST['genres']) || empty($_POST['plateformes']) || empty($_POST['description'])) {    //Message d'erreur
             if (empty($_POST['genres'])) {
-                $messageErreur .= " un genre,";
+                $messageErreurAjout .= " un genre,";
             }
             if (empty($_POST['plateformes'])) {
-                $messageErreur .= " une plateforme,";
+                $messageErreurAjout .= " une plateforme,";
             }
             if (empty($_POST['description'])) {
-                $messageErreur .= " une description,";
+                $messageErreurAjout .= " une description,";
             }
-            $messageErreur = "Il manque".$messageErreur;
-            $messageErreur = substr($messageErreur, 0, strlen($messageErreur) - 1); //Supprimer dernière virgule
-            $messageErreur .= ".";  //Ajouter point à la fin
+            $messageErreurAjout = "Il manque".$messageErreurAjout;
+            $messageErreurAjout = substr($messageErreurAjout, 0, strlen($messageErreurAjout) - 1); //Supprimer dernière virgule
+            $messageErreurAjout .= ".";  //Ajouter point à la fin
         } else {    //Ajout d'un jeu
             $idJeu = createGame($_POST['nomJeu']);
             saveGenres($idJeu, $_POST['genres']);
             savePlatforms($idJeu, $_POST['plateformes']);
             saveDescription($idJeu, $_POST['description']);
-            $messageErreur = "Le jeu a bien été ajouté.";
+            $messageErreurAjout = "Le jeu a bien été ajouté.";
         }
     }
 
     //Modifier un jeu
+
+
+    //Supprimer un jeu
+    if (!empty($_POST['supprimerJeu'])) {
+        if (empty($_POST['jeuASupprimer'])) {   //Message d'erreur
+            $messageErreurSuppr .= "Vous n'avez sélectionné aucun jeu.";
+        } else {    //Suppression du/des jeu(x)
+            $messageErreurSuppr .= "Vous avez supprimer le(s) jeu(x) :";
+            foreach ($_POST['jeuASupprimer'] as $id) {
+                $jeu = getGame($id);
+                $messageErreurSuppr .= " ".$jeu['title'].",";
+            }
+            $messageErreurSuppr = substr($messageErreurSuppr, 0, strlen($messageErreurSuppr) - 1);
+            $messageErreurSuppr .= ".";
+            //Supprimer jeu
+            foreach ($_POST['jeuASupprimer'] as $id) {
+                deleteGame($id);
+            }
+        }
+    }
 
 ?>
 <!DOCTYPE html>
@@ -73,7 +93,7 @@
             <div class="milieu">
                 <div class="ajoutJeu">
                     <fieldset>
-                        <legend>Ajout d'un jeu</legend>
+                        <legend>Ajouter un jeu</legend>
                         <form method="POST" action="admin.php">
                             <!-- Ajouter une image -->
                             <p>
@@ -106,38 +126,42 @@
                             <input type="submit" name="ajouterJeu" value="Ajouter le jeu"/>
                         </form>
 
-                        <p class="messageErreur"><?php echo($messageErreur); ?></p>
+                        <p class="messageErreur"><?php echo($messageErreurAjout); ?></p>
                     </fieldset>
                 </div>
-                <div class="modifierJeu">
+                <div class="supprimerJeu">
                     <fieldset>
-                        <legend>Modifier un jeu</legend>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th></th>
-                                    <th>Id jeu</th>
-                                    <th>Nom</th>
-                                    <th>Genre(s)</th>
-                                    <th>Plateforme(s)</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach (getAllGames() as $jeu) { ?>
+                        <legend>Supprimer un jeu</legend>
+                        <form method="POST" action="admin.php">
+                            <table class="tabJeu">
+                                <thead>
                                     <tr>
-                                        <td>
-                                            <input id="<?php echo("id".$jeu['id']); ?>" type="checkbox" name="jeuSupprimer[]" value="<?php echo("id".$jeu['id']); ?>"/>
-                                        </td>
-                                        <td><?php echo($jeu['id']); ?></td>
-                                        <td><?php echo($jeu['title']); ?></td>
-                                        <td><?php echo(afficherGenresOuPlateformes($jeu['genres'])); ?></td>
-                                        <td><?php echo(afficherGenresOuPlateformes($jeu['platforms'])); ?></td>
-                                        <td><?php echo($jeu['description']); ?></td>
+                                        <th></th>
+                                        <th>Id jeu</th>
+                                        <th>Nom</th>
+                                        <th>Genre(s)</th>
+                                        <th>Plateforme(s)</th>
+                                        <th>Description</th>
                                     </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <?php foreach (getAllGames() as $jeu) { ?>
+                                        <tr>
+                                            <td>
+                                                <input id="<?php echo("id".$jeu['id']); ?>" type="checkbox" name="jeuASupprimer[]" value="<?php echo($jeu['id']); ?>"/>
+                                            </td>
+                                            <td><?php echo($jeu['id']); ?></td>
+                                            <td><?php echo($jeu['title']); ?></td>
+                                            <td><?php echo(afficherGenresOuPlateformes($jeu['genres'])); ?></td>
+                                            <td><?php echo(afficherGenresOuPlateformes($jeu['platforms'])); ?></td>
+                                            <td><?php echo($jeu['description']); ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                                <input type="submit" name="supprimerJeu" value="Supprimer le(s) jeu(x)"/>
+                        </form>
+                        <p class="messageErreur"><?php echo($messageErreurSuppr) ?></p>
                     </fieldset>
                 </div>
             </div>
