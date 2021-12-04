@@ -2,24 +2,32 @@
     require_once "../php/libgames.php";
     require_once "../php/games.php";
 
+    // Ajouter un jeu
     if (!empty($_REQUEST['ajouterJeu'])) {
-        ?>
-        <br><br><br><br><br><br><br><br><br>
-        <?php
-        echo("Nom jeu : ".$_POST['nomJeu']);
-        
-        echo("Genres : ");
-        foreach ($_POST['genres'] as $genre) {
-            echo($genre.", ");
+        if (empty($_POST['genres']) || empty($_POST['plateformes']) || empty($_POST['description'])) {    //Message d'erreur
+            if (empty($_POST['genres'])) {
+                $messageErreur .= " un genre,";
+            }
+            if (empty($_POST['plateformes'])) {
+                $messageErreur .= " une plateforme,";
+            }
+            if (empty($_POST['description'])) {
+                $messageErreur .= " une description,";
+            }
+            $messageErreur = "Il manque".$messageErreur;
+            $messageErreur = substr($messageErreur, 0, strlen($messageErreur) - 1); //Supprimer dernière virgule
+            $messageErreur .= ".";  //Ajouter point à la fin
+        } else {    //Ajout d'un jeu
+            $idJeu = createGame($_POST['nomJeu']);
+            saveGenres($idJeu, $_POST['genres']);
+            savePlatforms($idJeu, $_POST['plateformes']);
+            saveDescription($idJeu, $_POST['description']);
+            $messageErreur = "Le jeu a bien été ajouté.";
         }
-
-        echo("Plateformes : ");
-        foreach ($_POST['plateformes'] as $plateforme) {
-            echo($plateforme.", ");
-        }
-
-        echo("Text area : ".$_POST['description']);
     }
+
+    //Modifier un jeu
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -64,9 +72,9 @@
             
             <div class="milieu">
                 <div class="ajoutJeu">
-                    <form method="POST" action="admin.php">
-                        <fieldset>
-                            <legend>Ajout d'un jeu</legend>
+                    <fieldset>
+                        <legend>Ajout d'un jeu</legend>
+                        <form method="POST" action="admin.php">
                             <!-- Ajouter une image -->
                             <p>
                                 <label for="titre">Titre du jeu :</label>
@@ -77,7 +85,7 @@
                                     <span>Genre(s) du jeu :</span>
 
                                     <?php foreach ($tabGenres as $choix) { ?>
-                                            <input id="<?php echo(constant($choix['id'])); ?>" type="checkbox" name="genres[]" value="<?php echo(constant($choix['id'])); ?>"/>
+                                            <input id="<?php echo(constant($choix['id'])); ?>" type="checkbox" name="genres[]" value="<?php echo($choix['id']); ?>"/>
                                             <label for="<?php echo(constant($choix['id'])); ?>"><?php echo($choix['nom']); ?></label>
                                     <?php } ?>
                                 </p>
@@ -87,7 +95,7 @@
                                     <span>Plateforme(s) du jeu :</span>
 
                                     <?php foreach ($tabPlateformes as $choix) { ?>
-                                            <input id="<?php echo(constant($choix['id'])); ?>" type="checkbox" name="plateformes[]" value="<?php echo(constant($choix['id'])); ?>"/>
+                                            <input id="<?php echo(constant($choix['id'])); ?>" type="checkbox" name="plateformes[]" value="<?php echo($choix['id']); ?>"/>
                                             <label for="<?php echo(constant($choix['id'])); ?>"><?php echo($choix['nom']); ?></label>
                                     <?php }?>
                                 </p>
@@ -96,8 +104,41 @@
                             <textarea id="description" name="description" rows="5" cols="100"></textarea>
                             <br>
                             <input type="submit" name="ajouterJeu" value="Ajouter le jeu"/>
-                        </fieldset>
-                    </form>
+                        </form>
+
+                        <p class="messageErreur"><?php echo($messageErreur); ?></p>
+                    </fieldset>
+                </div>
+                <div class="modifierJeu">
+                    <fieldset>
+                        <legend>Modifier un jeu</legend>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Id jeu</th>
+                                    <th>Nom</th>
+                                    <th>Genre(s)</th>
+                                    <th>Plateforme(s)</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach (getAllGames() as $jeu) { ?>
+                                    <tr>
+                                        <td>
+                                            <input id="<?php echo("id".$jeu['id']); ?>" type="checkbox" name="jeuSupprimer[]" value="<?php echo("id".$jeu['id']); ?>"/>
+                                        </td>
+                                        <td><?php echo($jeu['id']); ?></td>
+                                        <td><?php echo($jeu['title']); ?></td>
+                                        <td><?php echo(afficherGenresOuPlateformes($jeu['genres'])); ?></td>
+                                        <td><?php echo(afficherGenresOuPlateformes($jeu['platforms'])); ?></td>
+                                        <td><?php echo($jeu['description']); ?></td>
+                                    </tr>
+                                <?php } ?>
+                            </tbody>
+                        </table>
+                    </fieldset>
                 </div>
             </div>
             
