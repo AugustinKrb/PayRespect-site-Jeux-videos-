@@ -58,7 +58,7 @@
                                 </summary>
                                 <p class="genres"><?php echo("Genre(s) : ".afficherGenresOuPlateformes($tab['genres'])); ?></p>
                                 <p class="plateformes"><?php echo("Plateforme(s) : ".afficherGenresOuPlateformes($tab['platforms'])); ?></p>
-                                <p class="description">description :</p>
+                                <p class="description"><?php echo("description : ".$tab['description']); ?></p>
                             </details>
                         </div>
                     <?php } ?>
@@ -134,11 +134,8 @@
         </main>
 
         <footer>
-            <ul>
-                <li><a href="mailto:nomdequipe@wanadoo.fr"> Email du Support Technique</a></li>
-                <li><a href="tel:+3374518754"> Numéro de Téléphone du Support Technique</a></li>
-                <li><a  target="_blank"  href="#">Page d'adminitration</a></li>
-            </ul>
+            <h2>Pay Respect</h2>
+            <p>Augustin KRABANSKY - Medhi Ragad - Wassim</p>
         </footer>
     </body>
 </html>
