@@ -16,7 +16,6 @@
         <link rel="icon" type="image/png" href="../images/icone.png" />
         <link rel="stylesheet" href="../styles/squelette.css"/>
         <link rel="stylesheet" href="../styles/recherche.css"/>
-        <script src="script.js"></script>
     </head>
 
     <body>
@@ -33,6 +32,16 @@
         </header>
 
         <main>
+            <div class="menuHautRecherche">
+                <nav>
+                    <ul>
+                        <li><a href="../index.php">Page principale</a></li>
+                        <li><a href="./rechercheComplexe.php">Recherche complexe</a></li>
+                        <li><a href="./admin.php">Administrateur</a></li>
+                    </ul>
+                </nav>
+            </div>
+
             <div class="gauche">
                 <p>test Gauche</p>
             </div>
