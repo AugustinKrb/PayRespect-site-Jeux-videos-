@@ -265,11 +265,8 @@
         </main>
 
         <footer>
-            <ul>
-                <li><a href="mailto:nomdequipe@wanadoo.fr"> Email du Support Technique</a></li>
-                <li><a href="tel:+3374518754"> Numéro de Téléphone du Support Technique</a></li>
-                <li><a  target="_blank"  href="#">Page d'adminitration</a></li>
-            </ul>
+            <h2>Pay Respect</h2>
+            <p>Augustin KRABANSKY - Medhi Ragad - Wassim</p>
         </footer>
     </body>
 </html>
