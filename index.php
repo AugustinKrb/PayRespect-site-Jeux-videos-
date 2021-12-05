@@ -31,7 +31,7 @@
                 <nav>
                     <ul>
                         <li><a href="./pages/rechercheComplexe.php">Recherche complexe</a></li>
-                        <li><a href="./pages/admin.php">Admin</a></li>
+                        <li><a href="./pages/admin.php">Administrateur</a></li>
                     </ul>
                 </nav>
             </div>
