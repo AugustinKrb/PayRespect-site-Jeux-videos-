@@ -58,7 +58,6 @@
         <link rel="icon" type="image/png" href="../images/icone.png" />
         <link rel="stylesheet" href="../styles/squelette.css"/>
         <link rel="stylesheet" href="../styles/admin.css"/>
-        <script src="../js/fonctions.js"></script>
     </head>
 
     <body>
@@ -185,7 +184,7 @@
                                                 </td>
                                                 <td>
                                                     <p class="pDescription">Description du jeu :</p>
-                                                    <textarea id="description" name="description" rows="5" cols="30"></textarea>
+                                                    <textarea id="description" name="description" rows="5" cols="50"></textarea>
                                                 </td>
                                                 <td>
                                                     <input type="submit" name="mofifierJeu" value="Modifier ce jeu">
