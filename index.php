@@ -1,141 +1,91 @@
-<?php
-    require_once "./php/libgames.php";
-    require_once "./php/games.php";
-?>
-<!DOCTYPE html>
-<html lang="fr">
+html {
+    /* user-select: none; */
+    width: 100%;
+    height: 100%;
+}
 
-    <head>
-        <meta charset="utf-8"/>
-        <title>Pay Respect</title>
-        <link rel="icon" type="image/png" href="./images/icone.png" />
-        <link rel="stylesheet" href="./styles/squelette.css"/>
-        <link rel="stylesheet" href="./styles/index.css"/>
-        <script src="script.js"></script>
-    </head>
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
 
-    <body>
-        <header>
-            <h1>Pay Respect </h1>
+body {
+    color: #000000;
+    width: 100%;
+    position: relative;
+    top: -21px;
+}
 
-            <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
+header {
+    font-family: Courier New, monospace;
+    width: 100%;
+    position: relative;
+    top: 0;
+    background-color: #dbdbdb;
+    border: none;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+}
 
-            <form action="./pages/recherche.php">
-                <label for="recherche">Recherche :</label>
-                <input id="recherche" type="search" name="recherche" required>
-                <input type="submit">
-            </form>
-        </header>
+header h1 {
 
-        <main>
-            <?php
-                /*
-                deleteAllGames();
-                */
-                /*
-                createGame("R6");
-                createGame("Forza 5");
-                createGame("Battlefield 2042");
-                createGame("Riders Republics");
-                createGame("Gang beast");
-                createGame("The Crew 2");
-                createGame("Cyberpunk 2077");
-                */
-                /*
-                echo(var_dump(getAllGames()));
-                echo("test : ".var_dump(getGame("18")['title']));
-                */
-            ?>
+    font-size: 40px;
+}
 
-            <fieldset class="listeJeux">
-                    <legend>Tout les jeux</legend>
-                    <?php foreach (getAllGames() as $tab) { ?>                    
-                        <div class="affichageJeu">
-                            <details>
-                                <summary>
-                                    <img class="imageJeu" src="./images/test.png" alt="image test">
-                                    <p class="titre"><?php echo($tab['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p>
-                                </summary>
-                                <p class="genres"><?php echo("Genre(s) : ".afficherGenresOuPlateformes($tab['genres'])); ?></p>
-                                <p class="plateformes"><?php echo("Plateforme(s) : ".afficherGenresOuPlateformes($tab['platforms'])); ?></p>
-                                <p class="description"><?php echo("description : ".$tab['description']); ?></p>
-                            </details>
-                        </div>
-                    <?php } ?>
-            </fieldset>
+header p:hover {
+    text-decoration: underline;
+    font-weight: bold;
+}
 
-            <h3> Les jeux les plus populaires en ce moment !!</h3>
+/********************************/
+.menuHaut {
+    z-index: 1;
+    background-color: #dbdbdb;
+    width: 100%;
+    margin: 0px auto 40px auto;
+    position: sticky;
+    margin-top: -21px;  /* Boucher le trou (body décalé de -21px) */
+    top: 0px;   /* Pourle laisser collé au haut */
+}
 
-            <div class="listeJeux">
-                <div class="affichageJeu">
-                    <details>
-                        <summary>
-                             <img class="imageJeu" src="./images/Battlefield_2042.jpg" alt="image test">
-                    <p>Battlefield 2042<span class="note"> <img src="./images/etoiles.png"></span></p>
+.menuHaut nav ul{
+    list-style-type: none;
+}
 
-                        </summary>
-                        <p>description</p>
-                    </details>
-                   
-                </div>
+.menuHaut nav li{
+    float: left;
+    width: 50%;
+    text-align: center;
+}
 
-                <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/ForzaHorizon5.jpg" alt="image test">
-                    <p>Forza Horizon 5<span class="note"><img src="./images/etoiles.png"></span></p>
-                </div>
+/*Evite que le menu n'ait une hauteur nulle*/
+.menuHaut nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
 
-                <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/riderepublic.png" alt="image test">
-                    <p>Riders Republics<span class="note"><img src="./images/etoiles.png"></span></p>
-                </div>
-            </div>
+.menuHaut nav a{
+    display: block; /*Toute la surface sera cliquable*/
+    text-decoration: none;
+    color: #000000;
+    border-bottom: 2px solid transparent;   /*Evite le décalage des éléments sous le menu à cause de la bordure en :hover*/
+    padding: 10px 0px;  /*Agrandit le menu et espace la bordure du texte*/
+}
 
+.menuHaut nav a:hover{
+    color: #FFFFFF;
+    border-bottom: 2px solid #000000;
+}
 
-            <h3>Les jeux sortis cette semaine </h3>
+/********************************/
 
-            <div class="listeJeux">
-                <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/test.png" alt="image test">
-                    <p>Jurassic World Evolution 2<span class="note">étoile</span></p>
-                </div>
-
-                <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/test.png" alt="image test">
-                    <p>GTA Trilogy<span class="note">étoile</span></p>
-                </div>
-
-                <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/test.png" alt="image test">
-                    <p>Farming Simulator 22<span class="note">étoile</span></p>
-                </div>
-            </div>
-
-            
-
-            <h3>Les jeux par categorie par exemple:</h3>
-
-
-            <div class="listeJeux">
-                <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/test.png" alt="image test">
-                    <p>Titre du jeu 1<span class="note">étoile</span></p>
-                </div>
-
-                <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/test.png" alt="image test">
-                    <p>Titre du jeu 2<span class="note">étoile</span></p>
-                </div>
-
-                <div class="affichageJeu">
-                    <img class="imageJeu" src="./images/test.png" alt="image test">
-                    <p>Titre du jeu 3<span class="note">étoile</span></p>
-                </div>
-            </div>
-        </main>
-
-        <footer>
-            <h2>Pay Respect</h2>
-            <p>Augustin KRABANSKY - Medhi Ragad - Wassim</p>
-        </footer>
-    </body>
-</html>
+footer {
+    width: 100%;
+    background-color: #dbdbdb;
+    border: none;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+}
