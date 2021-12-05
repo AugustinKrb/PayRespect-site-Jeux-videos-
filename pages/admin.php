@@ -84,6 +84,7 @@
         <link rel="icon" type="image/png" href="../images/icone.png" />
         <link rel="stylesheet" href="../styles/squelette.css"/>
         <link rel="stylesheet" href="../styles/admin.css"/>
+        <link rel="stylesheet" href="../styles/affichageJeuMini.css"/>
     </head>
 
     <body>
