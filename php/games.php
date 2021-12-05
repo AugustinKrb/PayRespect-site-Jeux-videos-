@@ -60,5 +60,14 @@
         }
         $res = str_replace(" ", ", ", $res);
         return substr($res, 1, strlen($res)).".";
+    }    
+
+    function afficherGenresOuPlateformesSautLignes($tab) {
+        $res = "";
+        foreach ($tab as $value) {
+            $res .= " ".constant($value);
+        }
+        $res = str_replace(" ", ",<br>", $res);
+        return substr($res, 1, strlen($res)).".";
     }
 ?>
