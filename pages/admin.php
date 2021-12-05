@@ -92,12 +92,24 @@
 
             <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
             
-            <label for="Recherche">Recherche:</label>
-            <input type="Recherche" id="Recherche" name="Recherche" aria-label="Recherche">
+            <form action="./recherche.php">
+                <label for="recherche">Recherche :</label>
+                <input id="recherche" type="search" name="recherche" required>
+                <input type="submit">
+            </form>
             
         </header>
 
         <main>
+            <div class="menuHaut">
+                <nav>
+                    <ul>
+                        <li><a href="./rechercheComplexe.php">Recherche complexe</a></li>
+                        <li><a href="../index.php">Page principale</a></li>
+                    </ul>
+                </nav>
+            </div>
+
             <div class="gauche">
                 <p>Les nouveautés !</p>
                 <div class="listeJeuxExemple">
