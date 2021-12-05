@@ -19,9 +19,7 @@
 
 .milieu {
     display: inline-block;
-    width: 70%;
-    padding-left: 5%;
-    padding-right: 5%;
+    width: 80%;
 }
 
 .listeJeuxExemple {
@@ -136,6 +134,13 @@ details[open] summary:after {
     background-color: #AAAAAA;
 }
 
-.tabJeu tr:nth-child(even) {
+.tabJeu tbody tr:nth-child(odd) {
     background-color: #EEEEEE;
+}
+
+.modifierJeu .genres, .modifierJeu .plateformes {
+    color: red;
+    white-space: nowrap;
+    text-align: left;
+    padding-top: 0px;
 }
