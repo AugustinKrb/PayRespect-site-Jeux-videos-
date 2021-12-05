@@ -28,31 +28,30 @@
 
     //Modifier un jeu
     if (!empty($_POST['modifierJeu'])) {
-        ?>
-        <br><br><br><br><br><br>
-        <?php
         if (!empty($_POST['jeuAModifier'])) {
             foreach ($_POST['jeuAModifier'] as $idJeu) {    //Récupère la valeur de l'ID à modifier
-                echo("checkbox sélectionnée : ".$idJeu);
-
+                $jeu = getGame($idJeu);
+                $messageErreurModif = "Vous avez modifié le jeu ".$jeu['title']." :<br>";
                 if (!empty($_POST['nomAModifier_'.$idJeu])) {
-                    echo("nom : ".$_POST['nomAModifier_'.$idJeu]);
+                    saveTitle($idJeu, $_POST['nomAModifier_'.$idJeu]);
+                    $messageErreurModif .= "le nom du jeu => \"".$jeu['title']."\" par => \"".$_POST['nomAModifier_'.$idJeu]."\"<br>";
                 }
-
                 if (!empty($_POST['genresAModifier_'.$idJeu])) {
-                    echo("genre : ".afficherGenresOuPlateformes($_POST['genresAModifier_'.$idJeu]));
-                }
-        
+                    saveGenres($idJeu, $_POST['genresAModifier_'.$idJeu]);
+                    $messageErreurModif .= "le(s) genre(s) => \"".afficherGenresOuPlateformes($jeu['genres'])."\" par => \"".afficherGenresOuPlateformes($_POST['genresAModifier_'.$idJeu])."\"<br>";
+                }        
                 if (!empty($_POST['plateformesAModifier_'.$idJeu])) {
-                    echo("genre : ".afficherGenresOuPlateformes($_POST['plateformesAModifier_'.$idJeu]));
+                    savePlatforms($idJeu, $_POST['plateformesAModifier_'.$idJeu]);
+                    $messageErreurModif .= "la/les plateforme(s) => \"".afficherGenresOuPlateformes($jeu['platforms'])."\" par => ".afficherGenresOuPlateformes($_POST['plateformesAModifier_'.$idJeu])."\"<br>";
                 }
-
                 if (!empty($_POST['descriptionAModifier_'.$idJeu])) {
-                    echo("description : ".$_POST['descriptionAModifier_'.$idJeu]);
+                    saveDescription($idJeu, $_POST['descriptionAModifier_'.$idJeu]);
+                    $messageErreurModif .= "la description => \"".$jeu['description']."\" par => \"".$_POST['descriptionAModifier_'.$idJeu]."\"";
                 }
-                echo("<br>");
             }
         }
+        $messageErreurModif = str_replace(".", "", $messageErreurModif);
+        $messageErreurModif .= ".";
     }
 
 
@@ -152,7 +151,6 @@
                             <br>
                             <input type="submit" name="ajouterJeu" value="Ajouter le jeu"/>
                         </form>
-
                         <p class="messageErreur"><?php echo($messageErreurAjout); ?></p>
                     </fieldset>
                 </div>
@@ -220,6 +218,7 @@
                             </table>                            
                             <input type="submit" name="modifierJeu" value="Modifier le(s) jeu(x) sélectionné(s)">
                         </form>
+                        <p class="messageErreur"><?php echo($messageErreurModif); ?></p>
                     </fieldset>
                 </div>
 
