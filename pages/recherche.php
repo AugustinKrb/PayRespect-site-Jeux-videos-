@@ -16,6 +16,7 @@
         <link rel="icon" type="image/png" href="../images/icone.png" />
         <link rel="stylesheet" href="../styles/squelette.css"/>
         <link rel="stylesheet" href="../styles/recherche.css"/>
+        <link rel="stylesheet" href="../styles/affichageJeuMini.css"/>
     </head>
 
     <body>
@@ -43,7 +44,21 @@
             </div>
 
             <div class="gauche">
-                <p>test Gauche</p>
+                <p>Les nouveautés !</p>
+                <div class="listeJeuxExemple">
+                    <?php
+                        $tabJeuxNouveautes = getJeuxOrdreDernierAjouts();
+                        for ($i = 0; $i < 4; $i++) { ?>
+                            <details class="jeuExemple">
+                                <summary>
+                                    <img class="imageJeuExemple" src="../images/test.png" alt="image test">
+                                    <p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"> <img src="../images/etoiles.png"></span></p>
+                                </summary>
+                                <p class="descriptionJeuExemple">description :</p>
+                            </details>
+                        <?php }
+                    ?>
+                </div>
             </div>
 
             <div class="milieu">
