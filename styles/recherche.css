@@ -98,3 +98,44 @@ details[open] summary:after {
     float: right;
     margin-right: 2%;
 }
+
+/*********************/
+.menuHautRecherche {
+    z-index: 1;
+    background-color: #dbdbdb;
+    width: 100%;
+    margin: 0px auto 40px auto;
+    position: sticky;
+    margin-top: -21px;  /* Boucher le trou (body décalé de -21px) */
+    top: 0px;   /* Pourle laisser collé au haut */
+}
+
+.menuHautRecherche nav ul{
+    list-style-type: none;
+}
+
+.menuHautRecherche nav li{
+    float: left;
+    width: calc(100% / 3);
+    text-align: center;
+}
+
+/*Evite que le menu n'ait une hauteur nulle*/
+.menuHautRecherche nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.menuHautRecherche nav a{
+    display: block; /*Toute la surface sera cliquable*/
+    text-decoration: none;
+    color: #000000;
+    border-bottom: 2px solid transparent;   /*Evite le décalage des éléments sous le menu à cause de la bordure en :hover*/
+    padding: 10px 0px;  /*Agrandit le menu et espace la bordure du texte*/
+}
+
+.menuHautRecherche nav a:hover{
+    color: #FFFFFF;
+    border-bottom: 2px solid #000000;
+}
