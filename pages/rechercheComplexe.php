@@ -56,7 +56,9 @@
             </div>
 
             <div class="milieu">
-
+                <?php
+                    var_dump(searchGames("ark"));
+                ?>
             </div>
 
             <div class="droite">
