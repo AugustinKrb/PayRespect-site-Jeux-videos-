@@ -104,8 +104,8 @@
             <div class="menuHaut">
                 <nav>
                     <ul>
-                        <li><a href="./rechercheComplexe.php">Recherche complexe</a></li>
                         <li><a href="../index.php">Page principale</a></li>
+                        <li><a href="./rechercheComplexe.php">Recherche complexe</a></li>
                     </ul>
                 </nav>
             </div>
