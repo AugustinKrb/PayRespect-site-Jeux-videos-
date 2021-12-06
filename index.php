@@ -123,7 +123,7 @@
 
         <footer>
             <h2>Pay Respect</h2>
-            <p>Augustin KRABANSKY - Medhi Ragad - Wassim</p>
+            <p>Augustin KRABANSKY - Mehdi Ragad - Wassim</p>
         </footer>
     </body>
 </html>
