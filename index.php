@@ -47,8 +47,8 @@
                         <div class="affichageJeu">
                             <details>
                                 <summary>
-                                    <a href="./pages/affichageJeu.php"><img class="imageJeu" src="./images/test.png" alt="image test"></a>
-                                    <a href="./pages/affichageJeu.php"><p class="titre"><?php echo($tab['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p></a>
+                                    <a href="<?php echo("./pages/affichageJeu.php?id=".$tab['id']); ?>" target="_blank"><img class="imageJeu" src="./images/test.png" alt="image test"></a>
+                                    <a href="<?php echo("./pages/affichageJeu.php?id=".$tab['id']); ?>" target="_blank"><p class="titre"><?php echo($tab['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p></a>
                                 </summary>
                                 <p class="genres"><?php echo("Genre(s) : ".afficherGenresOuPlateformes($tab['genres'])); ?></p>
                                 <p class="plateformes"><?php echo("Plateforme(s) : ".afficherGenresOuPlateformes($tab['platforms'])); ?></p>
