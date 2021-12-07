@@ -192,14 +192,14 @@
                                 <tbody>
                                     <?php foreach (array_reverse(getAllGames()) as $jeu) {
                                         $numAfficherModifJeuId++ ?>
-                                        <tr>
+                                        <tr <?php echo("onclick=\"afficherOptionsModificationsJeu('afficherModifJeuId$numAfficherModifJeuId');\" "); ?>>
                                             <td>Petite flèche</td>
                                             <td><?php echo($jeu['id']); ?></td>
                                             <td><?php echo($jeu['title']); ?></td>
                                             <td><?php echo(afficherGenresOuPlateformesSautLignes($jeu['genres'])); ?></td>
                                             <td><?php echo(afficherGenresOuPlateformesSautLignes($jeu['platforms'])); ?></td>
                                             <td><?php echo($jeu['description']); ?></td>
-                                            <td <?php echo("onclick=\"afficherOptionsModificationsJeu('afficherModifJeuId$numAfficherModifJeuId');\" "); ?>>testt</td>
+                                            <td>testt</td>
                                         </tr>
                                         <tr>
                                             <td class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu"></td>
