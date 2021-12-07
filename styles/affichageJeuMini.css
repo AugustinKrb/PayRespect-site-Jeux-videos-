@@ -8,14 +8,20 @@
     margin-top: -40px;
 }
 
+main {
+    position: relative;
+}
+
 .gauche {
     float: left;
-    margin-left: 0px;
+}
+
+.milieu {
+    float: left;
 }
 
 .droite {
-    float: right;
-    margin-right: 0px;
+    float: left;
 }
 
 .listeJeuxExemple {
