@@ -1,27 +1,89 @@
-.gauche, .droite {    
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    border: solid 1px #000000;
-    width: 10%;
-    height: 100%;
-}
-
-.gauche {
-    float: left;
-    margin-left: 0px;
-}
-
-.droite {
-    float: right;
-    margin-right: 0px;
-}
-
 .milieu {
     display: inline-block;
     width: 80%;
 }
 
+/********************************/
+.menuHaut {
+    z-index: 1;
+    background-color: #dbdbdb;
+    width: 100%;
+    margin: 0px auto 40px auto;
+}
+
+nav ul{
+    list-style-type: none;
+}
+
+nav li{
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+/*Evite que le menu n'ait une hauteur nulle*/
+nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav a{
+    display: block; /*Toute la surface sera cliquable*/
+    text-decoration: none;
+    color: #000000;
+    border-bottom: 2px solid transparent;   /*Evite le décalage des éléments sous le menu à cause de la bordure en :hover*/
+    padding: 10px 0px;  /*Agrandit le menu et espace la bordure du texte*/
+}
+
+nav a:hover{
+    color: #FFFFFF;
+    border-bottom: 2px solid #000000;
+}
+
+/********************************/
+/* Nav pour le choix de l'admin */
+
+.choixAdmin {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.choixAdmin li {
+    margin: 1%;
+    width: calc(94% / 3);
+    padding: 2%;
+    
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: solid 1px #000000;
+    border-radius: 25px 25px 0 0px;
+}
+
+.choixAdmin li:hover {
+    background-color: #dbdbdb;
+    font-size: large;
+    font-weight: bold;
+}
+
+
+/********************************/
+/* Désactiver affichage des choix admin */
+#ajouterJeu {
+    display: none;
+}
+
+#modifierJeu {
+    display: none;
+}
+
+#supprimerJeu {
+    display: none;
+}
+
+
+/********************************/
 .listeJeuxExemple {
     padding-left: 3%;
     padding-right: 3%;
@@ -137,9 +199,6 @@ details[open] summary:after {
     background-color: #EEEEEE;
 }
 
-.modifierJeu .genres, .modifierJeu .plateformes {
-    color: red;
-    white-space: nowrap;
-    text-align: left;
-    padding-top: 0px;
+.cacherOptionsJeu {
+    display: none;
 }
