@@ -201,17 +201,17 @@
                                             <td><?php echo($jeu['description']); ?></td>
                                             <td>testt</td>
                                         </tr>
-                                        <tr class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">>
+                                        <tr class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
                                             <td></td>
                                             <td></td>
                                             <td>
                                                 <label for="<?php echo("nomAModifier_".$jeu['id']); ?>">Nouveau nom</label>
-                                                <input type="text" id="<?php echo("nomAModifier_".$jeu['id']); ?>" name="<?php echo("nomAModifier_".$jeu['id']); ?>">
+                                                <input type="text" id="<?php echo("nomAModifier_".$jeu['id']); ?>" name="<?php echo("nomAModifier_".$jeu['id']); ?>" value="<?php echo($jeu['title']) ?>">
                                             </td>
                                             <td class="genres">
                                                 <p>Genre(s) du jeu :</p>
                                                 <?php foreach ($tabGenres as $choix) { ?>
-                                                        <input id="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>" type="checkbox" name="<?php echo("genresAModifier_".$jeu['id']."[]") ?>" value="<?php echo($choix['id']); ?>"/>
+                                                        <input id="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>" type="checkbox" name="<?php echo("genresAModifier_".$jeu['id']."[]") ?>" value="<?php echo($choix['id']); ?>" <?php echo(preRemplissageChecked($choix['id'], $jeu['genres'])); ?>/>
                                                         <label for="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>"><?php echo($choix['nom']); ?></label>
                                                         <br>
                                                 <?php } ?>
@@ -219,14 +219,14 @@
                                             <td class="plateformes">
                                                 <p>Plateforme(s) du jeu :</p>
                                                 <?php foreach ($tabPlateformes as $choix) { ?>
-                                                        <input id="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>" type="checkbox" name="<?php echo("plateformesAModifier_".$jeu['id']."[]") ?>" value="<?php echo($choix['id']); ?>"/>
+                                                        <input id="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>" type="checkbox" name="<?php echo("plateformesAModifier_".$jeu['id']."[]") ?>" value="<?php echo($choix['id']); ?>" <?php echo(preRemplissageChecked($choix['id'], $jeu['platforms'])); ?>/>
                                                         <label for="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>"><?php echo($choix['nom']); ?></label>
                                                         <br>
                                                 <?php }?>
                                             </td>
                                             <td>
                                                 <p class="pDescription">Description du jeu :</p>
-                                                <textarea id="<?php echo("descriptionAModifier_".$jeu['id']); ?>" name="<?php echo("descriptionAModifier_".$jeu['id']); ?>" rows="5" cols="50"></textarea>
+                                                <textarea id="<?php echo("descriptionAModifier_".$jeu['id']); ?>" name="<?php echo("descriptionAModifier_".$jeu['id']); ?>" rows="5" cols="50"><?php echo($jeu['description']); ?></textarea>
                                             </td>
                                             <td>
                                                 <input id="<?php echo("idAModifier_".$jeu['id']); ?>" type="checkbox" name="jeuAModifier[]" value="<?php echo($jeu['id']); ?>"/>
