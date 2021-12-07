@@ -199,6 +199,10 @@ details[open] summary:after {
     background-color: #EEEEEE;
 }
 
+.pDescription textarea {
+    resize: vertical;
+}
+
 .cacherOptionsJeu {
     display: none;
 }
