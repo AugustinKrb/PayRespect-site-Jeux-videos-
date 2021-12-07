@@ -8,8 +8,10 @@
     <head>
         <meta charset="utf-8"/>
         <title>Pay Respect</title>
-        <link rel="icon" type="image/png" href="./images/icone.png" />
-        <link rel="stylesheet" href="./styles/squelette.css"/>
+        <link rel="icon" type="image/png" href="./images/icone.png"/>
+        <link rel="stylesheet" href="./styles/squelette.css" type="text/css" title="Thème simple"/>
+        <link rel="alternate stylesheet" href="./styles/squeletteViolet.css" type="text/css" title="Thème violet"/>
+        <link rel="alternate stylesheet" href="./styles/squeletteRouge.css" type="text/css" title="Thème rouge"/>
         <link rel="stylesheet" href="./styles/index.css"/>
     </head>
 
@@ -17,32 +19,36 @@
         <header>
             <h1>Pay Respect </h1>
 
-            <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
-
-            <form action="./pages/recherche.php">
+            <form action="./pages/recherche.php" target="_blank">
                 <label for="recherche">Recherche :</label>
                 <input id="recherche" type="search" name="recherche" required>
-                <input type="submit">
+                <input type="submit" value="Rechercher">
             </form>
-        </header>
-
-        <main>
+            
+            <form class="rechercher" method="GET" action="rechercher.php">
+                <input type="text" placeholder="Rechercher">
+                <button type="submit">Q</button>
+            </form>
+            
             <div class="menuHaut">
                 <nav>
                     <ul>
                         <li><a href="./pages/rechercheComplexe.php">Recherche complexe</a></li>
-                        <li><a href="./pages/admin.php">Administrateur</a></li>
                     </ul>
                 </nav>
             </div>
+        </header>
+
+        <main>
+            <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
             <fieldset class="listeJeux">
-                    <legend>Tout les jeux</legend>
-                    <?php foreach (getAllGames() as $tab) { ?>                    
+                    <legend>Tous les jeux</legend>
+                    <?php foreach (array_reverse(getAllGames()) as $tab) { ?>                    
                         <div class="affichageJeu">
                             <details>
                                 <summary>
-                                    <img class="imageJeu" src="./images/test.png" alt="image test">
-                                    <p class="titre"><?php echo($tab['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p>
+                                    <a href="./pages/affichageJeu.php"><img class="imageJeu" src="./images/test.png" alt="image test"></a>
+                                    <a href="./pages/affichageJeu.php"><p class="titre"><?php echo($tab['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p></a>
                                 </summary>
                                 <p class="genres"><?php echo("Genre(s) : ".afficherGenresOuPlateformes($tab['genres'])); ?></p>
                                 <p class="plateformes"><?php echo("Plateforme(s) : ".afficherGenresOuPlateformes($tab['platforms'])); ?></p>
@@ -124,6 +130,9 @@
         <footer>
             <h2>Pay Respect</h2>
             <p>Augustin KRABANSKY - Mehdi Ragad - Wassim</p>
+            <form action="./pages/admin.php" target="_blank">
+                <button type="submit">Administrateur</button>
+            </form>
         </footer>
     </body>
 </html>
