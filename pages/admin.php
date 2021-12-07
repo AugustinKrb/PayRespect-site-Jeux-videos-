@@ -73,7 +73,7 @@
             }
         }
     }
-
+    $numAfficherModifJeuId = 0; //ajouter class par ligne à masquer
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -85,23 +85,19 @@
         <link rel="stylesheet" href="../styles/squelette.css"/>
         <link rel="stylesheet" href="../styles/admin.css"/>
         <link rel="stylesheet" href="../styles/affichageJeuMini.css"/>
+        <script src="../js/games.js"></script>
     </head>
 
     <body>
         <header>
             <h1>Pay Respect </h1>
-
-            <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
             
-            <form action="./recherche.php">
+            <form action="./recherche.php" target="_blank">
                 <label for="recherche">Recherche :</label>
                 <input id="recherche" type="search" name="recherche" required>
-                <input type="submit">
+                <input type="submit" value="Rechercher">
             </form>
             
-        </header>
-
-        <main>
             <div class="menuHaut">
                 <nav>
                     <ul>
@@ -110,8 +106,10 @@
                     </ul>
                 </nav>
             </div>
+        </header>
 
-            <div class="gauche">
+        <main>
+            <section class="gauche">
                 <p>Les nouveautés !</p>
                 <div class="listeJeuxExemple">
                     <?php
@@ -127,10 +125,17 @@
                         <?php }
                     ?>
                 </div>
-            </div>
+            </section>
             
-            <div class="milieu">
-                <div class="ajoutJeu">
+            <section class="milieu">
+                <nav class="choixAdmin">
+                    <ul>
+                        <li onclick="afficherChoixAdmin('ajouterJeu');">Ajouter un jeu</li>
+                        <li onclick="afficherChoixAdmin('modifierJeu');">Modifier un jeu</li>
+                        <li onclick="afficherChoixAdmin('supprimerJeu');">Supprimer un jeu</li>
+                    </ul>
+                </nav>
+                <div id="ajouterJeu">
                     <fieldset>
                         <legend>Ajouter un jeu</legend>
                         <form method="POST" action="admin.php">
@@ -168,7 +173,7 @@
                     </fieldset>
                 </div>
 
-                <div class="modifierJeu">
+                <div id="modifierJeu">
                     <fieldset>
                         <legend>Modifier un jeu</legend>
                         <form method="POST" action="admin.php">
@@ -185,7 +190,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach (array_reverse(getAllGames()) as $jeu) { ?>
+                                    <?php foreach (array_reverse(getAllGames()) as $jeu) {
+                                        $numAfficherModifJeuId++ ?>
                                         <tr>
                                             <td>Petite flèche</td>
                                             <td><?php echo($jeu['id']); ?></td>
@@ -193,16 +199,16 @@
                                             <td><?php echo(afficherGenresOuPlateformesSautLignes($jeu['genres'])); ?></td>
                                             <td><?php echo(afficherGenresOuPlateformesSautLignes($jeu['platforms'])); ?></td>
                                             <td><?php echo($jeu['description']); ?></td>
-                                            <td></td>
+                                            <td <?php echo("onclick=\"afficherOptionsModificationsJeu('afficherModifJeuId$numAfficherModifJeuId');\" "); ?>>testt</td>
                                         </tr>
                                         <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td>
+                                            <td class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu"></td>
+                                            <td class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu"></td>
+                                            <td class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
                                                 <label for="<?php echo("nomAModifier_".$jeu['id']); ?>">Nouveau nom</label>
                                                 <input type="text" id="<?php echo("nomAModifier_".$jeu['id']); ?>" name="<?php echo("nomAModifier_".$jeu['id']); ?>">
                                             </td>
-                                            <td class="genres">
+                                            <td class="genres <?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
                                                 <p>Genre(s) du jeu :</p>
                                                 <?php foreach ($tabGenres as $choix) { ?>
                                                         <input id="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>" type="checkbox" name="<?php echo("genresAModifier_".$jeu['id']."[]") ?>" value="<?php echo($choix['id']); ?>"/>
@@ -210,7 +216,7 @@
                                                         <br>
                                                 <?php } ?>
                                             </td>
-                                            <td class="plateformes">
+                                            <td class="plateformes <?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
                                                 <p>Plateforme(s) du jeu :</p>
                                                 <?php foreach ($tabPlateformes as $choix) { ?>
                                                         <input id="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>" type="checkbox" name="<?php echo("plateformesAModifier_".$jeu['id']."[]") ?>" value="<?php echo($choix['id']); ?>"/>
@@ -218,11 +224,11 @@
                                                         <br>
                                                 <?php }?>
                                             </td>
-                                            <td>
+                                            <td class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
                                                 <p class="pDescription">Description du jeu :</p>
                                                 <textarea id="<?php echo("descriptionAModifier_".$jeu['id']); ?>" name="<?php echo("descriptionAModifier_".$jeu['id']); ?>" rows="5" cols="50"></textarea>
                                             </td>
-                                            <td>
+                                            <td class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
                                                 <input id="<?php echo("idAModifier_".$jeu['id']); ?>" type="checkbox" name="jeuAModifier[]" value="<?php echo($jeu['id']); ?>"/>
                                             </td>
                                         </tr>
@@ -235,7 +241,7 @@
                     </fieldset>
                 </div>
 
-                <div class="supprimerJeu">
+                <div id="supprimerJeu">
                     <fieldset>
                         <legend>Supprimer un jeu</legend>
                         <form method="POST" action="admin.php">
@@ -270,16 +276,31 @@
                         <p class="messageErreur"><?php echo($messageErreurSuppr) ?></p>
                     </fieldset>
                 </div>
-            </div>
+            </section>
             
-            <div class="droite">
-                <p>Droite</p>
-            </div>
+            <section class="droite">
+                <p>Les mieux notés</p>
+                    <?php
+                        $tabJeuxNouveautes = getJeuxOrdreDernierAjouts();
+                        for ($i = 0; $i < 4; $i++) { ?>
+                            <details class="jeuExemple">
+                                <summary>
+                                    <img class="imageJeuExemple" src="../images/test.png" alt="image test">
+                                    <p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"> <img src="../images/etoiles.png"></span></p>
+                                </summary>
+                                <p class="descriptionJeuExemple">description :</p>
+                            </details>
+                        <?php }
+                    ?>
+            </section>
         </main>
 
         <footer>
             <h2>Pay Respect</h2>
             <p>Augustin KRABANSKY - Mehdi Ragad - Wassim</p>
+            <form action="./admin.php" target="_blank">
+                <button type="submit">Administrateur</button>
+            </form>
         </footer>
     </body>
 </html>
