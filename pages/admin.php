@@ -201,14 +201,14 @@
                                             <td><?php echo($jeu['description']); ?></td>
                                             <td>testt</td>
                                         </tr>
-                                        <tr>
-                                            <td class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu"></td>
-                                            <td class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu"></td>
-                                            <td class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
+                                        <tr class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">>
+                                            <td></td>
+                                            <td></td>
+                                            <td>
                                                 <label for="<?php echo("nomAModifier_".$jeu['id']); ?>">Nouveau nom</label>
                                                 <input type="text" id="<?php echo("nomAModifier_".$jeu['id']); ?>" name="<?php echo("nomAModifier_".$jeu['id']); ?>">
                                             </td>
-                                            <td class="genres <?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
+                                            <td class="genres">
                                                 <p>Genre(s) du jeu :</p>
                                                 <?php foreach ($tabGenres as $choix) { ?>
                                                         <input id="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>" type="checkbox" name="<?php echo("genresAModifier_".$jeu['id']."[]") ?>" value="<?php echo($choix['id']); ?>"/>
@@ -216,7 +216,7 @@
                                                         <br>
                                                 <?php } ?>
                                             </td>
-                                            <td class="plateformes <?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
+                                            <td class="plateformes">
                                                 <p>Plateforme(s) du jeu :</p>
                                                 <?php foreach ($tabPlateformes as $choix) { ?>
                                                         <input id="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>" type="checkbox" name="<?php echo("plateformesAModifier_".$jeu['id']."[]") ?>" value="<?php echo($choix['id']); ?>"/>
@@ -224,11 +224,11 @@
                                                         <br>
                                                 <?php }?>
                                             </td>
-                                            <td class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
+                                            <td>
                                                 <p class="pDescription">Description du jeu :</p>
                                                 <textarea id="<?php echo("descriptionAModifier_".$jeu['id']); ?>" name="<?php echo("descriptionAModifier_".$jeu['id']); ?>" rows="5" cols="50"></textarea>
                                             </td>
-                                            <td class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
+                                            <td>
                                                 <input id="<?php echo("idAModifier_".$jeu['id']); ?>" type="checkbox" name="jeuAModifier[]" value="<?php echo($jeu['id']); ?>"/>
                                             </td>
                                         </tr>
