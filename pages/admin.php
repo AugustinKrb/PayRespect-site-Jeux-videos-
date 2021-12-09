@@ -199,7 +199,7 @@
                             <tbody>
                                 <?php foreach (array_reverse(getAllGames()) as $jeu) {
                                     $numAfficherModifJeuId++ ?>
-                                    <form method="POST" action="<?php echo("admin.php?iDModif=".$jeu['id']."#jeuAModifId_".$jeu['id']); ?>">
+                                    <form method="POST" action="<?php echo("admin.php?iDModif=".$jeu['id']/*."#jeuAModifId_".$jeu['id']*/); ?>">
                                         <tr id="<?php echo("jeuAModifId_".$jeu['id']); ?>" <?php echo("onclick=\"afficherOptionsModificationsJeu('afficherModifJeuId$numAfficherModifJeuId');\" "); ?>>
                                             <td><?php echo($jeu['id']); ?></td>
                                             <td><?php echo($jeu['title']); ?></td>
