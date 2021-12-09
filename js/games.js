@@ -1,18 +1,34 @@
 var numBouton = 0;  //ajouter class par ligne à masquer
 
+function ancienChoixAdmin() {
+    //Récupérer dernier choix admin
+    let affichageChoixAdmin = localStorage.getItem('affichageChoixAdmin');
+    console.log(affichageChoixAdmin);
+    
+    //Recupérer et afficher le div sélectionné
+    affichageAChanger = document.getElementById(affichageChoixAdmin);    
+    affichageAChanger.style.display = "block";
+}
+
 function afficherChoixAdmin(aAfficher) {
+    
+    //Créer donnée garder par le navigateur
+    localStorage.setItem('affichageChoixAdmin', aAfficher);
+    let affichageChoixAdmin = localStorage.getItem('affichageChoixAdmin');
+    console.log(affichageChoixAdmin);
+
+    //Récupérer les 3 div
     let ajouterJeu = document.getElementById("ajouterJeu");
     let modifierJeu = document.getElementById("modifierJeu");
     let supprimerJeu = document.getElementById("supprimerJeu");
-    
-    let affichageAChanger = document.getElementById(aAfficher);
 
-    //Cacher tout 3 choix admin
+    //Cacher tout les 3 div
     ajouterJeu.style.display = "none";    
     modifierJeu.style.display = "none";
     supprimerJeu.style.display = "none";
 
-    //Pour afficher celui sélectionné
+    //Recupérer et afficher le div sélectionné
+    affichageAChanger = document.getElementById(affichageChoixAdmin);    
     affichageAChanger.style.display = "block";
 }
 
