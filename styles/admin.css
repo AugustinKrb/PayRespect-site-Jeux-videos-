@@ -178,6 +178,7 @@ details[open] summary:after {
     resize: vertical;
 }
 
+/* Aperçu */
 .divImageAperçu {
     width: 30%;
     height: auto;
@@ -185,8 +186,8 @@ details[open] summary:after {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     border: solid 1px #000000;
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 6%;
+    margin-left: 5%;
 }
 
 .imageAperçu {
@@ -195,8 +196,13 @@ details[open] summary:after {
 }
 
 .infoJeuAperçu {
+    margin-top: -0.5%;
     position: absolute;
     margin-left: 25%;
+}
+
+.nomJeuAperçu, .genresJeuAperçu, .plateformesJeuAperçu, .descriptionJeuAperçu {
+    text-align: left;
 }
 
 /* Modifier jeu - supprimer jeu */
