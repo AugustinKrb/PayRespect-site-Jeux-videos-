@@ -4,26 +4,25 @@
 
     // Ajouter un jeu
     if (!empty($_REQUEST['ajouterJeu'])) {
-        if (empty($_POST['genres']) || empty($_POST['plateformes']) || empty($_POST['description'])) {    //Message d'erreur
-            if (empty($_POST['genres'])) {
-                $messageErreurAjout .= " un genre,";
-            }
-            if (empty($_POST['plateformes'])) {
-                $messageErreurAjout .= " une plateforme,";
-            }
-            if (empty($_POST['description'])) {
-                $messageErreurAjout .= " une description,";
-            }
-            $messageErreurAjout = "Il manque".$messageErreurAjout;
-            $messageErreurAjout = substr($messageErreurAjout, 0, strlen($messageErreurAjout) - 1); //Supprimer dernière virgule
-            $messageErreurAjout .= ".";  //Ajouter point à la fin
-        } else {    //Ajout d'un jeu
-            $idJeu = createGame($_POST['nomJeu']);
+        $messageErreurAjout = "Le jeu ".$_POST['nomJeu']." a bien été ajouté,";
+        $idJeu = createGame($_POST['nomJeu']);  //Créer jeu avec titre
+        //Ajout genres
+        if (!empty($_POST['genres'])) {
             saveGenres($idJeu, $_POST['genres']);
-            savePlatforms($idJeu, $_POST['plateformes']);
-            saveDescription($idJeu, $_POST['description']);
-            $messageErreurAjout = "Le jeu a bien été ajouté.";
+            $messageErreurAjout .= " avec un/des genre(s),";
         }
+        //Ajout plateformes
+        if (!empty($_POST['platforms'])) {
+            savePlatforms($idJeu, $_POST['plateformes']);
+            $messageErreurAjout .= " avec une/des plateforme(s),";
+        }
+        //AAjout description
+        if (!empty($_POST['description'])) {
+            saveDescription($idJeu, $_POST['description']);
+            $messageErreurAjout .= " avec une description,";
+        }
+        $messageErreurAjout = substr($messageErreurAjout, 0, strlen($messageErreurAjout) - 1); //Supprimer dernière virgule
+        $messageErreurAjout .= ".";  //Ajouter point à la fin
     }
 
     //Modifier un jeu
@@ -88,7 +87,7 @@
         <script src="../js/games.js"></script>
     </head>
 
-    <body>
+    <body onload="ancienChoixAdmin();">
         <header>
             <h1>Pay Respect </h1>
             
@@ -167,9 +166,20 @@
                             <p class="pDescription">Description du jeu :</p>
                             <textarea id="description" name="description" rows="5" cols="100"></textarea>
                             <br>
-                            <input type="submit" name="ajouterJeu" value="Ajouter le jeu"/>
+                            <input id="envoiFormulaire" type="submit" name="ajouterJeu" value="Ajouter le jeu"/>
                         </form>
                         <p class="messageErreur"><?php echo($messageErreurAjout); ?></p>
+                        <div class="apercuAjoutJeu">
+                            <div class="divImageAperçu">
+                                <img class=imageAperçu src="../images/test.png">
+                            </div>
+                            <div class="infoJeuAperçu">
+                                <p class="nomJeuAperçu">Titre exemple</p>
+                                <p class="genresJeuAperçu">Genres exemple</p>
+                                <p class="plateformesJeuAperçu">Plateformes exemple</p>
+                                <p class="descriptionJeuAperçu">Description exemple</p>
+                            </div>
+                        </div>
                     </fieldset>
                 </div>
 
@@ -196,9 +206,9 @@
                                             <td>Petite flèche</td>
                                             <td><?php echo($jeu['id']); ?></td>
                                             <td><?php echo($jeu['title']); ?></td>
-                                            <td><?php echo(afficherGenresOuPlateformesSautLignes($jeu['genres'])); ?></td>
-                                            <td><?php echo(afficherGenresOuPlateformesSautLignes($jeu['platforms'])); ?></td>
-                                            <td><?php echo($jeu['description']); ?></td>
+                                            <td><?php if (!empty($jeu['genres'])) {echo(afficherGenresOuPlateformesSautLignes($jeu['genres']));} ?></td>
+                                            <td><?php if (!empty($jeu['platforms'])) {echo(afficherGenresOuPlateformesSautLignes($jeu['platforms']));} ?></td>
+                                            <td><?php if (!empty($jeu['description'])) {echo($jeu['description']);} ?></td>
                                             <td>testt</td>
                                         </tr>
                                         <tr class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
@@ -211,7 +221,7 @@
                                             <td class="genres">
                                                 <p>Genre(s) du jeu :</p>
                                                 <?php foreach ($tabGenres as $choix) { ?>
-                                                        <input id="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>" type="checkbox" name="<?php echo("genresAModifier_".$jeu['id']."[]") ?>" value="<?php echo($choix['id']); ?>" <?php echo(preRemplissageChecked($choix['id'], $jeu['genres'])); ?>/>
+                                                        <input id="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>" type="checkbox" name="<?php echo("genresAModifier_".$jeu['id']."[]"); ?>" value="<?php echo($choix['id']); ?>" <?php if (!empty($jeu['genres'])){ echo(preRemplissageChecked($choix['id'], $jeu['genres']));} ?>/>
                                                         <label for="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>"><?php echo($choix['nom']); ?></label>
                                                         <br>
                                                 <?php } ?>
@@ -219,14 +229,14 @@
                                             <td class="plateformes">
                                                 <p>Plateforme(s) du jeu :</p>
                                                 <?php foreach ($tabPlateformes as $choix) { ?>
-                                                        <input id="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>" type="checkbox" name="<?php echo("plateformesAModifier_".$jeu['id']."[]") ?>" value="<?php echo($choix['id']); ?>" <?php echo(preRemplissageChecked($choix['id'], $jeu['platforms'])); ?>/>
+                                                        <input id="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>" type="checkbox" name="<?php echo("plateformesAModifier_".$jeu['id']."[]"); ?>" value="<?php echo($choix['id']); ?>" <?php if (!empty($jeu['platforms'])){ echo(preRemplissageChecked($choix['id'], $jeu['platforms']));} ?>/>
                                                         <label for="<?php echo(constant($choix['id'])."_".$jeu['id']); ?>"><?php echo($choix['nom']); ?></label>
                                                         <br>
                                                 <?php }?>
                                             </td>
-                                            <td>
-                                                <p class="pDescription">Description du jeu :</p>
-                                                <textarea id="<?php echo("descriptionAModifier_".$jeu['id']); ?>" name="<?php echo("descriptionAModifier_".$jeu['id']); ?>" rows="5" cols="50"><?php echo($jeu['description']); ?></textarea>
+                                            <td class="pDescription">
+                                                <p>Description du jeu :</p>
+                                                <textarea id="<?php echo("descriptionAModifier_".$jeu['id']); ?>" name="<?php echo("descriptionAModifier_".$jeu['id']); ?>" rows="5" cols="50"><?php if (!empty($jeu['description'])){ echo($jeu['description']);} ?></textarea>
                                             </td>
                                             <td>
                                                 <input id="<?php echo("idAModifier_".$jeu['id']); ?>" type="checkbox" name="jeuAModifier[]" value="<?php echo($jeu['id']); ?>"/>
@@ -264,9 +274,9 @@
                                             </td>
                                             <td><?php echo($jeu['id']); ?></td>
                                             <td><?php echo($jeu['title']); ?></td>
-                                            <td class="genres"><?php echo(afficherGenresOuPlateformes($jeu['genres'])); ?></td>
-                                            <td class="plateformes"><?php echo(afficherGenresOuPlateformes($jeu['platforms'])); ?></td>
-                                            <td><?php echo($jeu['description']); ?></td>
+                                            <td class="genres"><?php if (!empty($jeu['genres'])) {echo(afficherGenresOuPlateformes($jeu['genres']));} ?></td>
+                                            <td class="plateformes"><?php if (!empty($jeu['platforms'])) {echo(afficherGenresOuPlateformes($jeu['platforms']));} ?></td>
+                                            <td><?php if (!empty($jeu['description'])) {echo($jeu['description']);} ?></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
