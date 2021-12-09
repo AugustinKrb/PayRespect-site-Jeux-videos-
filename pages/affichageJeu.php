@@ -60,9 +60,9 @@
                 <div class="affichageHautJeuChoisi">
                     <div class="infoJeuChoisi">
                         <p><span class="intituleJeuChoisi">Titre :</span><?php echo(" ".$jeuChoisi['title']); ?></p>
-                        <p><span class="intituleJeuChoisi">Genre(s) :</span><?php if (!empty($jeuChoisi['genres'])){ echo(" ".afficherGenresOuPlateformes($jeuChoisi['genres']));} ?></p>
-                        <p><span class="intituleJeuChoisi">Plateforme(s) :</span><?php if (!empty($jeuChoisi['platforms'])){ echo(" ".afficherGenresOuPlateformes($jeuChoisi['platforms']));} ?></p>
-                        <p><span class="intituleJeuChoisi">Description :</span><?php if (!empty($jeuChoisi['description'])){ echo(" ".$jeuChoisi['description']);} ?></p>
+                        <p><span class="intituleJeuChoisi">Genre(s) :</span><?php if (!empty($jeuChoisi['genres'])){ echo(" ".afficherGenresOuPlateformes($jeuChoisi['genres']));} else { echo("Inconnu..");} ?></p>
+                        <p><span class="intituleJeuChoisi">Plateforme(s) :</span><?php if (!empty($jeuChoisi['platforms'])){ echo(" ".afficherGenresOuPlateformes($jeuChoisi['platforms']));} else { echo(" Inconnu...");} ?></p>
+                        <p><span class="intituleJeuChoisi">Description :</span><?php if (!empty($jeuChoisi['description'])){ echo(" ".$jeuChoisi['description']);} else { echo("Inconnu..");} ?></p>
                     </div>
 
                     <div class="divImageJeuChoisi">
