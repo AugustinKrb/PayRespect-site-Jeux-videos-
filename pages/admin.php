@@ -168,14 +168,14 @@
                             <input id="envoiFormulaire" type="submit" name="ajouterJeu" value="Ajouter le jeu"/>
                         </form>
                         <div class="apercuAjoutJeu">
-                            <div class="divImageAperçu">
-                                <img class=imageAperçu src="../images/test.png">
-                            </div>
                             <div class="infoJeuAperçu">
                                 <p class="nomJeuAperçu">Titre exemple</p>
                                 <p class="genresJeuAperçu">Genres exemple</p>
                                 <p class="plateformesJeuAperçu">Plateformes exemple</p>
                                 <p class="descriptionJeuAperçu">Description exemple</p>
+                            </div>
+                            <div class="divImageAperçu">
+                                <img class=imageAperçu src="../images/test.png">
                             </div>
                         </div>
                     </fieldset>
