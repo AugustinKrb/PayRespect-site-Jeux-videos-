@@ -30,30 +30,29 @@
 
     //Modifier un jeu
     if (!empty($_POST['modifierJeu'])) {
-        if (!empty($_POST['jeuAModifier'])) {
-            foreach ($_POST['jeuAModifier'] as $idJeu) {    //Récupère la valeur de l'ID à modifier
-                $jeu = getGame($idJeu);
-                $messageErreurModif = "Vous avez modifié le jeu ".$jeu['title']." :<br>";
-                if (!empty($_POST['nomAModifier_'.$idJeu])) {
-                    saveTitle($idJeu, $_POST['nomAModifier_'.$idJeu]);
-                    $messageErreurModif .= "le nom du jeu => \"".$jeu['title']."\" par => \"".$_POST['nomAModifier_'.$idJeu]."\"<br>";
-                }
-                if (!empty($_POST['genresAModifier_'.$idJeu])) {
-                    saveGenres($idJeu, $_POST['genresAModifier_'.$idJeu]);
-                    $messageErreurModif .= "le(s) genre(s) => \"".afficherGenresOuPlateformes($jeu['genres'])."\" par => \"".afficherGenresOuPlateformes($_POST['genresAModifier_'.$idJeu])."\"<br>";
-                }        
-                if (!empty($_POST['plateformesAModifier_'.$idJeu])) {
-                    savePlatforms($idJeu, $_POST['plateformesAModifier_'.$idJeu]);
-                    $messageErreurModif .= "la/les plateforme(s) => \"".afficherGenresOuPlateformes($jeu['platforms'])."\" par => ".afficherGenresOuPlateformes($_POST['plateformesAModifier_'.$idJeu])."\"<br>";
-                }
-                if (!empty($_POST['descriptionAModifier_'.$idJeu])) {
-                    saveDescription($idJeu, $_POST['descriptionAModifier_'.$idJeu]);
-                    $messageErreurModif .= "la description => \"".$jeu['description']."\" par => \"".$_POST['descriptionAModifier_'.$idJeu]."\"";
-                }
-            }
+        $idJeu = $_GET['iDModif'];   //Récupérer jeu avec id dans le lien
+        $jeu = getGame($idJeu);
+        //$messageErreurModif = "Vous avez modifié le jeu ".$jeu['title']." :<br>";
+
+        if (!empty($_POST['nomAModifier_'.$idJeu])) {
+            saveTitle($idJeu, $_POST['nomAModifier_'.$idJeu]);
+            //$messageErreurModif .= "le nom du jeu => \"".$jeu['title']."\" par => \"".$_POST['nomAModifier_'.$idJeu]."\"<br>";
         }
-        $messageErreurModif = str_replace(".", "", $messageErreurModif);
-        $messageErreurModif .= ".";
+        if (!empty($_POST['genresAModifier_'.$idJeu])) {
+            saveGenres($idJeu, $_POST['genresAModifier_'.$idJeu]);
+            //$messageErreurModif .= "le(s) genre(s) => \"".afficherGenresOuPlateformes($jeu['genres'])."\" par => \"".afficherGenresOuPlateformes($_POST['genresAModifier_'.$idJeu])."\"<br>";
+        }        
+        if (!empty($_POST['plateformesAModifier_'.$idJeu])) {
+            savePlatforms($idJeu, $_POST['plateformesAModifier_'.$idJeu]);
+            //$messageErreurModif .= "la/les plateforme(s) => \"".afficherGenresOuPlateformes($jeu['platforms'])."\" par => ".afficherGenresOuPlateformes($_POST['plateformesAModifier_'.$idJeu])."\"<br>";
+        }
+        if (!empty($_POST['descriptionAModifier_'.$idJeu])) {
+            saveDescription($idJeu, $_POST['descriptionAModifier_'.$idJeu]);
+            //$messageErreurModif .= "la description => \"".$jeu['description']."\" par => \"".$_POST['descriptionAModifier_'.$idJeu]."\"";
+        }
+
+        //$messageErreurModif = str_replace(".", "", $messageErreurModif);
+        //$messageErreurModif .= ".";
 
         //Message générique
         $messageErreurModif = "Le jeu a bien été modifié";
@@ -195,34 +194,31 @@
                 <div id="modifierJeu">
                     <fieldset>
                         <legend>Modifier un jeu</legend>
-                        <form method="POST" action="admin.php">
-                            <p class="messageErreur"><?php echo($messageErreurModif); ?></p>
-                            <table class="tabJeu">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Id jeu</th>
-                                        <th>Nom</th>
-                                        <th>Genre(s)</th>
-                                        <th>Plateforme(s)</th>
-                                        <th>Description</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach (array_reverse(getAllGames()) as $jeu) {
-                                        $numAfficherModifJeuId++ ?>
-                                        <tr id="<?php echo("jeuAModifId_".$jeu['id']) ?>" <?php echo("onclick=\"afficherOptionsModificationsJeu('afficherModifJeuId$numAfficherModifJeuId');\" "); ?>>
-                                            <td>Petite flèche</td>
+                        <p class="messageErreur"><?php echo($messageErreurModif); ?></p>
+                        <table class="tabJeu">
+                            <thead>
+                                <tr>
+                                    <th>Id jeu</th>
+                                    <th>Nom</th>
+                                    <th>Genre(s)</th>
+                                    <th>Plateforme(s)</th>
+                                    <th>Description</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach (array_reverse(getAllGames()) as $jeu) {
+                                    $numAfficherModifJeuId++ ?>
+                                    <form method="POST" action="<?php echo("admin.php?iDModif=".$jeu['id']."#jeuAModifId_".$jeu['id']); ?>">
+                                        <tr id="<?php echo("jeuAModifId_".$jeu['id']); ?>" <?php echo("onclick=\"afficherOptionsModificationsJeu('afficherModifJeuId$numAfficherModifJeuId');\" "); ?>>
                                             <td><?php echo($jeu['id']); ?></td>
                                             <td><?php echo($jeu['title']); ?></td>
                                             <td><?php if (!empty($jeu['genres'])) {echo(afficherGenresOuPlateformesSautLignes($jeu['genres']));} ?></td>
                                             <td><?php if (!empty($jeu['platforms'])) {echo(afficherGenresOuPlateformesSautLignes($jeu['platforms']));} ?></td>
                                             <td><?php if (!empty($jeu['description'])) {echo($jeu['description']);} ?></td>
-                                            <td>testt</td>
+                                            <td></td>
                                         </tr>
                                         <tr class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
-                                            <td></td>
                                             <td></td>
                                             <td>
                                                 <label for="<?php echo("nomAModifier_".$jeu['id']); ?>">Nouveau nom</label>
@@ -249,14 +245,13 @@
                                                 <textarea id="<?php echo("descriptionAModifier_".$jeu['id']); ?>" name="<?php echo("descriptionAModifier_".$jeu['id']); ?>" rows="5" cols="50"><?php if (!empty($jeu['description'])){ echo($jeu['description']);} ?></textarea>
                                             </td>
                                             <td>
-                                                <input id="<?php echo("idAModifier_".$jeu['id']); ?>" type="checkbox" name="jeuAModifier[]" value="<?php echo($jeu['id']); ?>"/>
+                                                <input type="submit" name="modifierJeu" value="Modifier le jeu">
                                             </td>
                                         </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>                            
-                            <input type="submit" name="modifierJeu" value="Modifier le(s) jeu(x) sélectionné(s)">
-                        </form>
+                                    </form>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </fieldset>
                 </div>
 
