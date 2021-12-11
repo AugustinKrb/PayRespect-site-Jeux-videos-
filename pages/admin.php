@@ -177,7 +177,8 @@
                             </p>
                             <p>
                                 <label for="imageAjoutJeu">Ajouter une image :</label>
-                                <input id="imageAjoutJeu" type="file" accept="image/*" name="imageJeu">
+                                <input id="imageAjoutJeu" type="file" accept="image/*" name="imageJeu" onchange="apercuImage(event)">
+                                <img id="imageTest" />
                             </p>
                             <div class="choixGenre">
                                 <p>
@@ -212,7 +213,7 @@
                                 <p>Description : <span id="descriptionJeuAperçu"></span></p>
                             </div>
                             <div class="divImageAperçu">
-                                <img class=imageAperçu src="../images/test.png">
+                                <img id="imageAperçu"  src="../images/test.png">
                             </div>
                         </div>
                     </fieldset>
