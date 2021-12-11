@@ -46,7 +46,7 @@
                         for ($i = 0; $i < 4; $i++) { ?>
                             <details class="jeuExemple">
                                 <summary>
-                                    <img class="imageJeuExemple" src="../images/test.png" alt="image test">
+                                    <img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/test.png");} ?>" alt="image test">
                                     <p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"> <img src="../images/etoiles.png"></span></p>
                                 </summary>
                                 <p class="descriptionJeuExemple">description :</p>
@@ -60,13 +60,13 @@
                 <div class="affichageHautJeuChoisi">
                     <div class="infoJeuChoisi">
                         <p><span class="intituleJeuChoisi">Titre :</span><?php echo(" ".$jeuChoisi['title']); ?></p>
-                        <p><span class="intituleJeuChoisi">Genre(s) :</span><?php if (!empty($jeuChoisi['genres'])){ echo(" ".afficherGenresOuPlateformes($jeuChoisi['genres']));} else { echo("Inconnu..");} ?></p>
+                        <p><span class="intituleJeuChoisi">Genre(s) :</span><?php if (!empty($jeuChoisi['genres'])){ echo(" ".afficherGenresOuPlateformes($jeuChoisi['genres']));} else { echo(" Inconnu..");} ?></p>
                         <p><span class="intituleJeuChoisi">Plateforme(s) :</span><?php if (!empty($jeuChoisi['platforms'])){ echo(" ".afficherGenresOuPlateformes($jeuChoisi['platforms']));} else { echo(" Inconnu...");} ?></p>
-                        <p><span class="intituleJeuChoisi">Description :</span><?php if (!empty($jeuChoisi['description'])){ echo(" ".$jeuChoisi['description']);} else { echo("Inconnu..");} ?></p>
+                        <p><span class="intituleJeuChoisi">Description :</span><?php if (!empty($jeuChoisi['description'])){ echo(" ".$jeuChoisi['description']);} else { echo(" Inconnu..");} ?></p>
                     </div>
 
                     <div class="divImageJeuChoisi">
-                        <img class="imageJeuChoisi" src="../images/test.png" alt="image test">
+                        <img class="imageJeuChoisi" src="<?php if (file_exists("../images/jeuxUpload/".$jeuChoisi['nomImage'])) {echo("../images/jeuxUpload/".$jeuChoisi['nomImage']);} else {echo("../images/test.png");} ?>" alt="image test">
                     </div>
                 </div>
             </div>
