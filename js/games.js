@@ -10,6 +10,7 @@ const GENRE_LIFE = 'life';
 const GENRE_HORROR = 'horror';
 const GENRE_CHILDREN = 'children';
 
+
 function ancienChoixAdmin() {
     //Récupérer dernier choix admin
     let affichageChoixAdmin = localStorage.getItem('affichageChoixAdmin');
@@ -51,6 +52,7 @@ function afficherOptionsModificationsJeu(classJeu) {
     }
 }
 
+//Afficher aperçu du jeu
 function miseAJourAffichageAperçu(mettreAJour) {
     // onkeyup="miseAJourAffichageAperçu()"
     //Affichage aperçu titre
@@ -103,6 +105,16 @@ function miseAJourAffichageAperçu(mettreAJour) {
         console.log(descriptionAAfficher);
     }
 }
+
+//Afficher un aperçu de l'image
+function apercuImage(event) {
+    var reader = new FileReader();
+    reader.onload = function(){
+      var output = document.getElementById('imageAperçu');
+      output.src = reader.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+};
 
 function afficherGenresOuPlateformes(tab) {
     let res = "";
