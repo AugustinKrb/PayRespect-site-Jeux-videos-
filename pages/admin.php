@@ -1,14 +1,3 @@
-<br><br><br><br>
-<textarea id="ctntEdit" onkeyup="myFunction()">TEST</textarea>
-
-<script>
-    function myFunction() {
-    let x = document.getElementById("ctntEdit").value;
-    console.log(x);
-    
-}
-</script>
-
 <?php
     require_once "../php/libgames.php";
     require_once "../php/games.php";
