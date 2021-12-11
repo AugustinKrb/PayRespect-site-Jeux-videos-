@@ -190,7 +190,7 @@ details[open] summary:after {
     margin-left: 5%;
 }
 
-.imageAperçu {
+#imageAperçu {
     width: 100%;
     height: 100%;
 }
