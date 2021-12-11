@@ -99,7 +99,7 @@ function miseAJourAffichageAperçu(mettreAJour) {
     if (mettreAJour == 'description') {
         let descriptionAAfficher = document.getElementById("description").value;
         tmp = descriptionAAfficher + "";
-        document.getElementById("descriptionJeuAperçu").innerText = tmp;
+        document.getElementById("descriptionJeuAperçu").innerHTML = tmp;
         console.log(descriptionAAfficher);
     }
 }
