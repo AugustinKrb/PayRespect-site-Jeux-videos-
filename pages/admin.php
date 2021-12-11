@@ -36,7 +36,34 @@
         $messageErreurAjout .= ".";  //Ajouter point à la fin
 
         //Message générique
-        $messageErreurAjout = "Le jeu a bien été ajouté";
+        $messageErreurAjout = "Le jeu a bien été ajouté";   
+
+        //Gérer l'upload de l'image du jeu
+        if (!empty($_FILES['imageJeu'])) {
+            $dossierUploadImage = "../images/jeuxUpload";
+            $nomFichier = basename($_FILES['imageJeu']['name']);
+            $taille = filesize($_FILES['imageJeu']['tmp_name']);
+            $extensionsAccept = [".png", ".gif", ".jpg", ".jpeg"];    //array('.png', '.gif', '.jpg', '.jpeg');
+            $extensionImage = strrchr($_FILES['imageJeu']['name'], '.'); 
+            //Début des vérifications de sécurité...
+            if(!in_array($extensionImage, $extensionsAccept)) //Si l'extension n'est pas dans le tableau
+            {
+                $messageErreurAjout = "Vous devez uploader un fichier de type png, gif, jpg ou jpeg...";
+            }
+            if(!isset($erreur)) //S'il n'y a pas d'erreur, on upload
+            {
+                //On formate le nom du fichier ici...
+                $nomFichier = strtr($nomFichier, 
+                    'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
+                    'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+                $nomFichier = preg_replace('/([^.a-z0-9]+)/i', '-', $nomFichier);
+
+                //Ajout chemin image au jeu
+                saveImage($idJeu, $nomFichier);
+            } else {    //Sinon il y a une erreur dans l'upload
+                $messageErreurAjout = "Echec de l\'upload de l'image, le jeu n'a pas pu être ajouté !";
+            }
+        }
     }
 
     //Modifier un jeu
@@ -147,11 +174,15 @@
                     <fieldset>
                         <legend>Ajouter un jeu</legend>
                         <p class="messageErreur"><?php echo($messageErreurAjout); ?></p>
-                        <form method="POST" action="admin.php">
+                        <form method="POST" action="admin.php" enctype="multipart/form-data">
                             <!-- Ajouter une image -->
                             <p>
                                 <label for="titreAjoutJeu">Titre du jeu :</label>
                                 <input id="titreAjoutJeu" type="text" name="nomJeu" onkeyup="miseAJourAffichageAperçu('titre')" required>
+                            </p>
+                            <p>
+                                <label for="imageAjoutJeu">Ajouter une image :</label>
+                                <input id="imageAjoutJeu" type="file" accept="image/*" name="imageJeu">
                             </p>
                             <div class="choixGenre">
                                 <p>
