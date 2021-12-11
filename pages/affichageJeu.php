@@ -46,7 +46,7 @@
                         for ($i = 0; $i < 4; $i++) { ?>
                             <details class="jeuExemple">
                                 <summary>
-                                    <img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/test.png");} ?>" alt="image test">
+                                    <img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/test.png");} ?>" alt="image test">
                                     <p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"> <img src="../images/etoiles.png"></span></p>
                                 </summary>
                                 <p class="descriptionJeuExemple">description :</p>
@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="divImageJeuChoisi">
-                        <img class="imageJeuChoisi" src="<?php if (file_exists("../images/jeuxUpload/".$jeuChoisi['nomImage'])) {echo("../images/jeuxUpload/".$jeuChoisi['nomImage']);} else {echo("../images/test.png");} ?>" alt="image test">
+                        <img class="imageJeuChoisi" src="<?php if (file_exists("../images/jeuxUpload/".$jeuChoisi['nomImage'])) {echo("../images/jeuxUpload/".$jeuChoisi['nomImage']);} else {echo("../images/jeuxUpload/test.png");} ?>" alt="image test">
                     </div>
                 </div>
             </div>
