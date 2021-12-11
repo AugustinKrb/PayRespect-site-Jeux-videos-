@@ -36,11 +36,11 @@
         $messageErreurAjout .= ".";  //Ajouter point à la fin
 
         //Message générique
-        $messageErreurAjout = "Le jeu a bien été ajouté";   
+        //$messageErreurAjout = "Le jeu a bien été ajouté";   
 
         //Gérer l'upload de l'image du jeu
         if (!empty($_FILES['imageJeu'])) {
-            $dossierUploadImage = "../images/jeuxUpload";
+            $dossierUploadImage = '../images/jeuxUpload/';
             $nomFichier = basename($_FILES['imageJeu']['name']);
             $taille = filesize($_FILES['imageJeu']['tmp_name']);
             $extensionsAccept = [".png", ".gif", ".jpg", ".jpeg"];    //array('.png', '.gif', '.jpg', '.jpeg');
@@ -58,8 +58,14 @@
                     'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
                 $nomFichier = preg_replace('/([^.a-z0-9]+)/i', '-', $nomFichier);
 
-                //Ajout chemin image au jeu
-                saveImage($idJeu, $nomFichier);
+                if(move_uploaded_file($_FILES['imageJeu']['tmp_name'], $dossierUploadImage . $nomFichier)) {//Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+                    $messageErreurAjout = "Le jeu a bien été ajouté";
+                    //Ajout chemin image au jeu
+                    saveImage($idJeu, $nomFichier);
+                } else {
+                    $messageErreurAjout = "Echec de l\'upload de l'image, le jeu n'a pas pu être ajouté !";
+                }
+
             } else {    //Sinon il y a une erreur dans l'upload
                 $messageErreurAjout = "Echec de l\'upload de l'image, le jeu n'a pas pu être ajouté !";
             }
