@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__.'/nosql.php';
 
+//NoSQL::configure('/_Autres_/Logiciel/wamp64/www/PayRespect/_data');
 NoSQL::configure('/wamp64/www/PayRespect/_data');
 
 define('GENRE_SF', 'sf');
@@ -88,6 +89,16 @@ function saveDescription($id, string $description) {
     $game = NoSQL::getInstance('games')->find(strval($id));
     if(!empty($game)) {
         $game['description'] = $description;
+        NoSQL::getInstance('games')->save($game);
+    } else {
+        throw new Exception('Game ID '.$id.' not found');
+    }
+}
+
+function saveImage($id, string $nomImage) {
+    $game = NoSQL::getInstance('games')->find(strval($id));
+    if(!empty($game)) {
+        $game['nomImage'] = $nomImage;
         NoSQL::getInstance('games')->save($game);
     } else {
         throw new Exception('Game ID '.$id.' not found');
