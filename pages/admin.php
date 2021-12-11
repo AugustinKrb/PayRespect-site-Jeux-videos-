@@ -1,3 +1,14 @@
+<br><br><br><br>
+<textarea id="ctntEdit" onkeyup="myFunction()">TEST</textarea>
+
+<script>
+    function myFunction() {
+    let x = document.getElementById("ctntEdit").value;
+    console.log(x);
+    
+}
+</script>
+
 <?php
     require_once "../php/libgames.php";
     require_once "../php/games.php";
@@ -139,15 +150,15 @@
                         <form method="POST" action="admin.php">
                             <!-- Ajouter une image -->
                             <p>
-                                <label for="titre">Titre du jeu :</label>
-                                <input type="text" name="nomJeu" required>
+                                <label for="titreAjoutJeu">Titre du jeu :</label>
+                                <input id="titreAjoutJeu" type="text" name="nomJeu" onkeyup="miseAJourAffichageAperçu('titre')" required>
                             </p>
                             <div class="choixGenre">
                                 <p>
                                     <span>Genre(s) du jeu :</span>
 
                                     <?php foreach ($tabGenres as $choix) { ?>
-                                            <input id="<?php echo("ajoutJeuId".constant($choix['id'])); ?>" type="checkbox" name="genres[]" value="<?php echo($choix['id']); ?>"/>
+                                            <input id="<?php echo("ajoutJeuId".constant($choix['id'])); ?>" class="listeGenresPourApercu" type="checkbox" name="genres[]" value="<?php echo($choix['id']); ?>" onclick="miseAJourAffichageAperçu('genres')"/>
                                             <label for="<?php echo("ajoutJeuId".constant($choix['id'])); ?>"><?php echo($choix['nom']); ?></label>
                                     <?php } ?>
                                 </p>
@@ -157,22 +168,22 @@
                                     <span>Plateforme(s) du jeu :</span>
 
                                     <?php foreach ($tabPlateformes as $choix) { ?>
-                                            <input id="<?php echo("ajoutJeuId".constant($choix['id'])); ?>" type="checkbox" name="plateformes[]" value="<?php echo($choix['id']); ?>"/>
+                                            <input id="<?php echo("ajoutJeuId".constant($choix['id'])); ?>" class="listePlateformesPourApercu" type="checkbox" name="plateformes[]" value="<?php echo($choix['id']); ?>" onclick="miseAJourAffichageAperçu('plateformes')"/>
                                             <label for="<?php echo("ajoutJeuId".constant($choix['id'])); ?>"><?php echo($choix['nom']); ?></label>
                                     <?php }?>
                                 </p>
                             </div>
                             <p class="pDescription">Description du jeu :</p>
-                            <textarea id="description" name="description" rows="5" cols="100"></textarea>
+                            <textarea id="description" name="description" rows="5" cols="100" onkeyup="miseAJourAffichageAperçu('description')"></textarea>
                             <br>
                             <input id="envoiFormulaire" type="submit" name="ajouterJeu" value="Ajouter le jeu"/>
                         </form>
                         <div class="apercuAjoutJeu">
                             <div class="infoJeuAperçu">
-                                <p class="nomJeuAperçu">Titre exemple</p>
-                                <p class="genresJeuAperçu">Genres exemple</p>
-                                <p class="plateformesJeuAperçu">Plateformes exemple</p>
-                                <p class="descriptionJeuAperçu">Description exemple</p>
+                                <p>Titre : <span id="nomJeuAperçu"></span</p>
+                                <p>Genres : <span id="genresJeuAperçu"></span</p>
+                                <p>Plateformes : <span id="plateformesJeuAperçu"></span</p>
+                                <p>Description : <span id="descriptionJeuAperçu"></span></p>
                             </div>
                             <div class="divImageAperçu">
                                 <img class=imageAperçu src="../images/test.png">
