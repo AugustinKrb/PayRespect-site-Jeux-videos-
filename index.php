@@ -43,16 +43,16 @@
             <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
             <fieldset class="listeJeux">
                     <legend>Tous les jeux</legend>
-                    <?php foreach (array_reverse(getAllGames()) as $tab) { ?>                    
+                    <?php foreach (array_reverse(getAllGames()) as $jeu) { ?>                    
                         <div class="affichageJeu">
                             <details>
                                 <summary>
-                                    <a href="<?php echo("./pages/affichageJeu.php?id=".$tab['id']); ?>" target="_blank"><img class="imageJeu" src="./images/test.png" alt="image test"></a>
-                                    <a href="<?php echo("./pages/affichageJeu.php?id=".$tab['id']); ?>" target="_blank"><p class="titre"><?php echo($tab['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p></a>
+                                    <a href="<?php echo("./pages/affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("./images/jeuxUpload/".$jeu['nomImage'])) {echo("./images/jeuxUpload/".$jeu['nomImage']);} else {echo("./images/test.png");} ?>" alt="image test"></a>
+                                    <a href="<?php echo("./pages/affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p></a>
                                 </summary>
-                                <p class="genres"><?php echo("Genre(s) : ".afficherGenresOuPlateformes($tab['genres'])); ?></p>
-                                <p class="plateformes"><?php echo("Plateforme(s) : ".afficherGenresOuPlateformes($tab['platforms'])); ?></p>
-                                <p class="description"><?php echo("description : ".$tab['description']); ?></p>
+                                <p class="genres"><?php echo("Genre(s) : ".afficherGenresOuPlateformes($jeu['genres'])); ?></p>
+                                <p class="plateformes"><?php echo("Plateforme(s) : ".afficherGenresOuPlateformes($jeu['platforms'])); ?></p>
+                                <p class="description"><?php echo("description : ".$jeu['description']); ?></p>
                             </details>
                         </div>
                     <?php } ?>
