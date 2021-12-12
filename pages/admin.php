@@ -31,7 +31,6 @@
         if (!empty($_FILES['imageJeu'])) {
             $dossierUploadImage = '../images/jeuxUpload/';
             $nomFichier = basename($_FILES['imageJeu']['name']);
-            $taille = filesize($_FILES['imageJeu']['tmp_name']);
             $extensionsAccept = [".png", ".gif", ".jpg", ".jpeg"];    //array('.png', '.gif', '.jpg', '.jpeg');
             $extensionImage = strrchr($_FILES['imageJeu']['name'], '.'); 
             //Début des vérifications de sécurité...
@@ -89,6 +88,39 @@
 
         //Message générique
         $messageErreurModif = "Le jeu a bien été modifié";
+
+
+        //Gérer l'upload de l'image du jeu modifiée
+        if (!empty($_FILES['imageAModifier_'.$idJeu])) {
+            $dossierUploadImage = '../images/jeuxUpload/';
+            $nomFichier = basename($_FILES['imageAModifier_'.$idJeu]['name']);
+            $extensionsAccept = [".png", ".gif", ".jpg", ".jpeg"];    //array('.png', '.gif', '.jpg', '.jpeg');
+            $extensionImage = strrchr($_FILES['imageAModifier_'.$idJeu]['name'], '.'); 
+            //Début des vérifications de sécurité...
+            if(!in_array($extensionImage, $extensionsAccept)) //Si l'extension n'est pas dans le tableau
+            {
+                $messageErreurModif = "Vous devez uploader un fichier de type png, gif, jpg ou jpeg...";
+            }
+            if(!isset($erreur)) //S'il n'y a pas d'erreur, on upload
+            {
+                //On formate le nom du fichier ici...
+                $nomFichier = strtr($nomFichier, 
+                    'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
+                    'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
+                $nomFichier = preg_replace('/([^.a-z0-9]+)/i', '-', $nomFichier);
+
+                if(move_uploaded_file($_FILES['imageAModifier_'.$idJeu]['tmp_name'], $dossierUploadImage . $nomFichier)) {//Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+                    $messageErreurModif = "Le jeu a bien été modifié";
+                    //Ajout chemin image au jeu
+                    saveImage($idJeu, $nomFichier);
+                } else {
+                    $messageErreurModif = "Echec de l\'upload de l'image, l'image du jeu n'a pas pu être modifiée !";
+                }
+
+            } else {    //Sinon il y a une erreur dans l'upload
+                $messageErreurModif = "Echec de l\'upload de l'image, l'image du jeu n'a pas pu être modifiée !";
+            }
+        }
     }
 
 
@@ -178,7 +210,6 @@
                             <p>
                                 <label for="imageAjoutJeu">Ajouter une image :</label>
                                 <input id="imageAjoutJeu" type="file" accept="image/*" name="imageJeu" onchange="apercuImage(event)">
-                                <img id="imageTest" />
                             </p>
                             <div class="choixGenre">
                                 <p>
@@ -227,6 +258,7 @@
                             <thead>
                                 <tr>
                                     <th>Id jeu</th>
+                                    <th>Image</th>
                                     <th>Nom</th>
                                     <th>Genre(s)</th>
                                     <th>Plateforme(s)</th>
@@ -237,9 +269,10 @@
                             <tbody>
                                 <?php foreach (array_reverse(getAllGames()) as $jeu) {
                                     $numAfficherModifJeuId++ ?>
-                                    <form method="POST" action="<?php echo("admin.php?iDModif=".$jeu['id']/*."#jeuAModifId_".$jeu['id']*/); ?>">
+                                    <form method="POST" action="<?php echo("admin.php?iDModif=".$jeu['id']/*."#jeuAModifId_".$jeu['id']*/); ?>" enctype="multipart/form-data">
                                         <tr id="<?php echo("jeuAModifId_".$jeu['id']); ?>" <?php echo("onclick=\"afficherOptionsModificationsJeu('afficherModifJeuId$numAfficherModifJeuId');\" "); ?>>
                                             <td><?php echo($jeu['id']); ?></td>
+                                            <td><img class="imageJeuModif" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
                                             <td><?php echo($jeu['title']); ?></td>
                                             <td><?php if (!empty($jeu['genres'])) {echo(afficherGenresOuPlateformesSautLignes($jeu['genres']));} ?></td>
                                             <td><?php if (!empty($jeu['platforms'])) {echo(afficherGenresOuPlateformesSautLignes($jeu['platforms']));} ?></td>
@@ -249,7 +282,12 @@
                                         <tr class="<?php echo("afficherModifJeuId".$numAfficherModifJeuId) ?> cacherOptionsJeu">
                                             <td></td>
                                             <td>
-                                                <label for="<?php echo("nomAModifier_".$jeu['id']); ?>">Nouveau nom</label>
+                                                <label for="imageModifJeu">Nouvelle image :</label>
+                                                <input class="imageModifJeu" type="file" accept="image/*" name="<?php echo("imageAModifier_".$jeu['id']); ?>" onchange="apercuImage(event)">
+                                                <img id="imageJeuModifApercu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test">
+                                            </td>
+                                            <td>
+                                                <label for="<?php echo("nomAModifier_".$jeu['id']); ?>">Nouveau nom :</label>
                                                 <input type="text" id="<?php echo("nomAModifier_".$jeu['id']); ?>" name="<?php echo("nomAModifier_".$jeu['id']); ?>" value="<?php echo($jeu['title']) ?>">
                                             </td>
                                             <td class="genres">
@@ -291,6 +329,7 @@
                                 <thead>
                                     <tr>
                                         <th>Id jeu</th>
+                                        <th>Image</th>
                                         <th>Nom</th>
                                         <th>Genre(s)</th>
                                         <th>Plateforme(s)</th>
@@ -303,6 +342,7 @@
                                         <form method="POST" action="<?php echo("admin.php?iDSuppr=".$jeu['id']."#jeuASupprId_".$jeu['id']); ?>">
                                             <tr id="<?php echo("jeuASupprId_".$jeu['id']); ?>" >
                                                 <td><?php echo($jeu['id']); ?></td>
+                                                <td><img class="imageJeuModif" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
                                                 <td><?php echo($jeu['title']); ?></td>
                                                 <td class="genres"><?php if (!empty($jeu['genres'])) {echo(afficherGenresOuPlateformes($jeu['genres']));} ?></td>
                                                 <td class="plateformes"><?php if (!empty($jeu['platforms'])) {echo(afficherGenresOuPlateformes($jeu['platforms']));} ?></td>
