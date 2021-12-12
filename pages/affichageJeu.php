@@ -4,6 +4,10 @@
 
     $idJeu = $_GET['id'];
     $jeuChoisi = getGame($idJeu);
+
+    //Test
+    //rateGame(51, "123", 8, "J'aime ce jeu, il est vraiment bien !");
+    //rateGame(51, "124", 4, "Bof...");
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -67,6 +71,23 @@
 
                     <div class="divImageJeuChoisi">
                         <img class="imageJeuChoisi" src="<?php if (file_exists("../images/jeuxUpload/".$jeuChoisi['nomImage'])) {echo("../images/jeuxUpload/".$jeuChoisi['nomImage']);} else {echo("../images/jeuxUpload/test.png");} ?>" alt="image test">
+                    </div>
+                </div>
+                <div id="avisUtilisateurs">
+                    <h1>Avis</h1>
+                    <?php  ?>
+
+                    
+                    <div class="avisUnique">
+                        <div class="nomUserAvis">
+                            <p>AntonioDu93</p>
+                        </div>
+                        <div class="avisUserAvis">
+                            <p>Avis feijoijoij oijoz joi</p>
+                        </div>
+                        <div class="noteUserAvis">
+                            <p>8/10</p>
+                        </div>
                     </div>
                 </div>
             </div>
