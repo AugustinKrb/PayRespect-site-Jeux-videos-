@@ -269,7 +269,7 @@
                             <tbody>
                                 <?php foreach (array_reverse(getAllGames()) as $jeu) {
                                     $numAfficherModifJeuId++ ?>
-                                    <form method="POST" action="<?php echo("admin.php?iDModif=".$jeu['id']/*."#jeuAModifId_".$jeu['id']*/); ?>" enctype="multipart/form-data">
+                                    <form method="POST" action="<?php echo("admin.php?iDModif=".$jeu['id']."#jeuAModifId_".$jeu['id']); ?>" enctype="multipart/form-data">
                                         <tr id="<?php echo("jeuAModifId_".$jeu['id']); ?>" <?php echo("onclick=\"afficherOptionsModificationsJeu('afficherModifJeuId$numAfficherModifJeuId');\" "); ?>>
                                             <td><?php echo($jeu['id']); ?></td>
                                             <td><img class="imageJeuModif" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
