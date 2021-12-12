@@ -223,7 +223,7 @@ details[open] summary:after {
     height: auto;
 }
 
-#imageJeuModifApercu {
+.imageJeuModifApercu {
     width: 110px;
     height: auto;
     border: solid 1px #000000;
