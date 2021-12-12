@@ -42,7 +42,6 @@ function afficherChoixAdmin(aAfficher) {
 }
 
 function afficherOptionsModificationsJeu(classJeu) {
-    console.log(classJeu);
     let modifAAfficher = document.getElementsByClassName(classJeu);
 
     //Parcours le tab reçu de td avec la class correspondante
@@ -107,7 +106,7 @@ function miseAJourAffichageAperçu(mettreAJour) {
 }
 
 //Afficher un aperçu de l'image
-function apercuImage(event) {
+function apercuImage(event, id = null) {
     var reader = new FileReader();
     reader.onload = function(){
         //Récupérer choix admin
@@ -115,9 +114,9 @@ function apercuImage(event) {
         if (affichageChoixAdmin == "ajouterJeu") {
             var output = document.getElementById('imageAperçu');
         } else if (affichageChoixAdmin == "modifierJeu") {
-            var output = document.getElementById('imageJeuModifApercu');
+            console.log('imageJeuModifApercu' + id);
+            var output = document.getElementById('imageJeuModifApercu_' + id);
         }
-        imageJeuModifApercu
         output.src = reader.result;
     };
     reader.readAsDataURL(event.target.files[0]);
