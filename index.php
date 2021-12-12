@@ -50,7 +50,7 @@
                             <details>
                                 <summary>
                                     <div class="divImageJeu">
-                                        <a href="<?php echo("./pages/affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("./images/jeuxUpload/".$jeu['nomImage'])) {echo("./images/jeuxUpload/".$jeu['nomImage']);} else {echo("./images/jeuxUpload/test.png");} ?>" alt="image test"></a>
+                                        <a href="<?php echo("./pages/affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("./images/jeuxUpload/".$jeu['nomImage'])) {echo("./images/jeuxUpload/".$jeu['nomImage']);} else {echo("./images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></a>
                                     </div>
                                     <a href="<?php echo("./pages/affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p></a>
                                 </summary>
