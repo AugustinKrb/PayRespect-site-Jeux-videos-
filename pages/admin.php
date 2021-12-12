@@ -232,17 +232,19 @@
                             <br>
                             <input id="envoiFormulaire" type="submit" name="ajouterJeu" value="Ajouter le jeu"/>
                         </form>
-                        <div class="apercuAjoutJeu">
-                            <div class="infoJeuAperçu">
-                                <p>Titre : <span id="nomJeuAperçu"></span</p>
-                                <p>Genres : <span id="genresJeuAperçu"></span</p>
-                                <p>Plateformes : <span id="plateformesJeuAperçu"></span</p>
-                                <p>Description : <span id="descriptionJeuAperçu"></span></p>
-                            </div>
-                            <div class="divImageAperçu">
-                                <img id="imageAperçu"  src="../images/jeuxUpload/pasDimage.png">
-                            </div>
-                        </div>
+                        <table class="apercuAjoutJeu">
+                            <tr>
+                                <td class="tdImageAperçu">
+                                    <img id="imageAperçu"  src="../images/jeuxUpload/pasDimage.png">
+                                </td>
+                                <td class="infoJeuAperçu">
+                                        <p>Titre : <span id="nomJeuAperçu"></span</p>
+                                        <p>Genres : <span id="genresJeuAperçu"></span</p>
+                                        <p>Plateformes : <span id="plateformesJeuAperçu"></span</p>
+                                        <p>Description : <span id="descriptionJeuAperçu"></span></p>
+                                </td>
+                            </tr>
+                        </table>
                     </fieldset>
                 </div>
 
