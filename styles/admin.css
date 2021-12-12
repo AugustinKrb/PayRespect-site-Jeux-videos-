@@ -211,6 +211,25 @@ details[open] summary:after {
 }
 
 /* Modifier jeu - supprimer jeu */
+
+/*Modifier jeu */
+.divImageJeuModif {
+    width: 50px;
+    height: 50px;
+}
+
+.imageJeuModif {
+    width: 80px;
+    height: auto;
+}
+
+#imageJeuModifApercu {
+    width: 110px;
+    height: auto;
+    border: solid 1px #000000;
+}
+
+
 .tabJeu {
     width: 90%;
     margin-left: auto;
