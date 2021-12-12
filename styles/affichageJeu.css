@@ -28,7 +28,7 @@
 /* Pour l'affichage du jeux et des infos */
 
 .divImageJeuChoisi {
-    width: 20%;
+    width: 30%;
     height: auto;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -43,7 +43,7 @@
 
 .infoJeuChoisi {
     position: absolute;
-    margin-left: 15%;
+    margin-left: 25%;
 }
 
 .intituleJeuChoisi {
@@ -87,4 +87,42 @@
 .menuHautRecherche nav a:hover{
     color: #FFFFFF;
     border-bottom: 2px solid #000000;
+}
+
+/* Avis utilisateurs */
+#avisUtilisateurs h1 {
+    text-align: center;
+}
+
+#avisUtilisateurs .avisUnique {
+    border:solid 1px #000000;
+    display: inline-block;
+    width: 100%;
+}
+
+#avisUtilisateurs .nomUserAvis {
+    float: left;
+    width: 20%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-right: solid 1px #000000;
+    text-align: center;
+}
+
+#avisUtilisateurs .avisUserAvis {
+    float: left;
+    width: 61%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+#avisUtilisateurs .noteUserAvis {
+    float: left;
+    width: 15%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-left: solid 1px #000000;
+    text-align: center;
 }
