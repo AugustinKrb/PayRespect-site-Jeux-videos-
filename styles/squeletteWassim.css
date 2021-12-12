@@ -1,0 +1,53 @@
+html {
+    /* user-select: none; */
+    width: 100%;
+    height: 100%;
+}
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Courier New, monospace;
+    color: #000000;
+    width: 100%;
+    position: relative;
+    top: -21px;
+    background: #5de7ff;
+}
+
+
+header {
+    font-family: Courier New, monospace;
+    width: 100%;
+    position: relative;
+    top: 0;
+    background: radial-gradient(circle at var(--x) var(--y), #5de7ff 0%, #0092ec 100%);
+    border: none;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+    color: #000000;
+}
+
+header h1 {
+
+    font-size: 40px;
+}
+
+header p:hover {
+    text-decoration: underline;
+    font-weight: bold;
+    color: ;
+}
+
+footer {
+    width: 100%;
+    background-color: #dbdbdb;
+    border: none;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+}
