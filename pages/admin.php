@@ -283,8 +283,8 @@
                                             <td></td>
                                             <td>
                                                 <label for="imageModifJeu">Nouvelle image :</label>
-                                                <input class="imageModifJeu" type="file" accept="image/*" name="<?php echo("imageAModifier_".$jeu['id']); ?>" onchange="apercuImage(event)">
-                                                <img id="imageJeuModifApercu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test">
+                                                <input class="imageModifJeu" type="file" accept="image/*" name="<?php echo("imageAModifier_".$jeu['id']); ?>" <?php echo("onchange=\"apercuImage(event, ".$jeu['id'].")\""); ?>>
+                                                <img id="<?php echo("imageJeuModifApercu_".$jeu['id']); ?>" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test">
                                             </td>
                                             <td>
                                                 <label for="<?php echo("nomAModifier_".$jeu['id']); ?>">Nouveau nom :</label>
