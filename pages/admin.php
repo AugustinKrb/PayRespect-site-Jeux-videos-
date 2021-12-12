@@ -94,9 +94,8 @@
             $nomFichier = basename($_FILES['imageAModifier_'.$idJeu]['name']);
             $extensionsAccept = [".png", ".gif", ".jpg", ".jpeg"];    //array('.png', '.gif', '.jpg', '.jpeg');
             $extensionImage = strrchr($_FILES['imageAModifier_'.$idJeu]['name'], '.'); 
-            //Verif de l'extension puis ajout
-            if(in_array($extensionImage, $extensionsAccept) && !isset($erreur)) //S'il n'y a pas d'erreur, on upload
-            {
+            //Verif bonne extension
+            if(in_array($extensionImage, $extensionsAccept) && !isset($erreur)) { //S'il n'y a pas d'erreur, on upload
                 //On formate le nom du fichier ici...
                 $nomFichier = strtr($nomFichier, 
                     'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
@@ -104,15 +103,18 @@
                 $nomFichier = preg_replace('/([^.a-z0-9]+)/i', '-', $nomFichier);
 
                 if(move_uploaded_file($_FILES['imageAModifier_'.$idJeu]['tmp_name'], $dossierUploadImage . $nomFichier)) {//Si la fonction renvoie TRUE, c'est que ça a fonctionné...
-                    $messageErreurModif = "Le jeu a bien été modifié";
+                    $messageErreurAjout = "Le jeu a bien été ajouté";
                     //Ajout chemin image au jeu
                     saveImage($idJeu, $nomFichier);
                 } else {
-                    saveImage($id, "pasDimage.png");
+                    saveImage($idJeu, "pasDimage.png"); //Image par défaut, ne sais pas pourquoi on doit le mettre ici
                 }
 
             } else {    //Sinon il y a une erreur dans l'upload
-                $messageErreurModif = "Echec de l'upload de l'image, l'image du jeu n'a pas pu être modifiée !";
+                saveImage($idJeu, "pasDimage.png");    //Image par défaut
+            }
+            if (!in_array($extensionImage, $extensionsAccept)) {
+                $messageErreurModif = "Seul les images sont acceptées : .png, .gif, .jpg, .jpeg...";
             }
         }
     }
