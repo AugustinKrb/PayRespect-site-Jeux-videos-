@@ -1,99 +1,174 @@
 <?php
-    require_once 'libgames.php';
+require_once __DIR__.'/nosql.php';
 
-    $tabGenres = [
-                  ["nom" => "Science fiction",
-                   "id" => "GENRE_SF",
-                   "define" => "sf"],
-                  ["nom" => "Fantastique",
-                   "id" => "GENRE_FANTASY",
-                   "define" => "fantasy"],
-                  ["nom" => "Stratégie",
-                   "id" => "GENRE_STRATEGY",
-                   "define" => "strategy"],
-                  ["nom" => "RPG",
-                   "id" => "GENRE_RPG",
-                   "define" => "rpg"],
-                  ["nom" => "FPS",
-                   "id" => "GENRE_FPS",
-                   "define" => "fps"],
-                  ["nom" => "Rogue",
-                   "id" => "GENRE_ROGUE",
-                   "define" => "rogue"],
-                  ["nom" => "Aventure",
-                   "id" => "GENRE_ADVENTURE",
-                   "define" => "adventure"],
-                  ["nom" => "Life",
-                   "id" => "GENRE_LIFE",
-                   "define" => "life"],
-                  ["nom" => "Horreur",
-                   "id" => "GENRE_HORROR",
-                   "define" => "horror"],
-                  ["nom" => "Enfant",
-                   "id" => "GENRE_CHILDREN",
-                   "define" => "children"]];
+//NoSQL::configure('/_Autres_/Logiciel/wamp64/www/PayRespect/_data');
+NoSQL::configure('/wamp64/www/PayRespect/_data');
 
-    $tabPlateformes = [
-                        ["nom" => "Steam",
-                         "id" => "PLATFORM_STEAM",
-                         "define" => "steam"],
-                        ["nom" => "Epic games",
-                         "id" => "PLATFORM_EPIC",
-                         "define" => "epix"],
-                        ["nom" => "Xbox",
-                         "id" => "PLATFORM_XBOX",
-                         "define" => "xbox"],
-                        ["nom" => "PS4",
-                         "id" => "PLATFORM_PS4",
-                         "define" => "ps4"],
-                        ["nom" => "PS5",
-                         "id" => "PLATFORM_PS5",
-                         "define" => "ps5"],
-                        ["nom" => "Switch",
-                         "id" => "PLATFORM_SWITCH",
-                         "define" => "switch"],
-                        ["nom" => "Android",
-                         "id" => "PLATFORM_ANDROID",
-                         "define" => "android"],
-                        ["nom" => "IOS",
-                         "id" => "PLATFORM_IOS",
-                         "define" => "ios"]];
+define('GENRE_SF', 'sf');
+define('GENRE_FANTASY', 'fantasy');
+define('GENRE_STRATEGY', 'strategy');
+define('GENRE_RPG', 'rpg');
+define('GENRE_FPS', 'fps');
+define('GENRE_ROGUE', 'rogue');
+define('GENRE_ADVENTURE', 'adventure');
+define('GENRE_LIFE', 'life');
+define('GENRE_HORROR', 'horror');
+define('GENRE_CHILDREN', 'children');
+
+define('PLATFORM_STEAM', 'steam');
+define('PLATFORM_XBOX', 'xbox');
+define('PLATFORM_PS4', 'ps4');
+define('PLATFORM_PS5', 'ps5');
+define('PLATFORM_SWITCH', 'switch');
+define('PLATFORM_EPIC', 'epic');
+define('PLATFORM_ANDROID', 'android');
+define('PLATFORM_IOS', 'ios');
+
+function createGame(string $title) {
+    $saved = NoSQL::getInstance('games')->save(['title' => $title,]);
+    return $saved['id'];
+}
+
+function getGame($id) {
+    return NoSQL::getInstance('games')->find(strval($id));
+}
+
+function getAllGames(): array {
+    return NoSQL::getInstance('games')->all();
+}
+
+function deleteAllGames() {
+    NoSQL::getInstance('grades')->truncate();
+    NoSQL::getInstance('games')->truncate();
+}
+
+function deleteGame($id) {
+    $game = NoSQL::getInstance('games')->find(strval($id));
+    if(!empty($game)) {
+        // remove grades
+        $grades = array_keys(NoSQL::getInstance('grades')->search('game', $id, NoSQL::OP_EQ));
+        foreach($grades as $grade) { NoSQL::getInstance('grades')->delete($grade); }
+        NoSQL::getInstance('games')->delete(strval($id));
+    } else {
+        throw new Exception('Game ID '.$id.' not found');
+    }
+}
+
+function saveTitle($id, string $title) {
+    $game = NoSQL::getInstance('games')->find(strval($id));
+    if(!empty($game)) {
+        $game['title'] = $title;
+        NoSQL::getInstance('games')->save($game);
+    } else {
+        throw new Exception('Game ID '.$id.' not found');
+    }
+}
+
+function saveGenres($id, array $genres) {
+    $game = NoSQL::getInstance('games')->find(strval($id));
+    if(!empty($game)) {
+        $game['genres'] = $genres;
+        NoSQL::getInstance('games')->save($game);
+    } else {
+        throw new Exception('Game ID '.$id.' not found');
+    }
+}
+
+function savePlatforms($id, array $platforms) {
+    $game = NoSQL::getInstance('games')->find(strval($id));
+    if(!empty($game)) {
+        $game['platforms'] = $platforms;
+        NoSQL::getInstance('games')->save($game);
+    } else {
+        throw new Exception('Game ID '.$id.' not found');
+    }
+}
+
+/* Peut-être */
+function saveDescription($id, string $description) {
+    $game = NoSQL::getInstance('games')->find(strval($id));
+    if(!empty($game)) {
+        $game['description'] = $description;
+        NoSQL::getInstance('games')->save($game);
+    } else {
+        throw new Exception('Game ID '.$id.' not found');
+    }
+}
+
+function saveImage($id, string $nomImage) {
+    $game = NoSQL::getInstance('games')->find(strval($id));
+    if(!empty($game)) {
+        $game['nomImage'] = $nomImage;
+        NoSQL::getInstance('games')->save($game);
+    } else {
+        throw new Exception('Game ID '.$id.' not found');
+    }
+}
+/* Peut-être */
+
+function hasAlreadyRated($gameId, string $userIp): bool {
+    $returns = false;
+    $game = NoSQL::getInstance('games')->find(strval($gameId));
+    if(!empty($game)) {
+        $foundByIp = NoSQL::getInstance('grades')->search('ip', $userIp, NoSQL::OP_EQ);
+        $foundByGame = NoSQL::getInstance('grades')->search('game', $gameId, NoSQL::OP_EQ);
+        $returns = !empty(array_intersect(array_keys($foundByIp), array_keys($foundByGame)));
+    } else {
+        throw new Exception('Game ID '.$gameId.' not found');
+    }
+    return $returns;
+}
+
+function rateGame($gameId, string $user, string $userIp, int $note, string $comment) {
+    $game = NoSQL::getInstance('games')->find(strval($gameId));
+    if(!empty($game)) {
+        NoSQL::getInstance('grades')->save([
+            'game' => $game['id'],
+            'ip' => $userIp,
+            //Ajout user
+            'user' => $user,
+            'note' => $note,
+            'comment' => $comment,
+            'date' => date('Y-m-d H:i'),
+        ]);
+    } else {
+        throw new Exception('Game ID '.$gameId.' not found');
+    }
+}
+
+function searchGamesByTitle(string $title): array {
+    return NoSQL::getInstance('games')->search('title', $title, NoSQL::OP_LK);
+}
+
+function searchGamesByGenre(string $genre): array {
+    return NoSQL::getInstance('games')->search('genres', $genre, NoSQL::OP_IN);
+}
+
+/* Peut-être */
+function searchGamesByPlateform(string $platform): array {
+    return NoSQL::getInstance('games')->search('platforms', $platform, NoSQL::OP_IN);
+}
+/* Peut-être */
+
+function searchGames(string $title = null, string $genre = null, string $platform = null): array {
+    $returns = [];
     
-    $messageErreurAjout = "";
-    $messageErreurModif = "";
-    $messageErreurSuppr = "";
-    
-    function getJeuxOrdreDernierAjouts() {
-        $tabJeux = [];
-        foreach (getAllGames() as $tab) {
-            array_push($tabJeux, $tab);
+    $games = getAllGames();
+    foreach($games as $game) {
+        $gameValid = true;
+        if(null !== $title) {
+            $gameValid = $gameValid && (false !== stripos($game['title'], $title));
         }
-        return array_reverse($tabJeux);
+        if(null !== $genre) {
+            $gameValid = $gameValid && array_key_exists('genres', $game) && in_array($genre, $game['genres']);
+        }
+        if(null !== $platform) {
+            $gameValid = $gameValid && array_key_exists('platforms', $game) && in_array($platform, $game['platforms']);
+        }
+        if($gameValid) {
+            $returns[$game['id']] = $game;
+        }
     }
     
-    function afficherGenresOuPlateformes($tab) {
-        $res = "";
-        foreach ($tab as $value) {
-            $res .= " ".constant($value);
-        }
-        $res = str_replace(" ", ", ", $res);
-        return substr($res, 1, strlen($res)).".";
-    }    
-
-    function afficherGenresOuPlateformesSautLignes($tab) {
-        $res = "";
-        foreach ($tab as $value) {
-            $res .= " ".constant($value);
-        }
-        $res = str_replace(" ", ",<br>", $res);
-        return substr($res, 1, strlen($res)).".";
-    }
-
-    function preRemplissageChecked($caseGenre, $genresJeu) {
-        foreach ($genresJeu as $genre) {
-            if (constant($genre) == constant($caseGenre)) {
-                return "checked=\"checked\"";
-            }
-        }
-    }
-?>
+    return $returns;
+}
