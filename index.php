@@ -45,7 +45,7 @@
             <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
             <fieldset class="listeJeux">
                     <legend>Tous les jeux</legend>
-                    <?php foreach (array_reverse(getAllGames()) as $jeu) { ?>                    
+                    <?php foreach (array_reverse(getAllGames()) as $jeu) { ?>
                         <div class="affichageJeu">
                             <details>
                                 <summary>
