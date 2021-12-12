@@ -147,7 +147,7 @@
                         for ($i = 0; $i < 4; $i++) { ?>
                             <details class="jeuExemple">
                                 <summary>
-                                    <img class="imageJeuExemple" src="../images/test.png" alt="image test">
+                                    <img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test">
                                     <p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"> <img src="../images/etoiles.png"></span></p>
                                 </summary>
                                 <p class="descriptionJeuExemple">description :</p>
@@ -213,7 +213,7 @@
                                 <p>Description : <span id="descriptionJeuAperçu"></span></p>
                             </div>
                             <div class="divImageAperçu">
-                                <img id="imageAperçu"  src="../images/test.png">
+                                <img id="imageAperçu"  src="../images/jeuxUpload/pasDimage.png">
                             </div>
                         </div>
                     </fieldset>
@@ -320,19 +320,21 @@
             </section>
             
             <section class="droite">
-                <p>Les mieux notés</p>
+                <p>Les nouveautés !</p>
+                <div class="listeJeuxExemple">
                     <?php
                         $tabJeuxNouveautes = getJeuxOrdreDernierAjouts();
                         for ($i = 0; $i < 4; $i++) { ?>
                             <details class="jeuExemple">
                                 <summary>
-                                    <img class="imageJeuExemple" src="../images/test.png" alt="image test">
+                                    <img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test">
                                     <p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"> <img src="../images/etoiles.png"></span></p>
                                 </summary>
                                 <p class="descriptionJeuExemple">description :</p>
                             </details>
                         <?php }
                     ?>
+                </div>
             </section>
         </main>
 
