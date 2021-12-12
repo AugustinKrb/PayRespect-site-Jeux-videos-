@@ -110,8 +110,15 @@ function miseAJourAffichageAperçu(mettreAJour) {
 function apercuImage(event) {
     var reader = new FileReader();
     reader.onload = function(){
-      var output = document.getElementById('imageAperçu');
-      output.src = reader.result;
+        //Récupérer choix admin
+        let affichageChoixAdmin = localStorage.getItem('affichageChoixAdmin');
+        if (affichageChoixAdmin == "ajouterJeu") {
+            var output = document.getElementById('imageAperçu');
+        } else if (affichageChoixAdmin == "modifierJeu") {
+            var output = document.getElementById('imageJeuModifApercu');
+        }
+        imageJeuModifApercu
+        output.src = reader.result;
     };
     reader.readAsDataURL(event.target.files[0]);
 };
