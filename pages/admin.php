@@ -34,12 +34,10 @@
             $extensionsAccept = [".png", ".gif", ".jpg", ".jpeg"];    //array('.png', '.gif', '.jpg', '.jpeg');
             $extensionImage = strrchr($_FILES['imageJeu']['name'], '.'); 
             //Début des vérifications de sécurité...
-            if(!in_array($extensionImage, $extensionsAccept)) //Si l'extension n'est pas dans le tableau
-            {
+            if(!in_array($extensionImage, $extensionsAccept)) { //Si l'extension n'est pas dans le tableau
                 $messageErreurAjout = "Vous devez uploader un fichier de type png, gif, jpg ou jpeg...";
             }
-            if(!isset($erreur)) //S'il n'y a pas d'erreur, on upload
-            {
+            if(!isset($erreur)) { //S'il n'y a pas d'erreur, on upload
                 //On formate le nom du fichier ici...
                 $nomFichier = strtr($nomFichier, 
                     'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
@@ -51,12 +49,14 @@
                     //Ajout chemin image au jeu
                     saveImage($idJeu, $nomFichier);
                 } else {
-                    $messageErreurAjout = "Echec de l\'upload de l'image, le jeu n'a pas pu être ajouté !";
+                    saveImage($idJeu, "pasDimage.png"); //Image par défaut, ne sais pas pourquoi on doit le mettre ici
                 }
 
             } else {    //Sinon il y a une erreur dans l'upload
-                $messageErreurAjout = "Echec de l\'upload de l'image, le jeu n'a pas pu être ajouté !";
+                $messageErreurAjout = "Echec de l'upload de l'image, le jeu n'a pas pu être ajouté !";
             }
+        } else {
+            saveImage($idJeu, "pasDimage.png");
         }
     }
 
@@ -114,11 +114,13 @@
                     //Ajout chemin image au jeu
                     saveImage($idJeu, $nomFichier);
                 } else {
-                    $messageErreurModif = "Echec de l\'upload de l'image, l'image du jeu n'a pas pu être modifiée !";
+                    saveImage($id, "pasDimage.png");
+                    $messageErreurModif = "Echec de l'upload de l'image, l'image du jeu n'a pas pu être modifiée !aaaaaaaaaaaaa";
                 }
 
             } else {    //Sinon il y a une erreur dans l'upload
-                $messageErreurModif = "Echec de l\'upload de l'image, l'image du jeu n'a pas pu être modifiée !";
+                saveImage($id, "pasDimage.png");
+                $messageErreurModif = "Echec de l'upload de l'image, l'image du jeu n'a pas pu être modifiée !zzzzzzzzzzzzzz";
             }
         }
     }
@@ -284,7 +286,7 @@
                                             <td>
                                                 <label for="imageModifJeu">Nouvelle image :</label>
                                                 <input class="imageModifJeu" type="file" accept="image/*" name="<?php echo("imageAModifier_".$jeu['id']); ?>" <?php echo("onchange=\"apercuImage(event, ".$jeu['id'].")\""); ?>>
-                                                <img id="<?php echo("imageJeuModifApercu_".$jeu['id']); ?>" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test">
+                                                <img id="<?php echo("imageJeuModifApercu_".$jeu['id']); ?>" class="imageJeuModifApercu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test">
                                             </td>
                                             <td>
                                                 <label for="<?php echo("nomAModifier_".$jeu['id']); ?>">Nouveau nom :</label>
