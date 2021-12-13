@@ -1,0 +1,270 @@
+.milieu {
+    display: inline-block;
+    width: 80%;
+}
+
+/********************************/
+.menuHaut {
+    z-index: 1;
+    background-color: #dbdbdb;
+    width: 100%;
+    margin: 0px auto 40px auto;
+}
+
+nav ul{
+    list-style-type: none;
+}
+
+nav li{
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+/*Evite que le menu n'ait une hauteur nulle*/
+nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav a{
+    display: block; /*Toute la surface sera cliquable*/
+    text-decoration: none;
+    color: #000000;
+    border-bottom: 2px solid transparent;   /*Evite le décalage des éléments sous le menu à cause de la bordure en :hover*/
+    padding: 10px 0px;  /*Agrandit le menu et espace la bordure du texte*/
+}
+
+nav a:hover{
+    color: #FFFFFF;
+    border-bottom: 2px solid #000000;
+}
+
+/********************************/
+/* Nav pour le choix de l'admin */
+
+.choixAdmin {
+    width: 60%;
+    margin-left: 20%;
+}
+
+.choixAdmin li {
+    margin: 1%;
+    width: calc(94% / 3);
+    padding: 2%;
+    
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: solid 1px #000000;
+    border-radius: 25px 25px 0 0px;
+}
+
+.choixAdmin li:hover {
+    background-color: #dbdbdb;
+    font-size: large;
+    font-weight: bold;
+}
+
+
+/********************************/
+/* Désactiver affichage des choix admin */
+#ajouterJeu {
+    display: none;
+}
+
+#modifierJeu {
+    display: none;
+}
+
+#supprimerJeu {
+    display: none;
+}
+
+
+/********************************/
+.listeJeuxExemple {
+    padding-left: 3%;
+    padding-right: 3%;
+    text-align: center;
+
+    border-radius: 30px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    overflow: auto;
+}
+
+.jeuExemple {
+    width: 80%;
+    margin: 5%;
+}
+
+.jeuExemple summary {
+    width: 100%;
+    position: relative;
+    list-style: none;
+}
+
+.jeuExemple summary:after {
+    content: "\0025BC"; /* ▼ */
+    color: #000000;
+    position: relative;
+    transform-origin: center;
+    transition: 200ms linear;
+}
+
+details[open] summary:after {
+    content: "\0025B2"; /* ▲ */
+}
+
+.jeuExemple summary p {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-top: solid 1px #000000;
+    border-bottom: solid 1px #000000;
+}
+
+.jeuExemple summary {
+    border: solid 1px #000000;
+}
+
+.jeuExemple .descriptionJeuExemple {
+    width: 100%;
+    text-align: left;
+
+    margin-top: 0px;    
+    border-left: solid 1px #000000;
+    border-right: solid 1px #000000;
+    border-bottom: solid 1px #000000;
+}
+
+.imageJeuExemple {
+    width: 100%;
+    height: auto;
+}
+
+.note {
+    float: right;
+    margin-right: 2%;
+}
+
+.milieu fieldset {
+    width: 80%;
+    border-radius: 30px;
+    text-align: center;
+
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Formulaire */
+
+.messageErreur {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Ajout jeu */
+#description {
+    resize: vertical;
+}
+
+/* Aperçu */
+.tdImageAperçu {
+    width: 30%;
+    height: auto;
+    text-align: left;
+    vertical-align: top;
+}
+
+#imageAperçu {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: solid 1px #000000;
+}
+
+.infoJeuAperçu {
+    text-align: left;
+    white-space: pre;
+    text-align: left;
+    vertical-align: top;
+    padding-left: 2%;
+}
+
+#ajouterJeu {
+    height: auto;
+}
+
+.nomJeuAperçu, .genresJeuAperçu, .plateformesJeuAperçu, .descriptionJeuAperçu {
+    text-align: left;
+}
+
+.descriptionJeuAperçu {
+    white-space: normal;
+    width: 80%;
+}
+
+/* Modifier jeu - supprimer jeu */
+
+/*Modifier jeu */
+.divImageJeuModif {
+    width: 50px;
+    height: 50px;
+}
+
+.imageJeuModif {
+    width: 80px;
+    height: auto;
+}
+
+.imageJeuModifApercu {
+    width: 110px;
+    height: auto;
+    border: solid 1px #000000;
+}
+
+
+.tabJeu {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.tabJeu th, .tabJeu td {
+    width: auto;
+    border: solid 1px #000000;
+}
+
+.tabJeu {
+    border-collapse: collapse;
+}
+
+.tabJeu thead {
+    background-color: #AAAAAA;
+}
+
+.tabJeu tbody tr:nth-child(odd) {
+    background-color: #EEEEEE;
+}
+
+.pDescription textarea {
+    resize: vertical;
+}
+
+.cacherOptionsJeu {
+    display: none;
+}

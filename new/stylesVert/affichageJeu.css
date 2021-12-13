@@ -1,0 +1,128 @@
+.gauche, .droite {    
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: solid 1px black;
+    width: 10%;
+    height: 100%;
+}
+
+.gauche {
+    float: left;
+    margin-left: 0px;
+}
+
+.droite {
+    float: right;
+    margin-right: 0px;
+}
+
+.milieu {
+    display: inline-block;
+    width: 70%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+/***************************/
+/* Pour l'affichage du jeux et des infos */
+.tdImageJeuChoisi {
+    width: 30%;
+    height: auto;
+    text-align: left;
+    vertical-align: top;
+}
+
+.imageJeuChoisi {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: solid 1px #FFFFFF;    /*Vert*/
+}
+
+.infoJeuChoisi {
+    text-align: left;
+    white-space: pre;
+    vertical-align: top;
+    padding-left: 2%;
+    line-height: 6px;
+}
+
+.intituleJeuChoisi {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+/*********************/
+.menuHaut {
+    z-index: 1;
+    width: 100%;
+    margin: 0px auto 40px auto;
+}
+
+.menuHaut nav ul{
+    list-style-type: none;
+}
+
+.menuHaut nav li{
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+
+/*Evite que le menu n'ait une hauteur nulle*/
+.menuHaut nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.menuHaut nav a{
+    display: block; /*Toute la surface sera cliquable*/
+    text-decoration: none;
+    border-bottom: 2px solid transparent;   /*Evite le décalage des éléments sous le menu à cause de la bordure en :hover*/
+    padding: 10px 0px;  /*Agrandit le menu et espace la bordure du texte*/
+}
+
+/* Avis utilisateurs */
+#avisUtilisateurs h1 {
+    text-align: center;
+}
+
+#avisUtilisateurs .avisUnique {
+    border: solid 1px #FFFFFF; /*Vert*/
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#avisUtilisateurs td {
+    border: solid 1px #FFFFFF; /*Vert*/
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+#avisUtilisateurs tr:nth-child(odd) {
+    background-color: #004700;  /*Vert*/
+}
+
+#avisUtilisateurs tr:nth-child(even) {
+    background-color: #009100;  /*Vert*/
+}
+
+#avisUtilisateurs .nomUserAvis {
+    width: 20%;
+    text-align: center;
+}
+
+#avisUtilisateurs .avisUserAvis {
+    width: 65%;
+}
+
+#avisUtilisateurs .noteUserAvis {
+    width: 15%;
+    text-align: center;
+}
