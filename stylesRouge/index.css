@@ -1,0 +1,157 @@
+#bgSNIR {
+    margin-left: 3%;
+}
+
+/* Affichage jeux dans l'index */
+
+.listeJeux {
+    padding-left: 3%;
+    padding-right: 3%;
+    text-align: center;
+
+    border-radius: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    background-color: #7a1010;  /*Vert*/
+}
+
+.listeJeux:hover {
+    background-color: #aa1515;  /*Vert*/
+}
+
+.listeJeux legend {
+    text-align: left;
+    font-size: x-large;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.affichageJeu {
+    width: 18%;
+    height: 100%;   /* A changer */
+    margin: 2%;
+    background-color: #640f0f;  /*Vert*/
+}
+
+.affichageJeu:hover {
+    background-color: #861414;  /*Vert*/
+}
+
+.affichageJeu summary {
+    width: 100%;
+    height: auto;
+    position: relative;
+    list-style: none;
+}
+
+.affichageJeu summary:after {
+    content: "\0025BC"; /* ▼ */
+    color: #FFFFFF; /*Vert*/
+    position: relative;
+    transform-origin: center;
+    transition: 200ms linear;
+}
+
+details[open] summary:after {
+    content: "\0025B2"; /* ▲ */
+}
+
+.affichageJeu summary a {    
+    text-decoration: none;
+    color: #FFFFFF; /*Vert*/
+}
+
+.affichageJeu summary p {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-top: solid 1px #FFFFFF;  /*Vert*/
+    border-bottom: solid 1px #FFFFFF;   /*Vert*/
+}
+
+.affichageJeu summary {
+    border: solid 1px #FFFFFF;  /*Vert*/
+}
+
+/* Affichage : quand le jeu est "déplié" */
+.affichageJeu p:not(.titre) {
+    width: 100%;
+    /*width: 287px;*/
+    text-align: left;
+
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-left: solid 1px #FFFFFF; /*Vert*/
+    border-right: solid 1px #FFFFFF;    /*Vert*/
+    border-bottom: solid 1px #FFFFFF;   /*Vert*/
+
+    /*  Ne pas tout afficher
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 37px;
+    */
+}
+
+.divImageJeu {
+    width: 100%;
+    height: 100%;
+}
+
+.imageJeu {
+    width: 100%;
+    height: 100%;
+}
+
+.note {
+    float: right;
+    margin-right: 2%;
+}
+
+/********************************/
+
+.menuHaut {
+    background-color: #330505;  /*Vert*/
+    width: 100%;
+    margin: 0px auto 40px auto;
+}
+
+nav ul{
+    list-style-type: none;
+}
+
+nav li{
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+/*Evite que le menu n'ait une hauteur nulle*/
+nav ul::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+nav a{
+    display: block; /*Toute la surface sera cliquable*/
+    text-decoration: none;
+    color: #FFFFFF; /*Vert*/
+    border-bottom: 2px solid transparent;   /*Evite le décalage des éléments sous le menu à cause de la bordure en :hover*/
+    padding: 10px 0px;  /*Agrandit le menu et espace la bordure du texte*/
+}
+
+nav a:hover{
+    font-weight: bold;
+    color: #ce1d1d; /*Vert*/
+    border-bottom: 2px solid #FFFFFF;   /*Vert*/
+}
+
+/********************************/
