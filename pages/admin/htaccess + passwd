@@ -1,0 +1,6 @@
+AuthType Basic
+AuthName "Password Protected Area"
+AuthUserFile C:\wamp64\www\Gameflix\.htpasswd
+Require valid-user
+
+admin:admin1
