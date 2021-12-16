@@ -47,9 +47,6 @@
     <body>
         <header>
             <h1>Pay Respect </h1>
-
-            <p>Trouvez plein de jeux sur cet incroyable site qui n’est en fait qu’un prototype réalisé par les bg de BTS SNIR !</p>
-
             <form action="./recherche.php">
                 <label for="recherche">Recherche :</label>
                 <input id="recherche" type="search" name="recherche" required>
@@ -87,7 +84,7 @@
             </div>
 
             <div class="milieu">
-                <form action="./rechercheComplexe.php">
+                <form id="parametresRecherche" action="./rechercheComplexe.php">
                     <span>Recherche :</span>
                     <input id="titreRecherche" type="search" name="titreRecherche" placeholder="Nom du jeu">
                     <select id="genreRecherche" name="genreRecherche">
