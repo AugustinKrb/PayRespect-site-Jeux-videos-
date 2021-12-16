@@ -53,7 +53,7 @@
                 saveImage($idJeu, "pasDimage.png");    //Image par défaut
             }
             if (!in_array($extensionImage, $extensionsAccept)) {
-                $messageErreurAjout = "Seul les images sont acceptées : .png, .gif, .jpg, .jpeg...";
+                $messageErreurAjout = "Jeux ajouté sans image --> extensions acceptées : .png, .gif, .jpg, .jpeg...";
             }
         }
     }
