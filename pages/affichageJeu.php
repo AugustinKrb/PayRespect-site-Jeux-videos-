@@ -16,9 +16,10 @@
         <meta charset="utf-8"/>
         <title><?php echo($jeuChoisi['title']); ?></title>
         <link rel="icon" type="image/png" href="../images/icone.png" />
-        <link rel="stylesheet" href="../styles/squelette.css"/>
-        <link rel="stylesheet" href="../styles/affichageJeu.css"/>
-        <link rel="stylesheet" href="../styles/affichageJeuMini.css"/>
+        
+        <link rel="stylesheet" href="../stylesBleu/affichageJeu.css"/>
+        <link rel="stylesheet" href="../stylesBleu/affichageJeuMini.css"/>
+        <link rel="stylesheet" href="../stylesBleu/squelette.css"/>
     </head>
 
     <body>
@@ -28,10 +29,10 @@
             <form action="./recherche.php" target="_blank">
                 <label for="recherche">Recherche :</label>
                 <input id="recherche" type="search" name="recherche" required>
-                <input type="submit" value="Rechercher">
+                <input id="boutonRecherche" type="submit" value="Rechercher">
             </form>
             
-            <div class="menuHautRecherche">
+            <div class="menuHaut">
                 <nav>
                     <ul>
                         <li><a href="../index.php">Page principale</a></li>
@@ -61,34 +62,48 @@
             </div>
 
             <div class="milieu">
-                <div class="affichageHautJeuChoisi">
-                    <div class="infoJeuChoisi">
-                        <p><span class="intituleJeuChoisi">Titre :</span><?php echo(" ".$jeuChoisi['title']); ?></p>
-                        <p><span class="intituleJeuChoisi">Genre(s) :</span><?php if (!empty($jeuChoisi['genres'])){ echo(" ".afficherGenresOuPlateformes($jeuChoisi['genres']));} else { echo(" Inconnu..");} ?></p>
-                        <p><span class="intituleJeuChoisi">Plateforme(s) :</span><?php if (!empty($jeuChoisi['platforms'])){ echo(" ".afficherGenresOuPlateformes($jeuChoisi['platforms']));} else { echo(" Inconnu...");} ?></p>
-                        <p><span class="intituleJeuChoisi">Description :</span><?php if (!empty($jeuChoisi['description'])){ echo(" ".$jeuChoisi['description']);} else { echo(" Inconnu..");} ?></p>
-                    </div>
-
-                    <div class="divImageJeuChoisi">
-                        <img class="imageJeuChoisi" src="<?php if (file_exists("../images/jeuxUpload/".$jeuChoisi['nomImage'])) {echo("../images/jeuxUpload/".$jeuChoisi['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test">
-                    </div>
-                </div>
+                <table class="affichageHautJeuChoisi">
+                    <tr>
+                        <td class="tdImageJeuChoisi">
+                            <img class="imageJeuChoisi" src="<?php if (file_exists("../images/jeuxUpload/".$jeuChoisi['nomImage'])) {echo("../images/jeuxUpload/".$jeuChoisi['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test">
+                        </td>
+                        <td class="infoJeuChoisi">
+                            <p><span class="intituleJeuChoisi">Titre :</span><?php echo(" ".$jeuChoisi['title']); ?></p>
+                            <p><span class="intituleJeuChoisi">Genre(s) :</span><?php if (!empty($jeuChoisi['genres'])){ echo(" ".afficherGenresOuPlateformes($jeuChoisi['genres']));} else { echo(" Inconnu..");} ?></p>
+                            <p><span class="intituleJeuChoisi">Plateforme(s) :</span><?php if (!empty($jeuChoisi['platforms'])){ echo(" ".afficherGenresOuPlateformes($jeuChoisi['platforms']));} else { echo(" Inconnu...");} ?></p>
+                            <p><span class="intituleJeuChoisi">Description :</span><?php if (!empty($jeuChoisi['description'])){ echo(" ".$jeuChoisi['description']);} else { echo(" Inconnu..");} ?></p>
+                        </td>
+                    </tr>
+                </table>
                 <div id="avisUtilisateurs">
                     <h1>Avis</h1>
-                    <?php  ?>
-
-
-                    <div class="avisUnique">
-                        <div class="nomUserAvis">
-                            <p>AntonioDu93</p>
-                        </div>
-                        <div class="avisUserAvis">
-                            <p>Avis feijoijoij oijoz joi</p>
-                        </div>
-                        <div class="noteUserAvis">
-                            <p>8/10</p>
-                        </div>
-                    </div>
+                    <table class="avisUnique">
+                        <tr>
+                            <td class="nomUserAvis">AntonioDu93</td>
+                            <td class="avisUserAvis">Avis feijoijoij oijoz joi</td>
+                            <td class="noteUserAvis">8/10</td>
+                        </tr>
+                        <tr>
+                            <td class="nomUserAvis">SisI77</td>
+                            <td class="avisUserAvis">Pas ouf...</td>
+                            <td class="noteUserAvis">4/10</td>
+                        </tr>
+                        <tr>
+                            <td class="nomUserAvis">||||||||||||||</td>
+                            <td class="avisUserAvis">J'adore !!</td>
+                            <td class="noteUserAvis">10/10</td>
+                        </tr>
+                        <tr>
+                            <td class="nomUserAvis">J'rageEtAlors</td>
+                            <td class="avisUserAvis">J'arrive même pas à comprendre qui peut aimer.</td>
+                            <td class="noteUserAvis">0/10</td>
+                        </tr>
+                        <tr>
+                            <td class="nomUserAvis">Police332789</td>
+                            <td class="avisUserAvis">Sympa mais sans plus...</td>
+                            <td class="noteUserAvis">5/10</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
 
