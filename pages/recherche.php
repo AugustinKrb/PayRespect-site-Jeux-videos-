@@ -14,9 +14,10 @@
         <meta charset="utf-8"/>
         <title>Pay Respect</title>
         <link rel="icon" type="image/png" href="../images/icone.png" />
-        <link rel="stylesheet" href="../styles/squelette.css"/>
-        <link rel="stylesheet" href="../styles/recherche.css"/>
-        <link rel="stylesheet" href="../styles/affichageJeuMini.css"/>
+        
+        <link rel="stylesheet" href="../stylesBleu/recherche.css"/>
+        <link rel="stylesheet" href="../stylesBleu/affichageJeuMini.css"/>
+        <link rel="stylesheet" href="../stylesBleu/squelette.css"/>
     </head>
 
     <body>
@@ -26,10 +27,10 @@
             <form action="./recherche.php" target="_blank">
                 <label for="recherche">Recherche :</label>
                 <input id="recherche" type="search" name="recherche" required>
-                <input type="submit" value="Rechercher">
+                <input  id="boutonRecherche"type="submit" value="Rechercher">
             </form>
             
-            <div class="menuHautRecherche">
+            <div class="menuHaut">
                 <nav>
                     <ul>
                         <li><a href="../index.php">Page principale</a></li>
@@ -68,9 +69,9 @@
                                     <details>
                                         <summary>
                                             <div class="divImageJeu">
-                                                <a href="<?php echo(".affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></a>
+                                                <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></a>
                                             </div>
-                                            <a href="<?php echo(".affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p></a>
+                                            <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p></a>
                                         </summary>
                                         <p class="genres">Genre(s) : <?php if (array_key_exists('genres', $jeu)) { echo(afficherGenresOuPlateformes($jeu['genres']));} else { echo("Inconnu...");} ?></p>
                                         <p class="plateformes">Plateforme(s) : <?php if (array_key_exists('platforms', $jeu)) { echo(afficherGenresOuPlateformes($jeu['platforms']));} else { echo("Inconnu...");} ?></p>
@@ -84,9 +85,9 @@
                                     <details>
                                         <summary>
                                             <div class="divImageJeu">
-                                                <a href="<?php echo(".affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></a>
+                                                <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></a>
                                             </div>
-                                            <a href="<?php echo(".affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p></a>
+                                            <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p></a>
                                         </summary>
                                         <p class="genres">Genre(s) : <?php if (array_key_exists('genres', $jeu)) { echo(afficherGenresOuPlateformes($jeu['genres']));} else { echo("Inconnu...");} ?></p>
                                         <p class="plateformes">Plateforme(s) : <?php if (array_key_exists('platforms', $jeu)) { echo(afficherGenresOuPlateformes($jeu['platforms']));} else { echo("Inconnu...");} ?></p>
@@ -100,9 +101,9 @@
                                     <details>
                                         <summary>
                                             <div class="divImageJeu">
-                                                <a href="<?php echo(".affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></a>
+                                                <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></a>
                                             </div>
-                                            <a href="<?php echo(".affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p></a>
+                                            <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"> <img src="./images/etoiles.png"></span></p></a>
                                         </summary>
                                         <p class="genres">Genre(s) : <?php if (array_key_exists('genres', $jeu)) { echo(afficherGenresOuPlateformes($jeu['genres']));} else { echo("Inconnu...");} ?></p>
                                         <p class="plateformes">Plateforme(s) : <?php if (array_key_exists('platforms', $jeu)) { echo(afficherGenresOuPlateformes($jeu['platforms']));} else { echo("Inconnu...");} ?></p>
