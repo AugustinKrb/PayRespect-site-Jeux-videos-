@@ -14,10 +14,8 @@ body {
     color: #FFFFFF;
     width: 100%;
     position: relative;
-    top: -27px;
     background: radial-gradient(circle,#190c63 0%, #0092ec );  /*Vert*/
 }
-
 
 header {
     z-index: 1;
@@ -40,10 +38,6 @@ header h1 {
                  0 0 0.25em #0092ec;
 }
 
-
-
-
-
 header h1::before {
     content: '';
     position: absolute;
@@ -54,19 +48,14 @@ header h1::before {
     top: 10%;
     left: 42%;
     right: 42%;
-    bottom: 10%;
-    
+    bottom: 10%;    
 }
- 
-
 
 header h1:hover {
     background: #190c63 ;
     color: #0092ec;
     text-shadow: 0;
-
 }
-
 
 header p:hover {
     text-decoration: underline;
