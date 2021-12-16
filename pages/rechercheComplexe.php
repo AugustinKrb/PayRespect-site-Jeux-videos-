@@ -9,9 +9,9 @@
         <meta charset="utf-8"/>
         <title>Pay Respect</title>
         <link rel="icon" type="image/png" href="../images/icone.png" />
-        <link rel="stylesheet" href="../styles/squelette.css"/>
-        <link rel="stylesheet" href="../styles/rechercheComplexe.css"/>
-        <link rel="stylesheet" href="../styles/affichageJeuMini.css"/>
+        <link rel="stylesheet" href="../stylesBleu/squelette.css"/>
+        <link rel="stylesheet" href="../stylesBleu/rechercheComplexe.css"/>
+        <link rel="stylesheet" href="../stylesBleu/affichageJeuMini.css"/>
     </head>
 
     <body>
@@ -25,17 +25,18 @@
                 <input id="recherche" type="search" name="recherche" required>
                 <input type="submit">
             </form>
-        </header>
-
-        <main>
+            
             <div class="menuHaut">
                 <nav>
                     <ul>
                         <li><a href="../index.php">Page principale</a></li>
-                        <li><a href="./admin.php">Administrateur</a></li>
+                        <li><a href="./admin/admin.php">Administrateur</a></li>
                     </ul>
                 </nav>
             </div>
+        </header>
+
+        <main>
 
             <div class="gauche">
                 <p>Les nouveautés !</p>
