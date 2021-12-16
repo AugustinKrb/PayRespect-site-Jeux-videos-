@@ -120,31 +120,31 @@ details[open] summary:after {
 }
 
 /*********************/
-.menuHautRecherche {
+.menuHaut {
     z-index: 1;
     background-color: #dbdbdb;
     width: 100%;
     margin: 0px auto 40px auto;
 }
 
-.menuHautRecherche nav ul{
+.menuHaut nav ul{
     list-style-type: none;
 }
 
-.menuHautRecherche nav li{
+.menuHaut nav li{
     float: left;
     width: 50%;
     text-align: center;
 }
 
 /*Evite que le menu n'ait une hauteur nulle*/
-.menuHautRecherche nav ul::after{
+.menuHaut nav ul::after{
     content: "";
     display: table;
     clear: both;
 }
 
-.menuHautRecherche nav a{
+.menuHaut nav a{
     display: block; /*Toute la surface sera cliquable*/
     text-decoration: none;
     color: #000000;
@@ -152,7 +152,7 @@ details[open] summary:after {
     padding: 10px 0px;  /*Agrandit le menu et espace la bordure du texte*/
 }
 
-.menuHautRecherche nav a:hover{
+.menuHaut nav a:hover{
     color: #FFFFFF;
     border-bottom: 2px solid #000000;
 }
