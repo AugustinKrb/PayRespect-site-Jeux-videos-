@@ -121,7 +121,7 @@
                         <?php } ?>
                     </fieldset>
                 <?php } else if (!$choiceSearch) { ?>
-                    <p>Vous devez choisir au moins un paramètre de recherche.</p>
+                    <p class="messageErreurRechercheComplexe">Vous devez choisir au moins un paramètre de recherche.</p>
                 <?php } ?>
             </div>
 
