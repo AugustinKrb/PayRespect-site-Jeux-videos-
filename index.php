@@ -17,7 +17,7 @@
 
     <body>
         <header>
-            <h1>Pay Respect </h1>
+            <h1>PayRespect </h1>
 
             <form action="./pages/recherche.php" target="_blank">
                 <label for="recherche">Recherche :</label>
