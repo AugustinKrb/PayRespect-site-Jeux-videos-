@@ -57,7 +57,6 @@
                 <nav>
                     <ul>
                         <li><a href="../index.php">Page principale</a></li>
-                        <li><a href="./admin/admin.php">Administrateur</a></li>
                     </ul>
                 </nav>
             </div>
