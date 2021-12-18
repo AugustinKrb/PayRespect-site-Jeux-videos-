@@ -1,8 +1,8 @@
 <?php
 require_once __DIR__.'/nosql.php';
 
-//NoSQL::configure('/_Autres_/Logiciel/wamp64/www/PayRespect/_data');
-NoSQL::configure('/wamp64/www/PayRespect/_data');
+NoSQL::configure('/_Autres_/Logiciel/wamp64/www/PayRespect/_data');
+//NoSQL::configure('/wamp64/www/PayRespect/_data');
 
 define('GENRE_SF', 'sf');
 define('GENRE_FANTASY', 'fantasy');
@@ -119,12 +119,13 @@ function hasAlreadyRated($gameId, string $userIp): bool {
     return $returns;
 }
 
-function rateGame($gameId, string $userIp, int $note, string $comment) {
+function rateGame($gameId, string $userIp, string $user, int $note, string $comment) {
     $game = NoSQL::getInstance('games')->find(strval($gameId));
     if(!empty($game)) {
         NoSQL::getInstance('grades')->save([
             'game' => $game['id'],
             'ip' => $userIp,
+            'user' => $user,
             'note' => $note,
             'comment' => $comment,
             'date' => date('Y-m-d H:i'),
@@ -132,6 +133,17 @@ function rateGame($gameId, string $userIp, int $note, string $comment) {
     } else {
         throw new Exception('Game ID '.$gameId.' not found');
     }
+}
+
+function getGameComments($gameId): array {
+    $returns = [];
+    $game = NoSQL::getInstance('games')->find(strval($gameId));
+    if(!empty($game)) {
+        $returns = NoSQL::getInstance('grades')->search('game', $gameId, NoSQL::OP_EQ);
+    } else {
+        throw new Exception('Game ID '.$gameId.' not found');
+    }
+    return $returns;
 }
 
 function searchGamesByTitle(string $title): array {
