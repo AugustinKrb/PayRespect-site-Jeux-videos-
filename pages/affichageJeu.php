@@ -20,7 +20,7 @@
         echo("<br><br><br>pas noté");
     }
     */
-    
+    /*
     echo("<br><br><br>True : ".true);
     echo("<br><br><br>False : ".false);
     echo("<br><br><br>Avis déjà ajouté : ".hasAlreadyRated(5, "120"));
@@ -28,6 +28,7 @@
 
     if (!empty($_REQUEST['ajouterAvis'])) {
     }
+    */
 ?>
 <!DOCTYPE html>
 <html lang="fr">
