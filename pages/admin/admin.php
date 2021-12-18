@@ -151,7 +151,7 @@
         <header>
             <h1>Pay Respect </h1>
             
-            <form action="./recherche.php" target="_blank">
+            <form action="../recherche.php" target="_blank">
                 <label for="recherche">Recherche :</label>
                 <input id="recherche" type="search" name="recherche" required>
                 <input  id="boutonRecherche"type="submit" value="Rechercher">
