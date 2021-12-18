@@ -15,8 +15,8 @@ main {
 
 .gauche {
     float: left;
-    border-left: none;
     border-right: solid 1px #FFFFFF;    /*Vert*/
+    border-bottom: solid 1px #FFFFFF;    /*Vert*/
     background-color: #190c63;  /*Vert*/
 }
 
@@ -27,16 +27,16 @@ main {
 .droite {
     float: left;
     border-left: solid 1px #FFFFFF;    /*Vert*/
-    border-right: none;
+    border-bottom: solid 1px #FFFFFF;    /*Vert*/
     background-color: #190c63;  /*Vert*/
 }
 
+/* AFFICHAGE DES JEUX*/
 .listeJeuxExemple {
     padding-left: 3%;
     padding-right: 3%;
     text-align: center;
 
-    border-radius: 30px;
     margin-top: 3%;
     margin-bottom: 3%;
     
@@ -48,59 +48,36 @@ main {
     overflow: auto;
 }
 
+.titreJeuxExemple {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.tabJeuMini {
+    border-collapse: collapse;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.tabJeuMini tr, .tabJeuMini td {
+    border: solid 1px #FFFFFF;
+}
+
+.tabJeuMini p {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .jeuExemple {
     width: 80%;
     margin: 5%;
     background-color: #0092ec;  /*Vert*/
 }
 
-.jeuExemple summary {
-    width: 100%;
-    position: relative;
-    list-style: none;
-}
-
-.jeuExemple summary:after {
-    content: "\0025BC"; /* ▼ */
-    color: #FFFFFF; /*Vert*/
-    position: relative;
-    transform-origin: center;
-    transition: 200ms linear;
-}
-
-details[open] summary:after {
-    content: "\0025B2"; /* ▲ */
-}
-
-.jeuExemple summary p {
-    padding-top: 2%;
-    padding-bottom: 2%;
-    border-top: solid 1px #FFFFFF; /*Vert*/
-    border-bottom: solid 1px #FFFFFF; /*Vert*/
-}
-
-.jeuExemple summary {
-    border: solid 1px #FFFFFF; /*Vert*/
-}
-
-.jeuExemple .descriptionJeuExemple {
-    width: 100%;
-    text-align: left;
-
-    margin-top: 0px;    
-    border-left: solid 1px #FFFFFF; /*Vert*/
-    border-right: solid 1px #FFFFFF; /*Vert*/
-    border-bottom: solid 1px #FFFFFF; /*Vert*/
-}
-
 .imageJeuExemple {
     width: 100%;
     height: auto;
-}
-
-.note {
-    float: right;
-    margin-right: 2%;
 }
 
 /*
