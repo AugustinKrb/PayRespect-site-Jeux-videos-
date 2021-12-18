@@ -37,7 +37,7 @@
 
     <head>
         <meta charset="utf-8"/>
-        <title>Pay Respect - Recherche complexe</title>
+        <title>PayRespect - Recherche complexe</title>
         <link rel="icon" type="image/png" href="../images/icone.png" />
         <link rel="stylesheet" href="../stylesBleu/squelette.css"/>
         <link rel="stylesheet" href="../stylesBleu/rechercheComplexe.css"/>
