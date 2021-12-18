@@ -33,7 +33,7 @@
 
 .affichageJeu {
     width: 18%;
-    height: 400px;   /* A changer */
+    height: auto;   /* A changer */
     margin: 2%;
     background-color: #190c63;  /*Vert*/
 }
