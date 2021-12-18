@@ -16,12 +16,11 @@
     flex-direction: row;
     justify-content: space-evenly;
     background-color: radial-gradient(circle,#190c63 0%, #0092ec );
-    }
+}
 
 .listeJeux:hover{
         background-color: #0b81b8;
-    }
-
+}
 
 .listeJeux legend {
     text-align: left;
@@ -32,10 +31,9 @@
                  0 0 0.25em #0092ec;
 }
 
-
 .affichageJeu {
     width: 18%;
-    height: 100%;   /* A changer */
+    height: 400px;   /* A changer */
     margin: 2%;
     background-color: #190c63;  /*Vert*/
 }
@@ -46,9 +44,10 @@
 
 .affichageJeu summary {
     width: 100%;
-    height: auto;
+    height: 400px;
     position: relative;
     list-style: none;
+    border: solid 1px #FFFFFF;  /*Vert*/
 }
 
 .affichageJeu summary:after {
@@ -75,10 +74,6 @@ details[open] summary:after {
     border-bottom: solid 1px #FFFFFF;   /*Vert*/
 }
 
-.affichageJeu summary {
-    border: solid 1px #FFFFFF;  /*Vert*/
-}
-
 /* Affichage : quand le jeu est "déplié" */
 .affichageJeu p:not(.titre) {
     width: 100%;
@@ -101,12 +96,10 @@ details[open] summary:after {
 
 .divImageJeu {
     width: 100%;
-    height: 100%;
 }
 
 .imageJeu {
     width: 100%;
-    height: 100%;
 }
 
 .note {
