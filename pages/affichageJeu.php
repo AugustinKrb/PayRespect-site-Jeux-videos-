@@ -99,7 +99,7 @@
 
                 <div id="avisUtilisateurs">
                     <?php
-                        var_dump(getGameComments(5));
+                        //var_dump(getGameComments(5));
                         foreach (getGameComments(5) as $avis) {
                             echo("ip : ".$avis['ip']." user : ".$avis['user']." note : ".$avis['note']." comment : ".$avis['comment'].".<br>");
                         }
