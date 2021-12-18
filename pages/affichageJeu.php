@@ -65,18 +65,21 @@
 
         <main>
             <div class="gauche">
-                <p>Les nouveautés !</p>
+                <p class="titreJeuxExemple">Les nouveautés !</p>
                 <div class="listeJeuxExemple">
                     <?php
-                        $tabJeuxNouveautes = getJeuxOrdreDernierAjouts();
-                        for ($i = 0; $i < 4; $i++) { ?>
-                            <details class="jeuExemple">
-                                <summary>
-                                    <img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test">
-                                    <p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"> <img src="../images/etoiles.png"></span></p>
-                                </summary>
-                                <p class="descriptionJeuExemple">description :</p>
-                            </details>
+                        $tabJeuxNouveautes = array_reverse(getAllGames());
+                        for ($i = 0; $i < 5; $i++) { ?>
+                            <a href="<?php echo("./affichageJeu.php?id=".$tabJeuxNouveautes[$i]['id']); ?>">
+                                <table class="tabJeuMini">
+                                    <tr>
+                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"></span></p></td>
+                                    </tr>
+                                </table>
+                            </a>
                         <?php }
                     ?>
                 </div>
@@ -166,7 +169,23 @@
             </div>
 
             <div class="droite">
-                <p>test Droite</p>
+                <p class="titreJeuxExemple">Les nouveautés !</p>
+                <div class="listeJeuxExemple">
+                    <?php
+                        $tabJeuxNouveautes = array_reverse(getAllGames());
+                        for ($i = 0; $i < 5; $i++) { ?>
+                            <a href="<?php echo("./affichageJeu.php?id=".$tabJeuxNouveautes[$i]['id']); ?>">
+                                <table class="tabJeuMini">
+                                    <tr>
+                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"></span></p></td>
+                                    </tr>
+                                </table>
+                            </a>
+                        <?php }
+                    ?>
             </div>
         </main>
 
