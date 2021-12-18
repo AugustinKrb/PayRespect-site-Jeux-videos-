@@ -63,14 +63,6 @@
     $messageErreurModif = "";
     $messageErreurSuppr = "";
     
-    function getJeuxOrdreDernierAjouts() {
-        $tabJeux = [];
-        foreach (getAllGames() as $tab) {
-            array_push($tabJeux, $tab);
-        }
-        return array_reverse($tabJeux);
-    }
-    
     function afficherGenresOuPlateformes($tab) {
         $res = "";
         foreach ($tab as $value) {
