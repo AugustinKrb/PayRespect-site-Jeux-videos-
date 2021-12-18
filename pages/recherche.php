@@ -12,7 +12,7 @@
 
     <head>
         <meta charset="utf-8"/>
-        <title>Pay Respect</title>
+        <title>Pay Respect - Recherche</title>
         <link rel="icon" type="image/png" href="../images/icone.png" />
         
         <link rel="stylesheet" href="../stylesBleu/recherche.css"/>
