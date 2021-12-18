@@ -9,22 +9,22 @@
         $rechercheGenre = null;
         $rechercheTitre = null;
         $recherchePlateforme = null;
-        $choiceSearch = false;
+        $choiceSearch = false;  //Pour l'affichage des jeux
         $msgRecherche = "";
 
         if (!empty($_GET['titreRecherche'])) {  //Si recherche avec une plateforme
             $rechercheTitre = $_GET['titreRecherche'];
-            $msgRecherche .= " titre --> ".$_GET['titreRecherche'].",";
+            $msgRecherche .= " ".$_GET['titreRecherche'].",";
             $choiceSearch = true;
         }
         if (!empty($_GET['genreRecherche'])) {  //Si recherche avec un genre
             $rechercheGenre = $_GET['genreRecherche'];
-            $msgRecherche .= " genre --> ".$_GET['genreRecherche'].",";
+            $msgRecherche .= " ".$_GET['genreRecherche'].",";
             $choiceSearch = true;
         }
         if (!empty($_GET['plateformeRecherche'])) {  //Si recherche avec une plateforme
             $recherchePlateforme = $_GET['plateformeRecherche'];
-            $msgRecherche .= " plateforme --> ".$_GET['plateformeRecherche'].",";
+            $msgRecherche .= " ".$_GET['plateformeRecherche'].",";
             $choiceSearch = true;
         }
         $tabJeuxrecherche = searchGames($rechercheTitre, $rechercheGenre, $recherchePlateforme);    //Recherche du/des jeux correspondants
@@ -65,18 +65,21 @@
         <main>
 
             <div class="gauche">
-                <p>Les nouveautés !</p>
+                <p class="titreJeuxExemple">Les nouveautés !</p>
                 <div class="listeJeuxExemple">
                     <?php
-                        $tabJeuxNouveautes = getJeuxOrdreDernierAjouts();
-                        for ($i = 0; $i < 4; $i++) { ?>
-                            <details class="jeuExemple">
-                                <summary>
-                                    <img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test">
-                                    <p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"> <img src="../images/etoiles.png"></span></p>
-                                </summary>
-                                <p class="descriptionJeuExemple">description :</p>
-                            </details>
+                        $tabJeuxNouveautes = array_reverse(getAllGames());
+                        for ($i = 0; $i < 5; $i++) { ?>
+                            <a href="<?php echo("./affichageJeu.php?id=".$tabJeuxNouveautes[$i]['id']); ?>">
+                                <table class="tabJeuMini">
+                                    <tr>
+                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"></span></p></td>
+                                    </tr>
+                                </table>
+                            </a>
                         <?php }
                     ?>
                 </div>
@@ -85,7 +88,7 @@
             <div class="milieu">
                 <form id="parametresRecherche" action="./rechercheComplexe.php">
                     <span>Recherche :</span>
-                    <input id="titreRecherche" type="search" name="titreRecherche" placeholder="Nom du jeu">
+                    <input id="titreRecherche" type="search" name="titreRecherche" placeholder="Nom du jeu" maxlength="25">
                     <select id="genreRecherche" name="genreRecherche">
                         <option value="">Genre</option>
                         <?php foreach ($tabGenres as $genre) {?>
@@ -111,7 +114,7 @@
                                         <div class="divImageJeu">
                                             <a href="<?php echo("../pages/affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></a>
                                         </div>
-                                        <a href="<?php echo("../pages/affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"> <img src="../images/etoiles.png"></span></p></a>
+                                        <a href="<?php echo("../pages/affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"></span></p></a>
                                     </summary>
                                     <p class="genres">Genre(s) : <?php if (array_key_exists('genres', $jeu)) { echo(afficherGenresOuPlateformes($jeu['genres']));} else { echo("Inconnu...");} ?></p>
                                     <p class="plateformes">Plateforme(s) : <?php if (array_key_exists('platforms', $jeu)) { echo(afficherGenresOuPlateformes($jeu['platforms']));} else { echo("Inconnu...");} ?></p>
@@ -121,12 +124,29 @@
                         <?php } ?>
                     </fieldset>
                 <?php } else if (!$choiceSearch) { ?>
-                    <p class="messageErreurRechercheComplexe">Vous devez choisir au moins un paramètre de recherche.</p>
+                            <p id="parametresRecherche">Vous devez au moins choisir un paramètre pour effectuer une recherche</p>
                 <?php } ?>
             </div>
 
             <div class="droite">
-                <p>test Droite</p>
+                <p class="titreJeuxExemple">Les nouveautés !</p>
+                <div class="listeJeuxExemple">
+                    <?php
+                        $tabJeuxNouveautes = array_reverse(getAllGames());
+                        for ($i = 0; $i < 5; $i++) { ?>
+                            <a href="<?php echo("./affichageJeu.php?id=".$tabJeuxNouveautes[$i]['id']); ?>">
+                                <table class="tabJeuMini">
+                                    <tr>
+                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"></span></p></td>
+                                    </tr>
+                                </table>
+                            </a>
+                        <?php }
+                    ?>
+                </div>
             </div>
         </main>
 
