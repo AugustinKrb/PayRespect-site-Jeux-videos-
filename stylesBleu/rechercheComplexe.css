@@ -74,6 +74,17 @@
     border-bottom: 2px solid #FFFFFF;   /*Vert*/
 }
 
+/* RECHERCHE COMPLEXE */
+#parametresRecherche {
+    text-align: center;
+}
+
+.messageErreurRechercheComplexe {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 3%;
+}
+
 /* AFFICHAGE JEUX*/
 .listeJeux {
     padding-left: 3%;
