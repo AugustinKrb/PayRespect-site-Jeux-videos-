@@ -91,15 +91,18 @@ header p:hover {
 }
 
 nav a{
+    display: block; /*Toute la surface sera cliquable*/
+    text-decoration: none;
     color: #FFFFFF; /*Vert*/
+    border-bottom: 2px solid transparent;   /*Evite le décalage des éléments sous le menu à cause de la bordure en :hover*/
+    padding: 10px 0px;  /*Agrandit le menu et espace la bordure du texte*/
 }
 
 nav a:hover{
     font-weight: bold;
-    color: #0092ec; /*Vert*/
+    color: #190c63; /*Vert*/
     border-bottom: 2px solid #FFFFFF;   /*Vert*/
 }
-
 
 /****************/
 
