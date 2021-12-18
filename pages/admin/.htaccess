@@ -1,4 +1,4 @@
 AuthType Basic
 AuthName "Password Protected Area"
-AuthUserFile C:\wamp64\www\Gameflix\.htpasswd
+AuthUserFile C:\wamp64\www\PayRespect\pages\admin\.htpasswd
 Require valid-user
