@@ -67,15 +67,48 @@
     padding: 10px 0px;  /*Agrandit le menu et espace la bordure du texte*/
 }
 
+
 /* Avis utilisateurs */
 #avisUtilisateurs h1 {
     text-align: center;
 }
 
-#avisUtilisateurs .avisUnique {
+/* AJOUTER UN AVIS */
+#ajouterAvis {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#ajouterAvis {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+#nePasAfficherIdJeu {
+    display: none;
+}
+
+#nomUserAjoutAvis {
+    width: 20%;
+}
+
+#avisUserAjoutAvis {
+    width: 65%;
+    resize: vertical;
+}
+
+#noteUserAjoutAvis {
+    width: 15%;
+}
+
+/*******************/
+#avisUnique {
     border: solid 1px #FFFFFF; /*Vert*/
     width: 100%;
     border-collapse: collapse;
+    margin-top: 8%;
 }
 
 #avisUtilisateurs td {
@@ -86,11 +119,12 @@
     padding-right: 1%;
 }
 
-#avisUtilisateurs tr:nth-child(odd) {
+
+#avisUnique tr:nth-child(odd) {
     background-color: #004700;  /*Vert*/
 }
 
-#avisUtilisateurs tr:nth-child(even) {
+#avisUnique tr:nth-child(even) {
     background-color: #009100;  /*Vert*/
 }
 
