@@ -34,7 +34,7 @@
 
     <head>
         <meta charset="utf-8"/>
-        <title><?php echo($jeuChoisi['title']); ?></title>
+        <title><?php echo("PayRespect - ".$jeuChoisi['title']); ?></title>
         <link rel="icon" type="image/png" href="../images/icone.png" />
         
         <link rel="stylesheet" href="../stylesBleu/affichageJeu.css"/>
