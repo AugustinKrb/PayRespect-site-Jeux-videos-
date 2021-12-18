@@ -138,7 +138,7 @@
 
     <head>
         <meta charset="utf-8"/>
-        <title>Pay Respect</title>
+        <title>PayRespect - Administration</title>
         <link rel="icon" type="image/png" href="../../images/icone.png" />
         
         <link rel="stylesheet" href="../../stylesBleu/admin.css"/>
