@@ -9,7 +9,7 @@
 
     <head>
         <meta charset="utf-8"/>
-        <title>Pay Respect</title>
+        <title>Pay Respect - Accueil</title>
         <link rel="icon" type="image/png" href="./images/icone.png"/>
         <link rel="stylesheet" href="./stylesBleu/squelette.css" type="text/css" title="Thème simple"/>
         <link rel="stylesheet" href="./stylesBleu/index.css"/>
