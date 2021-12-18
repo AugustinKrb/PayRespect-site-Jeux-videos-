@@ -9,7 +9,7 @@
 
     <head>
         <meta charset="utf-8"/>
-        <title>Pay Respect - Accueil</title>
+        <title>PayRespect - Accueil</title>
         <link rel="icon" type="image/png" href="./images/icone.png"/>
         <link rel="stylesheet" href="./stylesBleu/squelette.css" type="text/css" title="Thème simple"/>
         <link rel="stylesheet" href="./stylesBleu/index.css"/>
@@ -17,7 +17,7 @@
 
     <body>
         <header>
-            <h1>PayRespect </h1>
+            <h1>Pay Respect </h1>
 
             <form action="./pages/recherche.php" target="_blank">
                 <label for="recherche">Recherche :</label>
