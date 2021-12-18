@@ -125,6 +125,7 @@ function rateGame($gameId, string $userIp, string $user, int $note, string $comm
         NoSQL::getInstance('grades')->save([
             'game' => $game['id'],
             'ip' => $userIp,
+            //Ajout user
             'user' => $user,
             'note' => $note,
             'comment' => $comment,
