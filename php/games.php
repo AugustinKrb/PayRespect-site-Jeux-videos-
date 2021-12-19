@@ -88,4 +88,12 @@
             }
         }
     }
+
+    function recupererNomViaId($tab, $str) {
+        foreach ($tab as $tmp) {
+            if (strpos($tmp['id'], $str) !== false) {
+                return $tmp['nom'];
+            }
+        }
+    }
 ?>
