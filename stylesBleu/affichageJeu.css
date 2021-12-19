@@ -71,6 +71,12 @@
 /* Avis utilisateurs */
 #avisUtilisateurs h1 {
     text-align: center;
+    color: #FFFFFF; /*Vert*/
+    font-size: x-large;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 0.5em currentColor,
+                 0 0 0.25em #0092ec;
 }
 
 /* AJOUTER UN AVIS */
@@ -84,6 +90,26 @@
     width: 100%;
     margin-bottom: 2%;
     text-align: center;
+}
+
+#ajouterAvis:hover {
+    background-color: #0e9cdd;
+}
+
+#nomUserAjoutAvis input, #avisUserAjoutAvis textarea, #noteUserAjoutAvis input {
+    background-color: #0e9cdd;
+    color: #FFFFFF;
+}
+
+#nomUserAjoutAvis input::placeholder, #avisUserAjoutAvis textarea::placeholder, #noteUserAjoutAvis input::placeholder {
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+#ajouterAvis:hover input:not(#boutonAjouterAvis), #ajouterAvis:hover textarea {
+    background-color: #2308b8;
+    color: #FFFFFF;
 }
 
 #nePasAfficherIdJeu {
@@ -103,12 +129,21 @@
     width: 15%;
 }
 
+#avisUnique tr:nth-child(even) {
+    background-color: #0e9cdd;  /*Vert*/
+}
+
+#avisUnique tr:nth-child(odd) {
+    background-color: #0a648d;  /*Vert*/
+}
+
 /*******************/
 #avisUnique {
     border: solid 1px #FFFFFF; /*Vert*/
     width: 100%;
     border-collapse: collapse;
     margin-top: 8%;
+    margin-bottom: 4%;
 }
 
 #avisUtilisateurs td {
@@ -117,15 +152,6 @@
     padding-bottom: 2%;
     padding-left: 1%;
     padding-right: 1%;
-}
-
-
-#avisUnique tr:nth-child(odd) {
-    background-color: #004700;  /*Vert*/
-}
-
-#avisUnique tr:nth-child(even) {
-    background-color: #009100;  /*Vert*/
 }
 
 #avisUtilisateurs .nomUserAvis {
