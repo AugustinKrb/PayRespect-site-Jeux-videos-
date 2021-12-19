@@ -349,13 +349,12 @@
                                                 <td>
                                                     <input class="boutonDemandeSuppressionJeu" type="button" value="Supprimer le jeu" onclick="confirmationSuppressionJeu();"/>
                                                 </td>
-                                                    <div id="fenetreDemandeSuppressionJeu">
-                                                        <h3>Voulez-vous supprimer le jeu ?</h3>
-                                                        <input id="boutonFenetreSupprNon" type="button" value="Non" onclick="confirmationSuppressionJeu();"/>
-                                                        <input id="boutonFenetreSupprOui" type="submit" name="supprimerJeu" value="Oui"/>
-                                                    </div>
-                                                </div>
                                             </tr>
+                                            <div id="fenetreDemandeSuppressionJeu">
+                                                <h3>Voulez-vous supprimer le jeu ?</h3>
+                                                <input id="boutonFenetreSupprNon" type="button" value="Non" onclick="confirmationSuppressionJeu();"/>
+                                                <input id="boutonFenetreSupprOui" type="submit" name="supprimerJeu" value="Oui"/>
+                                            </div>
                                         </form>
                                     <?php } ?>
                                 </tbody>
