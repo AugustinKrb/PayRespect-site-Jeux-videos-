@@ -126,8 +126,8 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td id="boutonAjouterAvis" colspan="3">
-                                    <input type="submit" name="ajouterAvis" value="Ajouter un avis">
+                                <td colspan="3">
+                                    <input id="boutonAjouterAvis" type="submit" name="ajouterAvis" value="Ajouter un avis">
                                 </td>
                             </tr>
                         </form>
