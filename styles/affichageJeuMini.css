@@ -2,7 +2,8 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    border: solid 1px #000000;
+    border-top: none;
+    border-bottom: none;
     width: 10%;
     height: 100%;
     margin-top: -40px;
@@ -14,6 +15,9 @@ main {
 
 .gauche {
     float: left;
+    border-right: solid 1px #FFFFFF;    /*Vert*/
+    border-bottom: solid 1px #FFFFFF;    /*Vert*/
+    background-color: #190c63;  /*Vert*/
 }
 
 .milieu {
@@ -22,14 +26,17 @@ main {
 
 .droite {
     float: left;
+    border-left: solid 1px #FFFFFF;    /*Vert*/
+    border-bottom: solid 1px #FFFFFF;    /*Vert*/
+    background-color: #190c63;  /*Vert*/
 }
 
+/* AFFICHAGE DES JEUX*/
 .listeJeuxExemple {
     padding-left: 3%;
     padding-right: 3%;
     text-align: center;
 
-    border-radius: 30px;
     margin-top: 3%;
     margin-bottom: 3%;
     
@@ -41,48 +48,35 @@ main {
     overflow: auto;
 }
 
+.titreJeuxExemple {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.tabJeuMini {
+    border-collapse: collapse;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.tabJeuMini:hover {
+    background-color: #0e9cdd;
+}
+
+.tabJeuMini tr, .tabJeuMini td {
+    border: solid 1px #FFFFFF;
+}
+
+.tabJeuMini p {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .jeuExemple {
     width: 80%;
     margin: 5%;
-}
-
-.jeuExemple summary {
-    width: 100%;
-    position: relative;
-    list-style: none;
-}
-
-.jeuExemple summary:after {
-    content: "\0025BC"; /* ▼ */
-    color: #000000;
-    position: relative;
-    transform-origin: center;
-    transition: 200ms linear;
-}
-
-details[open] summary:after {
-    content: "\0025B2"; /* ▲ */
-}
-
-.jeuExemple summary p {
-    padding-top: 2%;
-    padding-bottom: 2%;
-    border-top: solid 1px #000000;
-    border-bottom: solid 1px #000000;
-}
-
-.jeuExemple summary {
-    border: solid 1px #000000;
-}
-
-.jeuExemple .descriptionJeuExemple {
-    width: 100%;
-    text-align: left;
-
-    margin-top: 0px;    
-    border-left: solid 1px #000000;
-    border-right: solid 1px #000000;
-    border-bottom: solid 1px #000000;
+    background-color: #0092ec;  /*Vert*/
 }
 
 .imageJeuExemple {
@@ -90,11 +84,7 @@ details[open] summary:after {
     height: auto;
 }
 
-.note {
-    float: right;
-    margin-right: 2%;
-}
-
+/*
 .milieu fieldset {
     width: 80%;
     border-radius: 30px;
