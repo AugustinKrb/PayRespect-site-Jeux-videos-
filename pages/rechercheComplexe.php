@@ -19,12 +19,12 @@
         }
         if (!empty($_GET['genreRecherche'])) {  //Si recherche avec un genre
             $rechercheGenre = $_GET['genreRecherche'];
-            $msgRecherche .= " ".$_GET['genreRecherche'].",";
+            $msgRecherche .= " ".recupererNomViaId($tabGenres, $_GET['genreRecherche']).",";
             $choiceSearch = true;
         }
         if (!empty($_GET['plateformeRecherche'])) {  //Si recherche avec une plateforme
             $recherchePlateforme = $_GET['plateformeRecherche'];
-            $msgRecherche .= " ".$_GET['plateformeRecherche'].",";
+            $msgRecherche .= " ".recupererNomViaId($tabPlateformes, $_GET['plateformeRecherche']).",";
             $choiceSearch = true;
         }
         $tabJeuxrecherche = searchGames($rechercheTitre, $rechercheGenre, $recherchePlateforme);    //Recherche du/des jeux correspondants
