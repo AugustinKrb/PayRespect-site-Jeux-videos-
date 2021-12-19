@@ -1,8 +1,9 @@
 <?php
 require_once __DIR__.'/nosql.php';
 
-NoSQL::configure('/_Autres_/Logiciel/wamp64/www/PayRespect/_data');
-//NoSQL::configure('/wamp64/www/PayRespect/_data');
+
+//NoSQL::configure('/_Autres_/Logiciel/wamp64/www/PayRespect/_data');
+NoSQL::configure('/wamp64/www/PayRespect/_data');
 
 define('GENRE_SF', 'sf');
 define('GENRE_FANTASY', 'fantasy');
