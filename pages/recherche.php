@@ -50,7 +50,7 @@
                             <a href="<?php echo("./affichageJeu.php?id=".$tabJeuxNouveautes[$i]['id']); ?>">
                                 <table class="tabJeuMini">
                                     <tr>
-                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></td>
                                     </tr>
                                     <tr>
                                         <td><p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"></span></p></td>
@@ -72,7 +72,7 @@
                                     <details>
                                         <summary>
                                             <div class="divImageJeu">
-                                                <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></a>
+                                                <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></a>
                                             </div>
                                             <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"></span></p></a>
                                         </summary>
@@ -88,7 +88,7 @@
                                     <details>
                                         <summary>
                                             <div class="divImageJeu">
-                                                <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></a>
+                                                <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></a>
                                             </div>
                                             <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"></span></p></a>
                                         </summary>
@@ -104,7 +104,7 @@
                                     <details>
                                         <summary>
                                             <div class="divImageJeu">
-                                                <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></a>
+                                                <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></a>
                                             </div>
                                             <a href="<?php echo("./affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"></span></p></a>
                                         </summary>
@@ -130,7 +130,7 @@
                             <a href="<?php echo("./affichageJeu.php?id=".$tabJeuxNouveautes[$i]['id']); ?>">
                                 <table class="tabJeuMini">
                                     <tr>
-                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></td>
                                     </tr>
                                     <tr>
                                         <td><p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"></span></p></td>
