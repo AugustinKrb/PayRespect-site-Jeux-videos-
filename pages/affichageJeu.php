@@ -64,7 +64,7 @@
         </header>
 
         <main>
-            <div class="gauche">
+            <section class="gauche">
                 <p class="titreJeuxExemple">Les nouveautés !</p>
                 <div class="listeJeuxExemple">
                     <?php
@@ -73,7 +73,7 @@
                             <a href="<?php echo("./affichageJeu.php?id=".$tabJeuxNouveautes[$i]['id']); ?>">
                                 <table class="tabJeuMini">
                                     <tr>
-                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></td>
                                     </tr>
                                     <tr>
                                         <td><p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"></span></p></td>
@@ -83,13 +83,13 @@
                         <?php }
                     ?>
                 </div>
-            </div>
+            </section>
 
-            <div class="milieu">
+            <section class="milieu">
                 <table class="affichageHautJeuChoisi">
                     <tr>
                         <td class="tdImageJeuChoisi">
-                            <img class="imageJeuChoisi" src="<?php if (file_exists("../images/jeuxUpload/".$jeuChoisi['nomImage'])) {echo("../images/jeuxUpload/".$jeuChoisi['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test">
+                            <img class="imageJeuChoisi" src="<?php if (file_exists("../images/jeuxUpload/".$jeuChoisi['nomImage'])) {echo("../images/jeuxUpload/".$jeuChoisi['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu">
                         </td>
                         <td class="infoJeuChoisi">
                             <p><span class="intituleJeuChoisi">Titre :</span><?php echo(" ".$jeuChoisi['title']); ?></p>
@@ -132,6 +132,8 @@
                             </tr>
                         </form>
                     </table>
+
+                    <h1>(Exemple :)</h1>
                     
                     <table id="avisUnique">
                         <tr>
@@ -166,9 +168,9 @@
                         </tr>
                     </table>
                 </div>
-            </div>
+            </section>
 
-            <div class="droite">
+            <section class="droite">
                 <p class="titreJeuxExemple">Les nouveautés !</p>
                 <div class="listeJeuxExemple">
                     <?php
@@ -177,7 +179,7 @@
                             <a href="<?php echo("./affichageJeu.php?id=".$tabJeuxNouveautes[$i]['id']); ?>">
                                 <table class="tabJeuMini">
                                     <tr>
-                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></td>
                                     </tr>
                                     <tr>
                                         <td><p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"></span></p></td>
@@ -187,7 +189,7 @@
                         <?php }
                     ?>
                 </div>
-            </div>
+            </section>
         </main>
 
         <footer>
