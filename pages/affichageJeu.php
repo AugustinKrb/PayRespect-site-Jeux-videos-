@@ -195,7 +195,7 @@
         <footer>
             <h2>Pay Respect</h2>
             <p>Augustin KRABANSKY - Mehdi Ragad - Wassim</p>
-            <form action="./admin.php" target="_blank">
+            <form action="./admin/admin.php" target="_blank">
                 <button type="submit">Administrateur</button>
             </form>
         </footer>
