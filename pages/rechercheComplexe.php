@@ -64,7 +64,7 @@
 
         <main>
 
-            <div class="gauche">
+            <section class="gauche">
                 <p class="titreJeuxExemple">Les nouveautés !</p>
                 <div class="listeJeuxExemple">
                     <?php
@@ -73,7 +73,7 @@
                             <a href="<?php echo("./affichageJeu.php?id=".$tabJeuxNouveautes[$i]['id']); ?>">
                                 <table class="tabJeuMini">
                                     <tr>
-                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></td>
                                     </tr>
                                     <tr>
                                         <td><p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"></span></p></td>
@@ -83,9 +83,9 @@
                         <?php }
                     ?>
                 </div>
-            </div>
+            </section>
 
-            <div class="milieu">
+            <section class="milieu">
                 <form id="parametresRecherche" action="./rechercheComplexe.php">
                     <span>Recherche :</span>
                     <input id="titreRecherche" type="search" name="titreRecherche" placeholder="Nom du jeu" maxlength="25">
@@ -112,7 +112,7 @@
                                 <details>
                                     <summary>
                                         <div class="divImageJeu">
-                                            <a href="<?php echo("../pages/affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></a>
+                                            <a href="<?php echo("../pages/affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><img class="imageJeu" src="<?php if (file_exists("../images/jeuxUpload/".$jeu['nomImage'])) {echo("../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></a>
                                         </div>
                                         <a href="<?php echo("../pages/affichageJeu.php?id=".$jeu['id']); ?>" target="_blank"><p class="titre"><?php echo($jeu['title']); ?><span class="note"></span></p></a>
                                     </summary>
@@ -126,9 +126,9 @@
                 <?php } else if (!$choiceSearch) { ?>
                             <p id="parametresRecherche">Vous devez au moins choisir un paramètre pour effectuer une recherche</p>
                 <?php } ?>
-            </div>
+            </section>
 
-            <div class="droite">
+            <section class="droite">
                 <p class="titreJeuxExemple">Les nouveautés !</p>
                 <div class="listeJeuxExemple">
                     <?php
@@ -137,7 +137,7 @@
                             <a href="<?php echo("./affichageJeu.php?id=".$tabJeuxNouveautes[$i]['id']); ?>">
                                 <table class="tabJeuMini">
                                     <tr>
-                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></td>
                                     </tr>
                                     <tr>
                                         <td><p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"></span></p></td>
@@ -147,7 +147,7 @@
                         <?php }
                     ?>
                 </div>
-            </div>
+            </section>
         </main>
 
         <footer>
