@@ -347,8 +347,14 @@
                                                 <td class="plateformes"><?php if (!empty($jeu['platforms'])) {echo(afficherGenresOuPlateformes($jeu['platforms']));} ?></td>
                                                 <td><?php if (!empty($jeu['description'])) {echo($jeu['description']);} ?></td>
                                                 <td>
-                                                    <input class="boutonSupprimerLeJeu" type="submit" name="supprimerJeu" value="Supprimer le jeu"/>
+                                                    <input class="boutonDemandeSuppressionJeu" type="button" value="Supprimer le jeu" onclick="confirmationSuppressionJeu();"/>
                                                 </td>
+                                                    <div id="fenetreDemandeSuppressionJeu">
+                                                        <h3>Voulez-vous supprimer le jeu ?</h3>
+                                                        <input id="boutonFenetreSupprNon" type="button" value="Non" onclick="confirmationSuppressionJeu();"/>
+                                                        <input id="boutonFenetreSupprOui" type="submit" name="supprimerJeu" value="Oui"/>
+                                                    </div>
+                                                </div>
                                             </tr>
                                         </form>
                                     <?php } ?>
