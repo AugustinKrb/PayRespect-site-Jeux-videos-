@@ -192,3 +192,23 @@ details[open] summary:after {
     float: right;
     margin-right: 2%;
 }
+
+/* RECHERCHE JEU */
+
+#parametresRecherche > span {
+    font-size: medium;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 0.5em currentColor,
+                 0 0 0.25em #0092ec;
+}
+
+#parametresRecherche input, #parametresRecherche select {
+    background-color: #0092ec;
+    color: #FFFFFF;
+}
+
+#parametresRecherche input::placeholder {
+    color: #FFFFFF;
+    opacity: 1;
+}
