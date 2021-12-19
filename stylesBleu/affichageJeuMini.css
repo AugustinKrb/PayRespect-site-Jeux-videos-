@@ -60,6 +60,10 @@ main {
     margin-bottom: 5%;
 }
 
+.tabJeuMini:hover {
+    background-color: #0e9cdd;
+}
+
 .tabJeuMini tr, .tabJeuMini td {
     border: solid 1px #FFFFFF;
 }
