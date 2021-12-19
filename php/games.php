@@ -91,9 +91,18 @@
 
     function recupererNomViaId($tab, $str) {
         foreach ($tab as $tmp) {
-            if (strpos($tmp['id'], $str) !== false) {
+            if (strpos(strtolower($tmp['id']), strtolower($str)) !== false) {
                 return $tmp['nom'];
             }
         }
+    }
+
+    function recupererIdViaNom($tab, $str) {
+        foreach ($tab as $tmp) {
+            if (strpos(strtolower($tmp['nom']), strtolower($str)) !== false) {
+                return $tmp['id'];
+            }
+        }
+        return "";
     }
 ?>
