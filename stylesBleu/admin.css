@@ -415,3 +415,47 @@ details[open] summary:after {
     border: solid 1px #FFFFFF;  /*Vert*/
     border-radius: 2px;
 }
+
+/* FENETRE CONFIRMATION SUPPRESSION JEU */
+#fenetreDemandeSuppressionJeu {
+    display: none;
+    z-index: 1;
+    position: absolute;
+    /*
+    width: calc(100vw - 100px);
+    height: calc(100vh + 150px);
+    top: -125px;
+    left: 10px;
+    */
+    width: calc(100vw * 0.7);
+    height: 400px;
+    top: calc((100vh / 2) - 300px);
+    left: calc((100vw * 0.3) / 2 - 50px);
+
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 50px;
+}
+
+#fenetreDemandeSuppressionJeu h3 {
+    color: #000000;
+    font-size: large;
+    margin-bottom: 100px;
+}
+
+#boutonFenetreSupprNon, #boutonFenetreSupprOui {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#boutonFenetreSupprNon {
+    margin-right: 50px;
+    background-color: #FF0000CC;
+}
+
+#boutonFenetreSupprOui {
+    margin-left: 50px;
+    background-color: #00FF00CC;
+}
