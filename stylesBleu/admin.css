@@ -391,6 +391,11 @@ details[open] summary:after {
     background-color: #0b81b8;  /*Vert*/
 }
 
+#boutonAjouterLeJeu, .boutonModifierLeJeu, .boutonSupprimerLeJeu {
+    margin: 1%;
+    font-size: medium;
+}
+
 /* Fonctionne pour color mais pas pour background-color*/
 .affichageModif {
     background-color: red;
