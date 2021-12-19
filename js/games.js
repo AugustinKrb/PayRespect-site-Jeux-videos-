@@ -200,3 +200,12 @@ function recupConstPHP(str) {
             break;         
     }
 }
+
+function confirmationSuppressionJeu() {
+    let info = document.getElementById("fenetreDemandeSuppressionJeu");
+    if (getComputedStyle(info).display == "none") {
+        info.style.display = "block";
+    } else {
+        info.style.display = "none";
+    }
+}
