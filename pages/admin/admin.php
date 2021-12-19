@@ -113,9 +113,6 @@
             } else {    //Sinon il y a une erreur dans l'upload
                 saveImage($idJeu, "pasDimage.png");    //Image par défaut
             }
-            if (!in_array($extensionImage, $extensionsAccept)) {
-                $messageErreurModif = "Seul les images sont acceptées : .png, .gif, .jpg, .jpeg...";
-            }
         }
     }
 
@@ -177,7 +174,7 @@
                             <a href="<?php echo("./affichageJeu.php?id=".$tabJeuxNouveautes[$i]['id']); ?>">
                                 <table class="tabJeuMini">
                                     <tr>
-                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></td>
                                     </tr>
                                     <tr>
                                         <td><p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"></span></p></td>
@@ -234,7 +231,7 @@
                             <p class="sousligneGras">Description du jeu :</p>
                             <textarea id="description" name="description" rows="5" cols="100" onkeyup="miseAJourAffichageAperçu('description')"></textarea>
                             <br>
-                            <input id="envoiFormulaire" type="submit" name="ajouterJeu" value="Ajouter le jeu"/>
+                            <input id="boutonAjouterLeJeu" type="submit" name="ajouterJeu" value="Ajouter le jeu"/>
                         </form>
                         <table class="apercuAjoutJeu">
                             <tr>
@@ -274,7 +271,7 @@
                                     <form method="POST" action="<?php echo("admin.php?iDModif=".$jeu['id']."#jeuAModifId_".$jeu['id']); ?>" enctype="multipart/form-data">
                                         <tr id="<?php echo("jeuAModifId_".$jeu['id']); ?>" <?php echo("onclick=\"afficherOptionsModificationsJeu('afficherModifJeuId$numAfficherModifJeuId');\" "); ?>>
                                             <td><?php echo($jeu['id']); ?></td>
-                                            <td><img class="imageJeuModif" src="<?php if (file_exists("../../images/jeuxUpload/".$jeu['nomImage'])) {echo("../../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                            <td><img class="imageJeuModif" src="<?php if (file_exists("../../images/jeuxUpload/".$jeu['nomImage'])) {echo("../../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></td>
                                             <td><?php echo($jeu['title']); ?></td>
                                             <td><?php if (!empty($jeu['genres'])) {echo(afficherGenresOuPlateformesSautLignes($jeu['genres']));} ?></td>
                                             <td><?php if (!empty($jeu['platforms'])) {echo(afficherGenresOuPlateformesSautLignes($jeu['platforms']));} ?></td>
@@ -286,7 +283,7 @@
                                             <td>
                                                 <label for="imageModifJeu" class="sousligneGras">Nouvelle image :</label>
                                                 <input class="imageModifJeu" type="file" accept="image/*" name="<?php echo("imageAModifier_".$jeu['id']); ?>" <?php echo("onchange=\"apercuImage(event, ".$jeu['id'].")\""); ?>>
-                                                <img id="<?php echo("imageJeuModifApercu_".$jeu['id']); ?>" class="imageJeuModifApercu" src="<?php if (file_exists("../../images/jeuxUpload/".$jeu['nomImage'])) {echo("../../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../../images/jeuxUpload/pasDimage.png");} ?>" alt="image test">
+                                                <img id="<?php echo("imageJeuModifApercu_".$jeu['id']); ?>" class="imageJeuModifApercu" src="<?php if (file_exists("../../images/jeuxUpload/".$jeu['nomImage'])) {echo("../../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu">
                                             </td>
                                             <td>
                                                 <label for="<?php echo("nomAModifier_".$jeu['id']); ?>" class="sousligneGras">Nouveau nom :</label>
@@ -313,7 +310,7 @@
                                                 <textarea id="<?php echo("descriptionAModifier_".$jeu['id']); ?>" name="<?php echo("descriptionAModifier_".$jeu['id']); ?>" rows="5" cols="50"><?php if (!empty($jeu['description'])){ echo($jeu['description']);} ?></textarea>
                                             </td>
                                             <td>
-                                                <input type="submit" class="modifierJeu" name="modifierJeu" value="Modifier le jeu">
+                                                <input class="boutonModifierLeJeu" type="submit" class="modifierJeu" name="modifierJeu" value="Modifier le jeu">
                                             </td>
                                         </tr>
                                     </form>
@@ -344,13 +341,13 @@
                                         <form method="POST" action="<?php echo("admin.php?iDSuppr=".$jeu['id']."#jeuASupprId_".$jeu['id']); ?>">
                                             <tr id="<?php echo("jeuASupprId_".$jeu['id']); ?>" >
                                                 <td><?php echo($jeu['id']); ?></td>
-                                                <td><img class="imageJeuModif" src="<?php if (file_exists("../../images/jeuxUpload/".$jeu['nomImage'])) {echo("../../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                                <td><img class="imageJeuModif" src="<?php if (file_exists("../../images/jeuxUpload/".$jeu['nomImage'])) {echo("../../images/jeuxUpload/".$jeu['nomImage']);} else {echo("../../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></td>
                                                 <td><?php echo($jeu['title']); ?></td>
                                                 <td class="genres"><?php if (!empty($jeu['genres'])) {echo(afficherGenresOuPlateformes($jeu['genres']));} ?></td>
                                                 <td class="plateformes"><?php if (!empty($jeu['platforms'])) {echo(afficherGenresOuPlateformes($jeu['platforms']));} ?></td>
                                                 <td><?php if (!empty($jeu['description'])) {echo($jeu['description']);} ?></td>
                                                 <td>
-                                                    <input type="submit" class="supprimerJeu" name="supprimerJeu" value="Supprimer le jeu"/>
+                                                    <input class="boutonSupprimerLeJeu" type="submit" name="supprimerJeu" value="Supprimer le jeu"/>
                                                 </td>
                                             </tr>
                                         </form>
@@ -370,7 +367,7 @@
                             <a href="<?php echo("./affichageJeu.php?id=".$tabJeuxNouveautes[$i]['id']); ?>">
                                 <table class="tabJeuMini">
                                     <tr>
-                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../../images/jeuxUpload/pasDimage.png");} ?>" alt="image test"></td>
+                                        <td><img class="imageJeuExemple" src="<?php if (file_exists("../../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage'])) {echo("../../images/jeuxUpload/".$tabJeuxNouveautes[$i]['nomImage']);} else {echo("../../images/jeuxUpload/pasDimage.png");} ?>" alt="image jeu"></td>
                                     </tr>
                                     <tr>
                                         <td><p><?php echo($tabJeuxNouveautes[$i]['title']); ?><span class="note"></span></p></td>
