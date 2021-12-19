@@ -159,16 +159,34 @@ details[open] summary:after {
     margin-bottom: 5%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #0b81b8;  /*Vert*/
-    border: solid 1px #FFFFFF;  /*Vert*/
+    border: solid 1px #ffffff;  /*Vert*/
+}
+
+.milieu fieldset:hover{
+    background-color: #0b81b8;
+}
+
+.milieu legend {
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 0.5em currentColor,
+                 0 0 0.25em #0092ec;
 }
 
 /* Formulaire */
 
 .messageErreur {
+    margin-top: 2%;
+    margin-bottom: 2%;
     font-weight: bold;
-    text-decoration: underline;
-    color: #0b81b8; /*Vert*/
+    color: #FFFFFF; /*Vert*/
+    font-size: medium;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 0.5em currentColor,
+                 0 0 0.25em #0092ec;
 }
 
 /* Ajout jeu */
@@ -185,7 +203,11 @@ details[open] summary:after {
 
 #titreAjoutJeu {
     color: #FFFFFF; /*Vert*/
-    background-color: #0b81b8;  /*Vert*/
+    background-color: #13b4ff;  /*Vert*/
+}
+
+.milieu fieldset:hover #titreAjoutJeu{
+    background-color: #2308b8;
 }
 /*
 .choixGenre input[type=checkbox] {
@@ -215,18 +237,22 @@ details[open] summary:after {
     display: inline-block;
     width: 15px;
     height: 15px;
-    background: #0b81b8;
+    background: #13b4ff;
     border-radius: 12px;
     margin-right: 1%;
 }
 
 .choixGenre input[type="checkbox"]:checked + label:before, .choixPlateforme input[type="checkbox"]:checked + label:before {
-    background: #0b81b8;
+    background: #2308b8;
 }
 
 #description {
     color: #FFFFFF; /*Vert*/
-    background-color: #0b81b8;  /*Vert*/
+    background-color: #13b4ff;  /*Vert*/
+}
+
+.milieu fieldset:hover #description{
+    background-color: #2308b8;
 }
 /**********/
 /* Aperçu */
@@ -305,7 +331,7 @@ details[open] summary:after {
 }
 
 .tabJeu thead {
-    background-color: #0b81b8;  /*Vert*/
+    background-color: #0a648d;  /*Vert*/
 }
 
 .nouveauNom {
@@ -343,12 +369,20 @@ details[open] summary:after {
 }
 
 
-.tabJeu tbody tr:nth-child(even) {
-    background-color: #0b81b8;  /*Vert*/
+#modifierJeu .tabJeu tbody tr:nth-child(even) {
+    background-color: #0e9cdd;  /*Vert*/
 }
 
-.tabJeu tbody tr:nth-child(odd) {
-    background-color: #0b81b8;  /*Vert*/
+#modifierJeu .tabJeu tbody tr:nth-child(odd) {
+    background-color: #0a648d;  /*Vert*/
+}
+
+#supprimerJeu .tabJeu tr:nth-child(even) {
+    background-color: #0e9cdd;  /*Vert*/
+}
+
+#supprimerJeu .tabJeu tr:nth-child(odd) {
+    background-color: #0a648d;  /*Vert*/
 }
 
 .pDescription textarea {
@@ -383,15 +417,7 @@ details[open] summary:after {
     display: none;
 }
 
-.tabJeu tbody tr:nth-child(even) {
-    background-color: #0b81b8;  /*Vert*/
-}
-
-.tabJeu tbody tr:nth-child(odd) {
-    background-color: #0b81b8;  /*Vert*/
-}
-
-#boutonAjouterLeJeu, .boutonModifierLeJeu, .boutonSupprimerLeJeu {
+#boutonAjouterLeJeu, .boutonModifierLeJeu, .boutonDemandeSuppressionJeu {
     margin: 1%;
     font-size: medium;
 }
@@ -429,18 +455,24 @@ details[open] summary:after {
     */
     width: calc(100vw * 0.7);
     height: 400px;
-    top: calc((100vh / 2) - 300px);
+    top: calc((100vh / 2) - 400px);
     left: calc((100vw * 0.3) / 2 - 50px);
 
-    background-color: #FFFFFF;
+    background-color: #0b81b8;
+    border: solid 10px #FFFFFF;
     padding: 30px;
     border-radius: 50px;
 }
 
 #fenetreDemandeSuppressionJeu h3 {
-    color: #000000;
-    font-size: large;
     margin-bottom: 100px;
+    font-weight: bold;
+    color: #FFFFFF; /*Vert*/
+    font-size: x-large;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 0.5em currentColor,
+                 0 0 0.25em #0092ec;
 }
 
 #boutonFenetreSupprNon, #boutonFenetreSupprOui {
@@ -448,6 +480,13 @@ details[open] summary:after {
     padding-bottom: 3%;
     padding-left: 5%;
     padding-right: 5%;
+    color: #FFFFFF;
+    font-size: x-large;
+}
+
+#boutonFenetreSupprNon:hover, #boutonFenetreSupprOui:hover {
+    font-weight: bold;
+    font-size: xx-large;
 }
 
 #boutonFenetreSupprNon {
@@ -457,5 +496,5 @@ details[open] summary:after {
 
 #boutonFenetreSupprOui {
     margin-left: 50px;
-    background-color: #00FF00CC;
+    background-color: #00d600cc;
 }
